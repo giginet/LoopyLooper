@@ -8,6 +8,8 @@
 
 #import "KWLayer.h"
 
-@interface MainLayer : KWLayer
+@interface MainLayer : KWLayer {
+  CCLabelTTF* label_;
+}
 
 @end
