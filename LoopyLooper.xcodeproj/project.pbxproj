@@ -23,6 +23,7 @@
 		07831F9B14B23CC400C6FC96 /* NSArrayExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 07831F9014B23CC400C6FC96 /* NSArrayExtension.m */; };
 		07831F9E14B2428D00C6FC96 /* CCSpriteExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 07831F9D14B2428D00C6FC96 /* CCSpriteExtension.m */; };
 		07BA25F014D33DAF00458AEA /* CCAnimationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BA25EF14D33DAF00458AEA /* CCAnimationExtension.m */; };
+		07BA25F314D3419F00458AEA /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BA25F214D3419F00458AEA /* MainLayer.m */; };
 		07D643FE14CB2DC900B0910C /* KWScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D643FD14CB2DC900B0910C /* KWScrollLayer.m */; };
 		07D6440714CB2E7B00B0910C /* KWGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440214CB2E7B00B0910C /* KWGauge.m */; };
 		07D6440814CB2E7B00B0910C /* KWPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440414CB2E7B00B0910C /* KWPieChart.m */; };
@@ -45,16 +46,6 @@
 		DC65616513A969B600A7AC53 /* libobjectal-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615913A969B600A7AC53 /* libobjectal-ios.a */; };
 		DC65616613A969B600A7AC53 /* libsneakyinput-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615A13A969B600A7AC53 /* libsneakyinput-ios.a */; };
 		DC65616713A969B600A7AC53 /* libwax-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615B13A969B600A7AC53 /* libwax-ios.a */; };
-		DC746EAD140EE4C200B0BC06 /* kobold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC746EAB140EE4C200B0BC06 /* kobold.ttf */; };
-		DC746EB1140EE72400B0BC06 /* koboldc.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC746EB0140EE72400B0BC06 /* koboldc.ttf */; };
-		DC746EB9140EE73300B0BC06 /* kobold3di.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC746EB2140EE73300B0BC06 /* kobold3di.ttf */; };
-		DC746EBA140EE73300B0BC06 /* kobold3d.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC746EB3140EE73300B0BC06 /* kobold3d.ttf */; };
-		DC746EBB140EE73300B0BC06 /* koboldleft.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC746EB4140EE73300B0BC06 /* koboldleft.ttf */; };
-		DC746EBC140EE73300B0BC06 /* koboldbi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC746EB5140EE73300B0BC06 /* koboldbi.ttf */; };
-		DC746EBD140EE73300B0BC06 /* koboldb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC746EB6140EE73300B0BC06 /* koboldb.ttf */; };
-		DC746EBE140EE73300B0BC06 /* koboldci.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC746EB7140EE73300B0BC06 /* koboldci.ttf */; };
-		DC746EBF140EE73300B0BC06 /* koboldi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC746EB8140EE73300B0BC06 /* koboldi.ttf */; };
-		DCC1A0FA13A94ED5005BD75D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DCC1A0F913A94ED5005BD75D /* Default.png */; };
 		DCC1A0FC13A94ED5005BD75D /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = DCC1A0FB13A94ED5005BD75D /* fps_images.png */; };
 		DCC1A0FE13A94ED5005BD75D /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = DCC1A0FD13A94ED5005BD75D /* Icon-72.png */; };
 		DCC1A10013A94ED5005BD75D /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = DCC1A0FF13A94ED5005BD75D /* Icon-Small-50.png */; };
@@ -64,7 +55,6 @@
 		DCC1A10813A94ED5005BD75D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DCC1A10713A94ED5005BD75D /* Icon@2x.png */; };
 		DCC1A10B13A94ED5005BD75D /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = DCC1A10A13A94ED5005BD75D /* iTunesArtwork */; };
 		DCC1A3A913A94F1A005BD75D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC1A38E13A94F1A005BD75D /* AppDelegate.m */; };
-		DCC1A3AB13A94F1A005BD75D /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC1A39013A94F1A005BD75D /* HelloWorldLayer.m */; };
 		DCC1A3AD13A94F1A005BD75D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC1A39113A94F1A005BD75D /* main.m */; };
 		DCC1A3AF13A94F1A005BD75D /* config.lua in Resources */ = {isa = PBXBuildFile; fileRef = DCC1A39513A94F1A005BD75D /* config.lua */; };
 /* End PBXBuildFile section */
@@ -99,6 +89,8 @@
 		07831F9D14B2428D00C6FC96 /* CCSpriteExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSpriteExtension.m; sourceTree = "<group>"; };
 		07BA25EE14D33DAF00458AEA /* CCAnimationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAnimationExtension.h; sourceTree = "<group>"; };
 		07BA25EF14D33DAF00458AEA /* CCAnimationExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAnimationExtension.m; sourceTree = "<group>"; };
+		07BA25F114D3419F00458AEA /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
+		07BA25F214D3419F00458AEA /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
 		07D643FC14CB2DC900B0910C /* KWScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWScrollLayer.h; sourceTree = "<group>"; };
 		07D643FD14CB2DC900B0910C /* KWScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWScrollLayer.m; sourceTree = "<group>"; };
 		07D6440114CB2E7B00B0910C /* KWGauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWGauge.h; sourceTree = "<group>"; };
@@ -129,21 +121,10 @@
 		DC65615913A969B600A7AC53 /* libobjectal-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libobjectal-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC65615A13A969B600A7AC53 /* libsneakyinput-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libsneakyinput-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC65615B13A969B600A7AC53 /* libwax-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libwax-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC746EAA140EE4C200B0BC06 /* kobold.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kobold.txt; sourceTree = "<group>"; };
-		DC746EAB140EE4C200B0BC06 /* kobold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kobold.ttf; sourceTree = "<group>"; };
-		DC746EB0140EE72400B0BC06 /* koboldc.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = koboldc.ttf; sourceTree = "<group>"; };
-		DC746EB2140EE73300B0BC06 /* kobold3di.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kobold3di.ttf; sourceTree = "<group>"; };
-		DC746EB3140EE73300B0BC06 /* kobold3d.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kobold3d.ttf; sourceTree = "<group>"; };
-		DC746EB4140EE73300B0BC06 /* koboldleft.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = koboldleft.ttf; sourceTree = "<group>"; };
-		DC746EB5140EE73300B0BC06 /* koboldbi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = koboldbi.ttf; sourceTree = "<group>"; };
-		DC746EB6140EE73300B0BC06 /* koboldb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = koboldb.ttf; sourceTree = "<group>"; };
-		DC746EB7140EE73300B0BC06 /* koboldci.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = koboldci.ttf; sourceTree = "<group>"; };
-		DC746EB8140EE73300B0BC06 /* koboldi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = koboldi.ttf; sourceTree = "<group>"; };
 		DC9C33E713B5024400931BF2 /* BuildSettings-Debug-Mac.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BuildSettings-Debug-Mac.xcconfig"; sourceTree = "<group>"; };
 		DC9C33E813B5024400931BF2 /* BuildSettings-Mac.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BuildSettings-Mac.xcconfig"; sourceTree = "<group>"; };
 		DC9C33E913B5024400931BF2 /* BuildSettings-Release-Mac.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BuildSettings-Release-Mac.xcconfig"; sourceTree = "<group>"; };
 		DCC1A0E313A94ED5005BD75D /* LoopyLooper-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LoopyLooper-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCC1A0F913A94ED5005BD75D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		DCC1A0FB13A94ED5005BD75D /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fps_images.png; path = Resources/fps_images.png; sourceTree = "<group>"; };
 		DCC1A0FD13A94ED5005BD75D /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icon-72.png"; sourceTree = "<group>"; };
 		DCC1A0FF13A94ED5005BD75D /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Resources/Icon-Small-50.png"; sourceTree = "<group>"; };
@@ -155,8 +136,6 @@
 		DCC1A10A13A94ED5005BD75D /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/iTunesArtwork; sourceTree = "<group>"; };
 		DCC1A38D13A94F1A005BD75D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DCC1A38E13A94F1A005BD75D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DCC1A38F13A94F1A005BD75D /* HelloWorldLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		DCC1A39013A94F1A005BD75D /* HelloWorldLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		DCC1A39113A94F1A005BD75D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DCC1A39213A94F1A005BD75D /* Prefix-iOS.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Prefix-iOS.pch"; sourceTree = "<group>"; };
 		DCC1A39313A94F1A005BD75D /* Prefix-Mac.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Prefix-Mac.pch"; sourceTree = "<group>"; };
@@ -270,6 +249,15 @@
 			path = util;
 			sourceTree = "<group>";
 		};
+		07BA25F414D341AB00458AEA /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				07BA25F114D3419F00458AEA /* MainLayer.h */,
+				07BA25F214D3419F00458AEA /* MainLayer.m */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
 		07F20B7E14C4EB59003D6237 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,17 +305,6 @@
 		DCC1A0F813A94ED5005BD75D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DC746EAA140EE4C200B0BC06 /* kobold.txt */,
-				DC746EB2140EE73300B0BC06 /* kobold3di.ttf */,
-				DC746EB3140EE73300B0BC06 /* kobold3d.ttf */,
-				DC746EB4140EE73300B0BC06 /* koboldleft.ttf */,
-				DC746EB5140EE73300B0BC06 /* koboldbi.ttf */,
-				DC746EB6140EE73300B0BC06 /* koboldb.ttf */,
-				DC746EB7140EE73300B0BC06 /* koboldci.ttf */,
-				DC746EB8140EE73300B0BC06 /* koboldi.ttf */,
-				DC746EB0140EE72400B0BC06 /* koboldc.ttf */,
-				DC746EAB140EE4C200B0BC06 /* kobold.ttf */,
-				DCC1A0F913A94ED5005BD75D /* Default.png */,
 				DCC1A0FB13A94ED5005BD75D /* fps_images.png */,
 				DCC1A0FD13A94ED5005BD75D /* Icon-72.png */,
 				DCC1A0FF13A94ED5005BD75D /* Icon-Small-50.png */,
@@ -346,10 +323,9 @@
 			children = (
 				07831F6C14B23C4B00C6FC96 /* LogoLayer.h */,
 				07831F6D14B23C4B00C6FC96 /* LogoLayer.m */,
-				DCC1A38F13A94F1A005BD75D /* HelloWorldLayer.h */,
-				DCC1A39013A94F1A005BD75D /* HelloWorldLayer.m */,
 				DCC1A38D13A94F1A005BD75D /* AppDelegate.h */,
 				DCC1A38E13A94F1A005BD75D /* AppDelegate.m */,
+				07BA25F414D341AB00458AEA /* Scene */,
 				DCC1A39413A94F1A005BD75D /* Resources */,
 				DCC1A3CF13A94F2C005BD75D /* Supporting Files */,
 			);
@@ -446,7 +422,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCC1A0FA13A94ED5005BD75D /* Default.png in Resources */,
 				DCC1A0FC13A94ED5005BD75D /* fps_images.png in Resources */,
 				DCC1A0FE13A94ED5005BD75D /* Icon-72.png in Resources */,
 				DCC1A10013A94ED5005BD75D /* Icon-Small-50.png in Resources */,
@@ -458,15 +433,6 @@
 				DCC1A3AF13A94F1A005BD75D /* config.lua in Resources */,
 				DC485B4813AA194F00F2BC70 /* ship.png in Resources */,
 				DC485B4B13AA1C0E00F2BC70 /* ship-hd.png in Resources */,
-				DC746EAD140EE4C200B0BC06 /* kobold.ttf in Resources */,
-				DC746EB1140EE72400B0BC06 /* koboldc.ttf in Resources */,
-				DC746EB9140EE73300B0BC06 /* kobold3di.ttf in Resources */,
-				DC746EBA140EE73300B0BC06 /* kobold3d.ttf in Resources */,
-				DC746EBB140EE73300B0BC06 /* koboldleft.ttf in Resources */,
-				DC746EBC140EE73300B0BC06 /* koboldbi.ttf in Resources */,
-				DC746EBD140EE73300B0BC06 /* koboldb.ttf in Resources */,
-				DC746EBE140EE73300B0BC06 /* koboldci.ttf in Resources */,
-				DC746EBF140EE73300B0BC06 /* koboldi.ttf in Resources */,
 				07831F7114B23C7D00C6FC96 /* kawaz-hd.png in Resources */,
 				07831F7214B23C7D00C6FC96 /* kawaz.png in Resources */,
 				07EC8A5B14C2458F00C388AD /* hurry_int.caf in Resources */,
@@ -484,7 +450,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCC1A3A913A94F1A005BD75D /* AppDelegate.m in Sources */,
-				DCC1A3AB13A94F1A005BD75D /* HelloWorldLayer.m in Sources */,
 				DCC1A3AD13A94F1A005BD75D /* main.m in Sources */,
 				07831F6E14B23C4B00C6FC96 /* LogoLayer.m in Sources */,
 				07831F9314B23CC400C6FC96 /* KWLayer.m in Sources */,
@@ -505,6 +470,7 @@
 				07D6440814CB2E7B00B0910C /* KWPieChart.m in Sources */,
 				07D6440914CB2E7B00B0910C /* KWTimerLabel.m in Sources */,
 				07BA25F014D33DAF00458AEA /* CCAnimationExtension.m in Sources */,
+				07BA25F314D3419F00458AEA /* MainLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
