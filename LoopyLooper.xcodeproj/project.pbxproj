@@ -15,6 +15,7 @@
 		076D1B5F14D42E15005EA04E /* Loop_Poppy_1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B5914D42E15005EA04E /* Loop_Poppy_1.caf */; };
 		076D1B6014D42E15005EA04E /* Loop_Poppy_2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B5A14D42E15005EA04E /* Loop_Poppy_2.caf */; };
 		076D1B6114D42E15005EA04E /* Loop_Poppy_3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B5B14D42E15005EA04E /* Loop_Poppy_3.caf */; };
+		076D1B6A14D42F5A005EA04E /* Looper.m in Sources */ = {isa = PBXBuildFile; fileRef = 076D1B6914D42F5A005EA04E /* Looper.m */; };
 		07831F7114B23C7D00C6FC96 /* kawaz-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 07831F6F14B23C7D00C6FC96 /* kawaz-hd.png */; };
 		07831F7214B23C7D00C6FC96 /* kawaz.png in Resources */ = {isa = PBXBuildFile; fileRef = 07831F7014B23C7D00C6FC96 /* kawaz.png */; };
 		07831F9314B23CC400C6FC96 /* KWLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07831F7E14B23CC400C6FC96 /* KWLayer.m */; };
@@ -43,7 +44,6 @@
 		07F70ED814D4094200B43B30 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70ED714D4094200B43B30 /* Score.m */; };
 		07F70EDE14D40A3A00B43B30 /* LoopManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70EDD14D40A3A00B43B30 /* LoopManager.m */; };
 		07F70EE114D40B0A00B43B30 /* musics.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07F70EE014D40B0A00B43B30 /* musics.lua */; };
-		6246647514D42ECB00F5A356 /* Looper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6246647414D42ECB00F5A356 /* Looper.m */; };
 		DC65615C13A969B600A7AC53 /* libbox2d-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615013A969B600A7AC53 /* libbox2d-ios.a */; };
 		DC65615D13A969B600A7AC53 /* libchipmunk-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615113A969B600A7AC53 /* libchipmunk-ios.a */; };
 		DC65615E13A969B600A7AC53 /* libchipmunk-spacemanager-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615213A969B600A7AC53 /* libchipmunk-spacemanager-ios.a */; };
@@ -79,6 +79,8 @@
 		076D1B5914D42E15005EA04E /* Loop_Poppy_1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Loop_Poppy_1.caf; sourceTree = "<group>"; };
 		076D1B5A14D42E15005EA04E /* Loop_Poppy_2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Loop_Poppy_2.caf; sourceTree = "<group>"; };
 		076D1B5B14D42E15005EA04E /* Loop_Poppy_3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Loop_Poppy_3.caf; sourceTree = "<group>"; };
+		076D1B6814D42F5A005EA04E /* Looper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Looper.h; path = Music/Looper.h; sourceTree = "<group>"; };
+		076D1B6914D42F5A005EA04E /* Looper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Looper.m; path = Music/Looper.m; sourceTree = "<group>"; };
 		07831F6F14B23C7D00C6FC96 /* kawaz-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kawaz-hd.png"; sourceTree = "<group>"; };
 		07831F7014B23C7D00C6FC96 /* kawaz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kawaz.png; sourceTree = "<group>"; };
 		07831F7A14B23CC400C6FC96 /* heqet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = heqet.h; sourceTree = "<group>"; };
@@ -132,8 +134,6 @@
 		07F70EDC14D40A3A00B43B30 /* LoopManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoopManager.h; path = Music/LoopManager.h; sourceTree = "<group>"; };
 		07F70EDD14D40A3A00B43B30 /* LoopManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoopManager.m; path = Music/LoopManager.m; sourceTree = "<group>"; };
 		07F70EE014D40B0A00B43B30 /* musics.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = musics.lua; path = Score/musics.lua; sourceTree = "<group>"; };
-		6246647314D42ECB00F5A356 /* Looper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Looper.h; path = Music/Looper.h; sourceTree = "<group>"; };
-		6246647414D42ECB00F5A356 /* Looper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Looper.m; path = Music/Looper.m; sourceTree = "<group>"; };
 		DC3BE97813B4FB71003739CC /* BuildSettings-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BuildSettings-iOS.xcconfig"; sourceTree = "<group>"; };
 		DC65615013A969B600A7AC53 /* libbox2d-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libbox2d-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC65615113A969B600A7AC53 /* libchipmunk-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libchipmunk-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -330,8 +330,8 @@
 		07F70ED514D4091400B43B30 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				6246647314D42ECB00F5A356 /* Looper.h */,
-				6246647414D42ECB00F5A356 /* Looper.m */,
+				076D1B6814D42F5A005EA04E /* Looper.h */,
+				076D1B6914D42F5A005EA04E /* Looper.m */,
 				07F70ED614D4094200B43B30 /* Score.h */,
 				07F70ED714D4094200B43B30 /* Score.m */,
 				07F70EDC14D40A3A00B43B30 /* LoopManager.h */,
@@ -552,7 +552,7 @@
 				07F70ED414D4090A00B43B30 /* MotionDetector.m in Sources */,
 				07F70ED814D4094200B43B30 /* Score.m in Sources */,
 				07F70EDE14D40A3A00B43B30 /* LoopManager.m in Sources */,
-				6246647514D42ECB00F5A356 /* Looper.m in Sources */,
+				076D1B6A14D42F5A005EA04E /* Looper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
