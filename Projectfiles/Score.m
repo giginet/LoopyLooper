@@ -13,7 +13,7 @@
 - (id)initWithFile:(NSString *)file {
   self = [super init];
   if (self) {
-    scoreData_ = [KKLua loadLuaTableFromFile:file];
+    scoreData_ = [KKLua loadLuaableFromFile:file];
   }
   return self;
 }
