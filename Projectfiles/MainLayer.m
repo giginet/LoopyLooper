@@ -56,6 +56,8 @@
     MotionDetector* detector = [MotionDetector shared];
     [detector setOnDetection:self selector:@selector(detectMotion:)];
     manager_ = [[LoopMusic alloc] initWithMusicID:1];
+    
+    [self addChild:[[MusicalNote alloc] initWithInt:1]];
   }
   return self;
 }
