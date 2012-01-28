@@ -58,6 +58,8 @@
       type = MotionTypeRightPitch;
     } else if (abs(dm.acceleration.rawZ) > 1.0) {
       type = MotionTypeBackForth;
+    } else if (dm.roll < M_PI_4 || dm.roll > M_PI_2 + M_PI_4) {
+      type = MotionTypeRoll;
     }
     return [Motion motionWithKKDeviceMotion:dm motionType:type];
   }

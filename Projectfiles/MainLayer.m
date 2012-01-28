@@ -41,6 +41,8 @@
     [label_ setString:@"Right"];
   } else if (motion.motionType == MotionTypeBackForth) {
     NSLog(@"前後");
+  } else if (motion.motionType == MotionTypeRoll) {
+    NSLog(@"roll");
   } else if (motion.motionType == MotionTypeNone) {
     [label_ setString:@""];
   }
