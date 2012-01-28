@@ -7,6 +7,12 @@
 //
 
 #import "MainLayer.h"
+#import "MotionDetector.h"
+#import "Motion.h"
+
+@interface MainLayer()
+- (void)detectMotion:(Motion*)motion;
+@end
 
 @implementation MainLayer 
 
@@ -19,28 +25,28 @@
     KKInput* input = [KKInput sharedInput];
     input.gyroActive = YES;
     input.accelerometerActive = YES;
-    input.deviceMotionActive = YES;
     CCDirector* director = [CCDirector sharedDirector];
     label_.position = director.screenCenter;
     [self addChild:label_];
+    MotionDetector* detector = [MotionDetector shared];
+    [detector setOnDetection:self selector:@selector(detectMotion:)];
   }
   return self;
 }
 
 - (void)update:(ccTime)dt {
-  [label_ setString:@""];
   KKInput* input = [KKInput sharedInput];
-  if (input.accelerometerActive) {
-    KKAcceleration* ac = input.acceleration;
-    if (ac.y < -0.5) {
-      [label_ setString:@"left"];
-    } else if (ac.y > 0.5) {
-      [label_ setString:@"right"];
-    }
-  }
-  if (input.deviceMotionAvailable) {
-    KKDeviceMotion* dm = input.deviceMotion;
-    NSLog(@"%f", dm.yaw);
+  KKAcceleration* ac = input.acceleration;
+  KKDeviceMotion* dm = input.deviceMotion;
+}
+
+- (void)detectMotion:(Motion *)motion {
+  if (motion.motionType == MotionTypeLeftYaw) {
+    [label_ setString:@"Left"];
+  } else if (motion.motionType == MotionTypeRightYaw) {
+    [label_ setString:@"Right"];
+  } else if (motion.motionType == MotionTypeNone) {
+    [label_ setString:@""];
   }
 }
 
