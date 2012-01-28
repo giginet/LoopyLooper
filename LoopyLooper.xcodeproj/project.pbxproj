@@ -24,6 +24,8 @@
 		07831F9E14B2428D00C6FC96 /* CCSpriteExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 07831F9D14B2428D00C6FC96 /* CCSpriteExtension.m */; };
 		07BA25F014D33DAF00458AEA /* CCAnimationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BA25EF14D33DAF00458AEA /* CCAnimationExtension.m */; };
 		07BA25F314D3419F00458AEA /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BA25F214D3419F00458AEA /* MainLayer.m */; };
+		07BA25FB14D36D3C00458AEA /* MotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BA25FA14D36D3C00458AEA /* MotionDetector.m */; };
+		07BA25FE14D370FA00458AEA /* Motion.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BA25FD14D370FA00458AEA /* Motion.m */; };
 		07D643FE14CB2DC900B0910C /* KWScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D643FD14CB2DC900B0910C /* KWScrollLayer.m */; };
 		07D6440714CB2E7B00B0910C /* KWGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440214CB2E7B00B0910C /* KWGauge.m */; };
 		07D6440814CB2E7B00B0910C /* KWPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440414CB2E7B00B0910C /* KWPieChart.m */; };
@@ -93,6 +95,10 @@
 		07BA25EF14D33DAF00458AEA /* CCAnimationExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAnimationExtension.m; sourceTree = "<group>"; };
 		07BA25F114D3419F00458AEA /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
 		07BA25F214D3419F00458AEA /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
+		07BA25F914D36D3C00458AEA /* MotionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MotionDetector.h; path = Model/MotionDetector.h; sourceTree = "<group>"; };
+		07BA25FA14D36D3C00458AEA /* MotionDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MotionDetector.m; path = Model/MotionDetector.m; sourceTree = "<group>"; };
+		07BA25FC14D370FA00458AEA /* Motion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Motion.h; path = Model/Motion.h; sourceTree = "<group>"; };
+		07BA25FD14D370FA00458AEA /* Motion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Motion.m; path = Model/Motion.m; sourceTree = "<group>"; };
 		07D643FC14CB2DC900B0910C /* KWScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWScrollLayer.h; sourceTree = "<group>"; };
 		07D643FD14CB2DC900B0910C /* KWScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWScrollLayer.m; sourceTree = "<group>"; };
 		07D6440114CB2E7B00B0910C /* KWGauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWGauge.h; sourceTree = "<group>"; };
@@ -268,6 +274,17 @@
 			name = Scene;
 			sourceTree = "<group>";
 		};
+		07BA25F514D36CBD00458AEA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				07BA25F914D36D3C00458AEA /* MotionDetector.h */,
+				07BA25FA14D36D3C00458AEA /* MotionDetector.m */,
+				07BA25FC14D370FA00458AEA /* Motion.h */,
+				07BA25FD14D370FA00458AEA /* Motion.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		07F20B7E14C4EB59003D6237 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +352,7 @@
 				07831F6D14B23C4B00C6FC96 /* LogoLayer.m */,
 				DCC1A38D13A94F1A005BD75D /* AppDelegate.h */,
 				DCC1A38E13A94F1A005BD75D /* AppDelegate.m */,
+				07BA25F514D36CBD00458AEA /* Model */,
 				07BA25F414D341AB00458AEA /* Scene */,
 				DCC1A39413A94F1A005BD75D /* Resources */,
 				DCC1A3CF13A94F2C005BD75D /* Supporting Files */,
@@ -481,8 +499,13 @@
 				07D6440914CB2E7B00B0910C /* KWTimerLabel.m in Sources */,
 				07BA25F014D33DAF00458AEA /* CCAnimationExtension.m in Sources */,
 				07BA25F314D3419F00458AEA /* MainLayer.m in Sources */,
+<<<<<<< HEAD
 				628664E014D3D13C00962CDA /* TitleLayer.m in Sources */,
 				628664E314D3DB0600962CDA /* ResultLayer.m in Sources */,
+=======
+				07BA25FB14D36D3C00458AEA /* MotionDetector.m in Sources */,
+				07BA25FE14D370FA00458AEA /* Motion.m in Sources */,
+>>>>>>> 9b42225c3869bcd1fc8a7c99d266340b8cdcf675
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
