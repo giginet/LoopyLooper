@@ -22,9 +22,6 @@
     label_ = [CCLabelTTF labelWithString:@"" 
                                 fontName:@"Helvetica" 
                                 fontSize:13];
-    KKInput* input = [KKInput sharedInput];
-    input.gyroActive = YES;
-    input.accelerometerActive = YES;
     CCDirector* director = [CCDirector sharedDirector];
     label_.position = director.screenCenter;
     [self addChild:label_];
@@ -35,9 +32,6 @@
 }
 
 - (void)update:(ccTime)dt {
-  KKInput* input = [KKInput sharedInput];
-  KKAcceleration* ac = input.acceleration;
-  KKDeviceMotion* dm = input.deviceMotion;
 }
 
 - (void)detectMotion:(Motion *)motion {

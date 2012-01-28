@@ -21,9 +21,7 @@
   self = [super init];
   if (self) {
     KKInput* input = [KKInput sharedInput];
-    //input.gyroActive = YES;
-    input.accelerometerActive = YES;
-    //input.deviceMotionActive = YES;
+    input.deviceMotionActive = YES;
     int fps = [[KKStartupConfig config] maxFrameRate];
     [[CCScheduler sharedScheduler] scheduleSelector:@selector(update:) 
                                           forTarget:self 
@@ -53,15 +51,13 @@
   KKInput* input = [KKInput sharedInput];
   if (input.accelerometerAvailable) {
     MotionType type = MotionTypeNone;
-    //KKDeviceMotion* dm = input.deviceMotion;
-    KKAcceleration* ac = input.acceleration;
-    NSLog(@"%f", ac.y);
-    if (ac.y  < -0.5) {
+    KKDeviceMotion* dm = input.deviceMotion;
+    if (dm.pitch > M_PI_4) {
       type = MotionTypeLeftYaw;
-    } else if (ac.y  > 0.5) {
+    } else if (dm.pitch  < -M_PI_4) {
       type = MotionTypeRightYaw;
     }
-    return [Motion motionWithKKDeviceMotion:nil motionType:type];
+    return [Motion motionWithKKDeviceMotion:dm motionType:type];
   }
   return nil;
 }
