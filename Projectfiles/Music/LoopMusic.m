@@ -25,6 +25,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
 @synthesize title = title_;
 @synthesize nextMeasure = nextMeasure_;
 @synthesize score = score_;
+@synthesize player = player_;
 
 - (id)init {
   self = [super init];

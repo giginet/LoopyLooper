@@ -80,6 +80,8 @@
 		076D1B5914D42E15005EA04E /* Loop_Poppy_1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Loop_Poppy_1.caf; sourceTree = "<group>"; };
 		076D1B5A14D42E15005EA04E /* Loop_Poppy_2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Loop_Poppy_2.caf; sourceTree = "<group>"; };
 		076D1B5B14D42E15005EA04E /* Loop_Poppy_3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Loop_Poppy_3.caf; sourceTree = "<group>"; };
+		076D1B6F14D4798C005EA04E /* MusicalNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicalNote.h; sourceTree = "<group>"; };
+		076D1B7014D4798C005EA04E /* MusicalNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicalNote.m; sourceTree = "<group>"; };
 		07831F6F14B23C7D00C6FC96 /* kawaz-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kawaz-hd.png"; sourceTree = "<group>"; };
 		07831F7014B23C7D00C6FC96 /* kawaz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kawaz.png; sourceTree = "<group>"; };
 		07831F7A14B23CC400C6FC96 /* heqet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = heqet.h; sourceTree = "<group>"; };
@@ -333,6 +335,8 @@
 		07F70ED514D4091400B43B30 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				076D1B6F14D4798C005EA04E /* MusicalNote.h */,
+				076D1B7014D4798C005EA04E /* MusicalNote.m */,
 				07F70ED614D4094200B43B30 /* Score.h */,
 				07F70ED714D4094200B43B30 /* Score.m */,
 				6246649114D478C600F5A356 /* LoopMusic.h */,

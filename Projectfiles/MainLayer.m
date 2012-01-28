@@ -23,6 +23,7 @@
 - (void)beginWaiting:(ccTime*)dt;
 - (void)endWaiting:(ccTime*)dt;
 - (void)detectMotion:(Motion*)motion;
+- (void)onFail;
 @end
 
 @implementation MainLayer
@@ -31,7 +32,9 @@
   self = [super init];
   if (self) {
     self.isTouchEnabled = YES;
+    currentLevel_ = 1;
     isWating_ = NO;
+    isLevelUp_ = NO;
     currentMeasure_ = 0;
     CCDirector* director = [CCDirector sharedDirector];
     
@@ -93,10 +96,16 @@
 
 - (void)onExamplePart {
   state_ = GameStateExample;
+  if (isLevelUp_) {
+    NSLog(@"LevelUp");
+    ++currentLevel_;
+  }
   [manager_ setCallbackOnTick:self selector:@selector(onTick)];
+  manager_.player.loopMusicNumber = currentLevel_ - 1;
 }
 
 - (void)onPlayPart {
+  isLevelUp_ = YES;
   state_ = GameStatePlay;
   manager_.nextMeasure = currentMeasure_;
   [manager_ setCallbackOnTick:self selector:@selector(onTick)];
@@ -119,8 +128,8 @@
     MotionType nextType = [manager_.score motionTypeOnMeasure:manager_.measure + 1];
     if (nextType != MotionTypeNone) {
       correctMotionType_ = nextType;
-      [self schedule:@selector(beginWaiting:) interval:60.0 / manager_.bpm - 0.1];
-      [self schedule:@selector(endWaiting:) interval:60.0 / manager_.bpm + 0.1];
+      [self schedule:@selector(beginWaiting:) interval:60.0 / manager_.bpm - 0.2];
+      [self schedule:@selector(endWaiting:) interval:60.0 / manager_.bpm + 0.2];
     }
     if (manager_.measure % PART_LENGTH == PART_LENGTH - 1) {
       currentMeasure_ += PART_LENGTH;
@@ -137,6 +146,7 @@
 - (void)endWaiting:(ccTime *)dt {
   if (isWating_) {
     NSLog(@"時間切れ!");
+    [self onFail];
   }
   isWating_ = NO;
   [self unschedule:@selector(endWaiting:)];
@@ -151,8 +161,16 @@
     } else if (motion.motionType != MotionTypeNone) {
       // 間違った入力をしたとき
       NSLog(@"まちがい！");
-      isWating_ = NO;
+      [self onFail];
     }
   }
 }
+
+- (void)onFail {
+  // 間違ったとき
+  isWating_ = NO;
+  //isLevelUp_ = NO;
+  //manager_.player.loopMusicNumber = 0;
+}
+
 @end
