@@ -60,14 +60,16 @@
 }
 
 - (void)detectMotion:(Motion *)motion {
-  if (motion.motionType == MotionTypeLeftPitch) {
-    [label_ setString:@"Left"];
-  } else if (motion.motionType == MotionTypeRightPitch) {
-    [label_ setString:@"Right"];
+  if (motion.motionType == MotionTypeUp) {
+    [label_ setString:@"Up"];
+  } else if (motion.motionType == MotionTypeDown) {
+    [label_ setString:@"Down"];
   } else if (motion.motionType == MotionTypeBackForth) {
     NSLog(@"前後");
   } else if (motion.motionType == MotionTypeRoll) {
-    NSLog(@"roll");
+    [label_ setString:@"roll"];
+  } else if (motion.motionType == MotionTypeRotate) {
+    [label_ setString:@"rotate"];
   } else if (motion.motionType == MotionTypeNone) {
     [label_ setString:@""];
   }
