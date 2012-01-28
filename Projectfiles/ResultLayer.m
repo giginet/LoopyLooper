@@ -11,6 +11,7 @@
 #import "MainLayer.h"
 
 @implementation ResultLayer
+@synthesize scoreLabel = scoreLabel_;
 
 - (id)init {
   self = [super init];
@@ -35,6 +36,20 @@
     [self addChild:menu];
     
     [menu alignItemsVerticallyWithPadding:40];
+    
+    scoreLabel_ = [CCLabelTTF labelWithString:@"" 
+                                fontName:@"Helvetica" 
+                                fontSize:20];
+    scoreLabel_.position = director.screenCenter;
+    [self addChild:scoreLabel_];
+  }
+  return self;
+}
+
+- (id)initWithScore:(NSUInteger)score {
+  self = [self init];
+  if ( nil != self ) {
+    [self.scoreLabel setString:[NSString stringWithFormat:@"score:%lu", score]];
   }
   return self;
 }

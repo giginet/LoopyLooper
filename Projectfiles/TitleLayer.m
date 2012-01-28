@@ -8,6 +8,7 @@
 
 #import "TitleLayer.h"
 #import "MainLayer.h"
+#import "ResultLayer.h"
 
 @implementation TitleLayer
 @synthesize nextScene = nextScene_;
@@ -28,7 +29,10 @@
                                      target:self
                                    selector:@selector(toMain:)];
     
-    menu_ = [CCMenu menuWithItems:start_, nil];
+    CCMenuItemFont *item = [CCMenuItemFont itemFromString:@"RESULT"
+                                                   target:self
+                                                 selector:@selector(toResult:)];
+    menu_ = [CCMenu menuWithItems:start_, item, nil];
     menu_.position = director.screenCenter;
     menu_.tag = 100;
     [self addChild:menu_];
@@ -45,4 +49,12 @@
   [[CCDirector sharedDirector] replaceScene:transition];
 }
 
+-(void)toResult:(id)sender{
+  ResultLayer *layer = [[ResultLayer alloc] initWithScore:100];
+  CCScene *scene = [[CCScene alloc] init];
+  [scene addChild:layer];
+  CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
+                                                                    scene:scene];
+  [[CCDirector sharedDirector] replaceScene:transition];
+}
 @end
