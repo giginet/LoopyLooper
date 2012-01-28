@@ -16,7 +16,7 @@
 @implementation LogoLayer
 @synthesize nextScene=nextScene_;
 
--(id)init {
+- (id)init {
   self.backgroundColor = ccc4(255, 255, 255, 255);
   if( (self = [super init]) ) {
     self.nextScene = nil;

@@ -19,6 +19,10 @@
 		076D1B7814D49875005EA04E /* invalid0.caf in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B7414D49874005EA04E /* invalid0.caf */; };
 		076D1B7914D49875005EA04E /* invalid1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B7514D49874005EA04E /* invalid1.caf */; };
 		076D1B7A14D49875005EA04E /* valid.caf in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B7614D49874005EA04E /* valid.caf */; };
+		076D1B7E14D4AADB005EA04E /* CutIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 076D1B7D14D4AADB005EA04E /* CutIn.m */; };
+		076D1B8114D4AB30005EA04E /* bad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B7F14D4AB2F005EA04E /* bad.plist */; };
+		076D1B8214D4AB30005EA04E /* good.plist in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B8014D4AB2F005EA04E /* good.plist */; };
+		076D1B8514D4AC55005EA04E /* cut_in_boss1.png in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B8414D4AC55005EA04E /* cut_in_boss1.png */; };
 		07831F7114B23C7D00C6FC96 /* kawaz-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 07831F6F14B23C7D00C6FC96 /* kawaz-hd.png */; };
 		07831F7214B23C7D00C6FC96 /* kawaz.png in Resources */ = {isa = PBXBuildFile; fileRef = 07831F7014B23C7D00C6FC96 /* kawaz.png */; };
 		07831F9314B23CC400C6FC96 /* KWLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07831F7E14B23CC400C6FC96 /* KWLayer.m */; };
@@ -90,6 +94,11 @@
 		076D1B7414D49874005EA04E /* invalid0.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = invalid0.caf; sourceTree = "<group>"; };
 		076D1B7514D49874005EA04E /* invalid1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = invalid1.caf; sourceTree = "<group>"; };
 		076D1B7614D49874005EA04E /* valid.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = valid.caf; sourceTree = "<group>"; };
+		076D1B7C14D4AADB005EA04E /* CutIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CutIn.h; path = Main/CutIn.h; sourceTree = "<group>"; };
+		076D1B7D14D4AADB005EA04E /* CutIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CutIn.m; path = Main/CutIn.m; sourceTree = "<group>"; };
+		076D1B7F14D4AB2F005EA04E /* bad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bad.plist; path = ../../../../../Dropbox/LoopyLooper/bad.plist; sourceTree = "<group>"; };
+		076D1B8014D4AB2F005EA04E /* good.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = good.plist; path = ../../../../../Dropbox/LoopyLooper/good.plist; sourceTree = "<group>"; };
+		076D1B8414D4AC55005EA04E /* cut_in_boss1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cut_in_boss1.png; path = ../../../../../Dropbox/LoopyLooper/bell/cut_in_boss1.png; sourceTree = "<group>"; };
 		07831F6F14B23C7D00C6FC96 /* kawaz-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kawaz-hd.png"; sourceTree = "<group>"; };
 		07831F7014B23C7D00C6FC96 /* kawaz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kawaz.png; sourceTree = "<group>"; };
 		07831F7A14B23CC400C6FC96 /* heqet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = heqet.h; sourceTree = "<group>"; };
@@ -226,6 +235,25 @@
 				076D1B5B14D42E15005EA04E /* Loop_Poppy_3.caf */,
 			);
 			path = Music;
+			sourceTree = "<group>";
+		};
+		076D1B7B14D4AA9E005EA04E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				076D1B7C14D4AADB005EA04E /* CutIn.h */,
+				076D1B7D14D4AADB005EA04E /* CutIn.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		076D1B8314D4AC1F005EA04E /* Cutin */ = {
+			isa = PBXGroup;
+			children = (
+				076D1B8414D4AC55005EA04E /* cut_in_boss1.png */,
+				076D1B7F14D4AB2F005EA04E /* bad.plist */,
+				076D1B8014D4AB2F005EA04E /* good.plist */,
+			);
+			name = Cutin;
 			sourceTree = "<group>";
 		};
 		07831F7314B23CC400C6FC96 /* Heqet */ = {
@@ -413,6 +441,7 @@
 		DCC1A38C13A94F1A005BD75D /* Projectfiles */ = {
 			isa = PBXGroup;
 			children = (
+				076D1B7B14D4AA9E005EA04E /* Main */,
 				6246648914D43D2D00F5A356 /* MusicalNote.h */,
 				6246648A14D43D2D00F5A356 /* MusicalNote.m */,
 				DCC1A38D13A94F1A005BD75D /* AppDelegate.h */,
@@ -431,6 +460,7 @@
 		DCC1A39413A94F1A005BD75D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				076D1B8314D4AC1F005EA04E /* Cutin */,
 				076D1B5414D42E15005EA04E /* Effect */,
 				076D1B5714D42E15005EA04E /* Music */,
 				07831F6F14B23C7D00C6FC96 /* kawaz-hd.png */,
@@ -539,6 +569,9 @@
 				076D1B7814D49875005EA04E /* invalid0.caf in Resources */,
 				076D1B7914D49875005EA04E /* invalid1.caf in Resources */,
 				076D1B7A14D49875005EA04E /* valid.caf in Resources */,
+				076D1B8114D4AB30005EA04E /* bad.plist in Resources */,
+				076D1B8214D4AB30005EA04E /* good.plist in Resources */,
+				076D1B8514D4AC55005EA04E /* cut_in_boss1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +612,7 @@
 				6246648B14D43D2D00F5A356 /* MusicalNote.m in Sources */,
 				6246649514D478C600F5A356 /* LoopMusic.m in Sources */,
 				6246649614D478C600F5A356 /* LoopPlayer.m in Sources */,
+				076D1B7E14D4AADB005EA04E /* CutIn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

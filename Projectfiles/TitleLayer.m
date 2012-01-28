@@ -9,6 +9,7 @@
 #import "TitleLayer.h"
 #import "MainLayer.h"
 #import "ResultLayer.h"
+#import "CutIn.h"
 
 @implementation TitleLayer
 @synthesize nextScene = nextScene_;
@@ -38,6 +39,10 @@
     [self addChild:menu_];
     
     [menu_ alignItemsVerticallyWithPadding:40];
+    
+    id cutin = [[CutIn alloc] initWithFace:@"cut_in_boss1.png" background:@"bad.plist"];
+    self.position = director.screenCenter;
+    [self addChild:cutin];
   }
   return self;
 }
