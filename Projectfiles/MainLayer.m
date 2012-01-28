@@ -7,7 +7,7 @@
 //
 
 #import "MainLayer.h"
-//#import "ResultLayer.h"
+#import "ResultLayer.h"
 #import "MotionDetector.h"
 #import "Motion.h"
 
@@ -50,10 +50,10 @@
   return self;
 }
 -(void)toResult:(id)sender{
-  /*CCScene* scene = [ResultLayer nodeWithScene];
+  CCScene* scene = [ResultLayer nodeWithScene];
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
                                                                     scene:scene];
-  [[CCDirector sharedDirector] replaceScene:transition];*/
+  [[CCDirector sharedDirector] replaceScene:transition];
 }
 
 - (void)update:(ccTime)dt {

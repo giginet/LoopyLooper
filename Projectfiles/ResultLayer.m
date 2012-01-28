@@ -16,8 +16,6 @@
   self = [super init];
   if (self) {
     self.isTouchEnabled = YES;
-    self.nextScene = nil;
-    
     CCDirector* director = [CCDirector sharedDirector];
     
     [CCMenuItemFont setFontName:@"Helvetica"];
@@ -34,9 +32,9 @@
     CCMenu* menu = [CCMenu menuWithItems:title, main, nil];
     menu.position = director.screenCenter;
     menu.tag = 100;
-    [self addChild:menu_];
+    [self addChild:menu];
     
-    [menu_ alignItemsVerticallyWithPadding:40];
+    [menu alignItemsVerticallyWithPadding:40];
   }
   return self;
 }
