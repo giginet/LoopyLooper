@@ -37,6 +37,12 @@
 		07F70ED814D4094200B43B30 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70ED714D4094200B43B30 /* Score.m */; };
 		07F70EDE14D40A3A00B43B30 /* LoopManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70EDD14D40A3A00B43B30 /* LoopManager.m */; };
 		07F70EE114D40B0A00B43B30 /* musics.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07F70EE014D40B0A00B43B30 /* musics.lua */; };
+		07F70EEA14D41A2B00B43B30 /* EFX_Sweep_Down.caf in Resources */ = {isa = PBXBuildFile; fileRef = 07F70EE314D41A2B00B43B30 /* EFX_Sweep_Down.caf */; };
+		07F70EEB14D41A2B00B43B30 /* EFX_Sweep_Up.caf in Resources */ = {isa = PBXBuildFile; fileRef = 07F70EE414D41A2B00B43B30 /* EFX_Sweep_Up.caf */; };
+		07F70EEC14D41A2B00B43B30 /* Loop_Poppy_0.caf in Resources */ = {isa = PBXBuildFile; fileRef = 07F70EE614D41A2B00B43B30 /* Loop_Poppy_0.caf */; };
+		07F70EED14D41A2B00B43B30 /* Loop_Poppy_1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 07F70EE714D41A2B00B43B30 /* Loop_Poppy_1.caf */; };
+		07F70EEE14D41A2B00B43B30 /* Loop_Poppy_2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 07F70EE814D41A2B00B43B30 /* Loop_Poppy_2.caf */; };
+		07F70EEF14D41A2B00B43B30 /* Loop_Poppy_3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 07F70EE914D41A2B00B43B30 /* Loop_Poppy_3.caf */; };
 		DC65615C13A969B600A7AC53 /* libbox2d-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615013A969B600A7AC53 /* libbox2d-ios.a */; };
 		DC65615D13A969B600A7AC53 /* libchipmunk-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615113A969B600A7AC53 /* libchipmunk-ios.a */; };
 		DC65615E13A969B600A7AC53 /* libchipmunk-spacemanager-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615213A969B600A7AC53 /* libchipmunk-spacemanager-ios.a */; };
@@ -119,6 +125,12 @@
 		07F70EDC14D40A3A00B43B30 /* LoopManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoopManager.h; path = Music/LoopManager.h; sourceTree = "<group>"; };
 		07F70EDD14D40A3A00B43B30 /* LoopManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoopManager.m; path = Music/LoopManager.m; sourceTree = "<group>"; };
 		07F70EE014D40B0A00B43B30 /* musics.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = musics.lua; path = Score/musics.lua; sourceTree = "<group>"; };
+		07F70EE314D41A2B00B43B30 /* EFX_Sweep_Down.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EFX_Sweep_Down.caf; sourceTree = "<group>"; };
+		07F70EE414D41A2B00B43B30 /* EFX_Sweep_Up.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EFX_Sweep_Up.caf; sourceTree = "<group>"; };
+		07F70EE614D41A2B00B43B30 /* Loop_Poppy_0.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Loop_Poppy_0.caf; sourceTree = "<group>"; };
+		07F70EE714D41A2B00B43B30 /* Loop_Poppy_1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Loop_Poppy_1.caf; sourceTree = "<group>"; };
+		07F70EE814D41A2B00B43B30 /* Loop_Poppy_2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Loop_Poppy_2.caf; sourceTree = "<group>"; };
+		07F70EE914D41A2B00B43B30 /* Loop_Poppy_3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Loop_Poppy_3.caf; sourceTree = "<group>"; };
 		DC3BE97813B4FB71003739CC /* BuildSettings-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BuildSettings-iOS.xcconfig"; sourceTree = "<group>"; };
 		DC65615013A969B600A7AC53 /* libbox2d-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libbox2d-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC65615113A969B600A7AC53 /* libchipmunk-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libchipmunk-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -303,6 +315,26 @@
 			name = Music;
 			sourceTree = "<group>";
 		};
+		07F70EE214D41A2B00B43B30 /* Effect */ = {
+			isa = PBXGroup;
+			children = (
+				07F70EE314D41A2B00B43B30 /* EFX_Sweep_Down.caf */,
+				07F70EE414D41A2B00B43B30 /* EFX_Sweep_Up.caf */,
+			);
+			path = Effect;
+			sourceTree = "<group>";
+		};
+		07F70EE514D41A2B00B43B30 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				07F70EE614D41A2B00B43B30 /* Loop_Poppy_0.caf */,
+				07F70EE714D41A2B00B43B30 /* Loop_Poppy_1.caf */,
+				07F70EE814D41A2B00B43B30 /* Loop_Poppy_2.caf */,
+				07F70EE914D41A2B00B43B30 /* Loop_Poppy_3.caf */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		DCC1A0D613A94EC0005BD75D = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +405,8 @@
 		DCC1A39413A94F1A005BD75D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				07F70EE214D41A2B00B43B30 /* Effect */,
+				07F70EE514D41A2B00B43B30 /* Music */,
 				07831F6F14B23C7D00C6FC96 /* kawaz-hd.png */,
 				07831F7014B23C7D00C6FC96 /* kawaz.png */,
 				DCC1A39513A94F1A005BD75D /* config.lua */,
@@ -469,6 +503,12 @@
 				07831F7214B23C7D00C6FC96 /* kawaz.png in Resources */,
 				07D7351414D3EC2D00623122 /* test.lua in Resources */,
 				07F70EE114D40B0A00B43B30 /* musics.lua in Resources */,
+				07F70EEA14D41A2B00B43B30 /* EFX_Sweep_Down.caf in Resources */,
+				07F70EEB14D41A2B00B43B30 /* EFX_Sweep_Up.caf in Resources */,
+				07F70EEC14D41A2B00B43B30 /* Loop_Poppy_0.caf in Resources */,
+				07F70EED14D41A2B00B43B30 /* Loop_Poppy_1.caf in Resources */,
+				07F70EEE14D41A2B00B43B30 /* Loop_Poppy_2.caf in Resources */,
+				07F70EEF14D41A2B00B43B30 /* Loop_Poppy_3.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

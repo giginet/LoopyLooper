@@ -7,9 +7,11 @@
 //
 
 #import "KWLayer.h"
+#import "LoopManager.h"
 
 @interface MainLayer : KWLayer {
   CCLabelTTF* label_;
+  LoopManager* manager_;
 }
 -(void)toResult:(id)sender;
 @end
