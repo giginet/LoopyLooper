@@ -13,6 +13,12 @@
 #import "LoopManager.h"
 
 @interface MainLayer()
+- (void)onReady;
+- (void)onStart;
+- (void)onExamplePart;
+- (void)onPlayPart;
+- (void)onGameOver;
+- (void)changeState;
 - (void)detectMotion:(Motion*)motion;
 @end
 
@@ -22,15 +28,19 @@
   self = [super init];
   if (self) {
     self.isTouchEnabled = YES;
-    
+    currentMeasure_ = 0;
     CCDirector* director = [CCDirector sharedDirector];
     
     [CCMenuItemFont setFontName:@"Helvetica"];
     [CCMenuItemFont setFontSize:40];
     
-    CCMenuItem* result = [CCMenuItemFont itemFromString:@"Result"
-                                                 target:self
-                                               selector:@selector(toResult:)];
+    CCMenuItem* result = [CCMenuItemFont itemFromString:@"Result" 
+                                                  block:^(id sender){
+                                                    CCScene* scene = [ResultLayer nodeWithScene];
+                                                    CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
+                                                                                                                      scene:scene];
+                                                    [[CCDirector sharedDirector] replaceScene:transition];
+                                                  }];
     
     CCMenu* menu = [CCMenu menuWithItems:result, nil];
     menu.position = director.screenCenter;
@@ -43,7 +53,6 @@
                                 fontName:@"Helvetica" 
                                 fontSize:13];
     label_.position = director.screenCenter;
-    [self addChild:label_];
     MotionDetector* detector = [MotionDetector shared];
     [detector setOnDetection:self selector:@selector(detectMotion:)];
     manager_ = [[LoopManager alloc] initWithMusicID:1];
@@ -51,18 +60,63 @@
   return self;
 }
 
-- (void)onEnter {
-  [manager_ play];
-}
-
-- (void)toResult:(id)sender{
-  CCScene* scene = [ResultLayer nodeWithScene];
-  CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
-                                                                    scene:scene];
-  [[CCDirector sharedDirector] replaceScene:transition];
+- (void)onEnterTransitionDidFinish {
+  [self onReady];
 }
 
 - (void)update:(ccTime)dt {
+}
+
+- (void)onReady {
+  state_ = GameStateReady;
+  CCLabelTTF* readyLabel = [CCLabelTTF labelWithString:@"Ready" 
+                                              fontName:@"Helvetica" 
+                                              fontSize:24];
+  readyLabel.scale = 0;
+  readyLabel.position = [CCDirector sharedDirector].screenCenter;
+  id expand = [CCScaleTo actionWithDuration:0.5 scale:1.0];
+  id delay = [CCDelayTime actionWithDuration:1.0];
+  __weak MainLayer* layer = self;
+  id go = [CCCallBlockN actionWithBlock:^(CCNode* node){
+    [layer onStart];
+    [layer removeChild:node cleanup:YES];
+  }];
+  [readyLabel runAction:[CCSequence actions:expand, delay, go, nil]];
+  [self addChild:readyLabel];
+}
+
+- (void)onStart {
+  [manager_ play];
+  currentMeasure_ = 0;
+  [self onExamplePart];
+}
+
+- (void)onExamplePart {
+  state_ = GameStateExample;
+  [manager_ setCallbackOnMeasure:currentMeasure_ + 15
+                        delegate:self 
+                        selector:@selector(changeState)];
+}
+
+- (void)onPlayPart {
+  state_ = GameStatePlay;
+  manager_.nextMeasure = currentMeasure_;
+  [manager_ setCallbackOnMeasure:currentMeasure_ + 15
+                        delegate:self 
+                        selector:@selector(changeState)];
+}
+
+- (void)onGameOver {
+  state_ = GameStateGameOver;
+}
+
+- (void)changeState {
+  if (state_ == GameStateExample) {
+    [self onPlayPart];
+  } else if (state_ == GameStatePlay) {
+    currentMeasure_ += 16;
+    [self onExamplePart];
+  }
 }
 
 - (void)detectMotion:(Motion *)motion {

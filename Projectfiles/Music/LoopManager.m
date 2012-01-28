@@ -21,6 +21,8 @@ const NSString* MUSICS_DATA = @"musics.lua";
 @synthesize bpm = bpm_;
 @synthesize loops = loops_;
 @synthesize title = title_;
+@synthesize measure = measure_;
+@synthesize nextMeasure = nextMeasure_;
 
 - (id)init {
   self = [super init];
@@ -28,6 +30,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
     bpm_ = 0;
     loops_ = 0;
     measure_ = 0;
+    nextMeasure_ = 1;
     title_ = @"";
   }
   return self;
@@ -50,11 +53,20 @@ const NSString* MUSICS_DATA = @"musics.lua";
 }
 
 - (void)play {
-  NSLog(@"%@", file_);
   [[OALSimpleAudio sharedInstance] playBg:[NSString stringWithFormat:file_, 0] loop:YES];
   [[CCScheduler sharedScheduler] scheduleSelector:@selector(tick:) 
                                         forTarget:self interval:60.0/self.bpm
                                            paused:NO];
+}
+
+- (void)setCallbackOnMeasure:(int)measure delegate:(id)delegate selector:(SEL)selector {
+  /*
+   特定のmeasureに到達したときに呼ばれるコールバックを登録します
+   前回に登録されたコールバックは上書きされます。
+   */
+  onMeasure_ = measure;
+  delegate_ = delegate;
+  selector_ = selector;
 }
 
 - (void)preLoadMusic:(NSString *)file {
@@ -70,12 +82,19 @@ const NSString* MUSICS_DATA = @"musics.lua";
 }
 
 - (void)tick:(ccTime)dt {
+  NSLog(@"%d", measure_);
   MotionType type = [score_ motionTypeOnMeasure:measure_];
-  ++measure_;
   if (type != 0) {
     [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", type]];
   }
-  NSLog(@"type = %d", type);
+  if (measure_ == onMeasure_) {
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [delegate_ performSelector:selector_];
+    #pragma clang diagnostic pop
+  }
+  measure_ = nextMeasure_;
+  nextMeasure_ = measure_ + 1;
 }
 
 @end
