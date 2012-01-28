@@ -18,8 +18,10 @@ typedef enum {
 
 @interface MainLayer : KWLayer {
   int currentMeasure_;
+  BOOL isWating_;
+  MotionType correctMotionType_;
   GameState state_;
-  CCLabelTTF* label_;
   LoopManager* manager_;
 }
+
 @end

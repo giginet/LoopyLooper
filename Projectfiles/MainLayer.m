@@ -20,6 +20,8 @@
 - (void)onPlayPart;
 - (void)onGameOver;
 - (void)onTick;
+- (void)beginWaiting:(ccTime*)dt;
+- (void)endWaiting:(ccTime*)dt;
 - (void)detectMotion:(Motion*)motion;
 @end
 
@@ -29,6 +31,7 @@
   self = [super init];
   if (self) {
     self.isTouchEnabled = YES;
+    isWating_ = NO;
     currentMeasure_ = 0;
     CCDirector* director = [CCDirector sharedDirector];
     
@@ -50,10 +53,6 @@
     
     [menu alignItemsVerticallyWithPadding:40];
     
-    label_ = [CCLabelTTF labelWithString:@"" 
-                                fontName:@"Helvetica" 
-                                fontSize:13];
-    label_.position = director.screenCenter;
     MotionDetector* detector = [MotionDetector shared];
     [detector setOnDetection:self selector:@selector(detectMotion:)];
     manager_ = [[LoopManager alloc] initWithMusicID:1];
@@ -117,6 +116,12 @@
       [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", type]];
     }
   } else if (state_ == GameStatePlay) {
+    MotionType nextType = [manager_.score motionTypeOnMeasure:manager_.measure + 1];
+    if (nextType != MotionTypeNone) {
+      correctMotionType_ = nextType;
+      [self schedule:@selector(beginWaiting:) interval:60.0 / manager_.bpm - 0.1];
+      [self schedule:@selector(endWaiting:) interval:60.0 / manager_.bpm + 0.1];
+    }
     if (manager_.measure % PART_LENGTH == PART_LENGTH - 1) {
       currentMeasure_ += PART_LENGTH;
       [self onExamplePart];
@@ -124,21 +129,30 @@
   }
 }
 
+- (void)beginWaiting:(ccTime *)dt {
+  isWating_ = YES;
+  [self unschedule:@selector(beginWaiting:)];
+}
+
+- (void)endWaiting:(ccTime *)dt {
+  if (isWating_) {
+    NSLog(@"時間切れ!");
+  }
+  isWating_ = NO;
+  [self unschedule:@selector(endWaiting:)];
+}
+
 - (void)detectMotion:(Motion *)motion {
-  if (motion.motionType == MotionTypeUp) {
-    [label_ setString:@"Up"];
-  } else if (motion.motionType == MotionTypeDown) {
-    [label_ setString:@"Down"];
-  } else if (motion.motionType == MotionTypeBackForth) {
-    NSLog(@"前後");
-  } else if (motion.motionType == MotionTypeRoll) {
-    [label_ setString:@"roll"];
-  } else if (motion.motionType == MotionTypeRotate) {
-    [label_ setString:@"rotate"];
-  } else if (motion.motionType == MotionTypeShake) {
-    [label_ setString:@"shake"];
-  } else if (motion.motionType == MotionTypeNone) {
-    [label_ setString:@""];
+  if (state_ == GameStatePlay && isWating_ && motion.motionType) {
+    if (correctMotionType_ == motion.motionType) {
+      // 正しい入力をしたとき
+      NSLog(@"正解!");
+      isWating_ = NO;
+    } else if (motion.motionType != MotionTypeNone) {
+      // 間違った入力をしたとき
+      NSLog(@"まちがい！");
+      isWating_ = NO;
+    }
   }
 }
 @end

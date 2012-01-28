@@ -83,7 +83,6 @@ const NSString* MUSICS_DATA = @"musics.lua";
 }
 
 - (void)tick:(ccTime)dt {
-  NSLog(@"%d", measure_);
   measure_ = nextMeasure_;
   nextMeasure_ = measure_ + 1;
   #pragma clang diagnostic push
