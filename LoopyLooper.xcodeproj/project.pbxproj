@@ -15,6 +15,10 @@
 		076D1B5F14D42E15005EA04E /* Loop_Poppy_1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B5914D42E15005EA04E /* Loop_Poppy_1.caf */; };
 		076D1B6014D42E15005EA04E /* Loop_Poppy_2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B5A14D42E15005EA04E /* Loop_Poppy_2.caf */; };
 		076D1B6114D42E15005EA04E /* Loop_Poppy_3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B5B14D42E15005EA04E /* Loop_Poppy_3.caf */; };
+		076D1B7714D49875005EA04E /* bell.caf in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B7314D49874005EA04E /* bell.caf */; };
+		076D1B7814D49875005EA04E /* invalid0.caf in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B7414D49874005EA04E /* invalid0.caf */; };
+		076D1B7914D49875005EA04E /* invalid1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B7514D49874005EA04E /* invalid1.caf */; };
+		076D1B7A14D49875005EA04E /* valid.caf in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B7614D49874005EA04E /* valid.caf */; };
 		07831F7114B23C7D00C6FC96 /* kawaz-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 07831F6F14B23C7D00C6FC96 /* kawaz-hd.png */; };
 		07831F7214B23C7D00C6FC96 /* kawaz.png in Resources */ = {isa = PBXBuildFile; fileRef = 07831F7014B23C7D00C6FC96 /* kawaz.png */; };
 		07831F9314B23CC400C6FC96 /* KWLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07831F7E14B23CC400C6FC96 /* KWLayer.m */; };
@@ -82,6 +86,10 @@
 		076D1B5B14D42E15005EA04E /* Loop_Poppy_3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Loop_Poppy_3.caf; sourceTree = "<group>"; };
 		076D1B6F14D4798C005EA04E /* MusicalNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicalNote.h; sourceTree = "<group>"; };
 		076D1B7014D4798C005EA04E /* MusicalNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicalNote.m; sourceTree = "<group>"; };
+		076D1B7314D49874005EA04E /* bell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bell.caf; sourceTree = "<group>"; };
+		076D1B7414D49874005EA04E /* invalid0.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = invalid0.caf; sourceTree = "<group>"; };
+		076D1B7514D49874005EA04E /* invalid1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = invalid1.caf; sourceTree = "<group>"; };
+		076D1B7614D49874005EA04E /* valid.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = valid.caf; sourceTree = "<group>"; };
 		07831F6F14B23C7D00C6FC96 /* kawaz-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kawaz-hd.png"; sourceTree = "<group>"; };
 		07831F7014B23C7D00C6FC96 /* kawaz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kawaz.png; sourceTree = "<group>"; };
 		07831F7A14B23CC400C6FC96 /* heqet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = heqet.h; sourceTree = "<group>"; };
@@ -208,6 +216,10 @@
 		076D1B5714D42E15005EA04E /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				076D1B7314D49874005EA04E /* bell.caf */,
+				076D1B7414D49874005EA04E /* invalid0.caf */,
+				076D1B7514D49874005EA04E /* invalid1.caf */,
+				076D1B7614D49874005EA04E /* valid.caf */,
 				076D1B5814D42E15005EA04E /* Loop_Poppy_0.caf */,
 				076D1B5914D42E15005EA04E /* Loop_Poppy_1.caf */,
 				076D1B5A14D42E15005EA04E /* Loop_Poppy_2.caf */,
@@ -523,6 +535,10 @@
 				076D1B5F14D42E15005EA04E /* Loop_Poppy_1.caf in Resources */,
 				076D1B6014D42E15005EA04E /* Loop_Poppy_2.caf in Resources */,
 				076D1B6114D42E15005EA04E /* Loop_Poppy_3.caf in Resources */,
+				076D1B7714D49875005EA04E /* bell.caf in Resources */,
+				076D1B7814D49875005EA04E /* invalid0.caf in Resources */,
+				076D1B7914D49875005EA04E /* invalid1.caf in Resources */,
+				076D1B7A14D49875005EA04E /* valid.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

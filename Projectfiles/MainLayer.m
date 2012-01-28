@@ -59,6 +59,10 @@
     MotionDetector* detector = [MotionDetector shared];
     [detector setOnDetection:self selector:@selector(detectMotion:)];
     manager_ = [[LoopMusic alloc] initWithMusicID:1];
+    OALSimpleAudio* sa =[OALSimpleAudio sharedInstance];
+    for (NSString* file in [NSArray arrayWithObjects:@"bell.caf", @"invalid0.caf", @"invalid1.caf", @"valid.caf", nil]) {
+      [sa preloadEffect:file];
+    }
   }
   return self;
 }
@@ -98,7 +102,10 @@
   state_ = GameStateExample;
   if (isLevelUp_) {
     NSLog(@"LevelUp");
+    [[OALSimpleAudio sharedInstance] playEffect:@"valid.caf"];
     ++currentLevel_;
+  } else if (currentMeasure_ != 0) {
+    [[OALSimpleAudio sharedInstance] playEffect:@"invalid1.caf"];
   }
   [manager_ setCallbackOnTick:self selector:@selector(onTick)];
   manager_.player.loopMusicNumber = currentLevel_ - 1;
@@ -120,6 +127,8 @@
   if (state_ == GameStateExample) {
     if (manager_.measure % PART_LENGTH == PART_LENGTH - 1) {
       [self onPlayPart];
+    } else if (manager_.measure % PART_LENGTH == PART_LENGTH - 2) {
+      [[OALSimpleAudio sharedInstance] playEffect:@"bell.caf"];
     }
     if (type != 0) {
       [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", type]];
@@ -156,7 +165,7 @@
   if (state_ == GameStatePlay && isWating_ && motion.motionType) {
     if (correctMotionType_ == motion.motionType) {
       // 正しい入力をしたとき
-      NSLog(@"正解!");
+      [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", motion.motionType]];
       isWating_ = NO;
     } else if (motion.motionType != MotionTypeNone) {
       // 間違った入力をしたとき
@@ -168,9 +177,10 @@
 
 - (void)onFail {
   // 間違ったとき
+  [[OALSimpleAudio sharedInstance] playEffect:@"invalid0.caf"];
   isWating_ = NO;
-  //isLevelUp_ = NO;
-  //manager_.player.loopMusicNumber = 0;
+  isLevelUp_ = NO;
+  manager_.player.loopMusicNumber = 0;
 }
 
 @end

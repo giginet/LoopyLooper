@@ -20,12 +20,22 @@
     manager_ = [OALSimpleAudio sharedInstance];
     manager_.backgroundTrack.delegate = self;
     nextTrack_ = [OALAudioTrack track];
+    [manager_ preloadEffect:[NSString stringWithFormat: pathFormat_, loopMusicNumber_]];
+    [manager_ preloadEffect:[NSString stringWithFormat: pathFormat_, loopMusicNumber_ + 1]];
   }
   return self;
 }
 
 - (void)play {
   [manager_ playBg:[NSString stringWithFormat: pathFormat_, loopMusicNumber_] loop:YES];
+}
+
+- (NSInteger)loopMusicNumber {
+  return loopMusicNumber_;
+}
+
+- (void)setLoopMusicNumber:(NSInteger)loopMusicNumber {
+  loopMusicNumber_ = loopMusicNumber;
 }
 
 @end
