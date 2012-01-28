@@ -20,8 +20,7 @@
     manager_ = [OALSimpleAudio sharedInstance];
     manager_.backgroundTrack.delegate = self;
     nextTrack_ = [OALAudioTrack track];
-    [manager_ preloadEffect:[NSString stringWithFormat: pathFormat_, loopMusicNumber_]];
-    [manager_ preloadEffect:[NSString stringWithFormat: pathFormat_, loopMusicNumber_ + 1]];
+    [manager_ preloadBg:[NSString stringWithFormat: pathFormat_, loopMusicNumber_]];
   }
   return self;
 }

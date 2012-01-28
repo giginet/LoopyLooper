@@ -9,6 +9,7 @@
 #import "Score.h"
 
 @implementation Score
+@dynamic scoreLength;
 
 - (id)initWithFile:(NSString *)file {
   self = [super init];
@@ -40,6 +41,10 @@
     [types addObject:[NSNumber numberWithInt:[self motionTypeOnMeasure:i]]];
   }
   return types;
+}
+
+- (int)scoreLength {
+  return [scoreData_ count];
 }
 
 @end

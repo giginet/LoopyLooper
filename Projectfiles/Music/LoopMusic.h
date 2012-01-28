@@ -33,6 +33,7 @@
 
 - (id)initWithMusicID:(int)musicID;
 - (void)play;
+- (void)stop;
 - (void)setCallbackOnTick:(id)delegate selector:(SEL)selector;
 - (void)changeLoopMusic:(NSInteger)number;
 

@@ -64,6 +64,11 @@ const NSString* MUSICS_DATA = @"musics.lua";
   [self tick:0];
 }
 
+- (void)stop {
+  [[CCScheduler sharedScheduler] unscheduleSelector:@selector(tick:) 
+                                          forTarget:self];
+}
+
 - (void)setCallbackOnTick:(id)delegate selector:(SEL)selector {
   /*
    特定のmeasureに到達したときに呼ばれるコールバックを登録します

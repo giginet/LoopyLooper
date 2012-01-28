@@ -19,6 +19,7 @@ typedef enum {
 @interface MainLayer : KWLayer {
   int currentMeasure_;
   int currentLevel_;
+  int score_;
   BOOL isLevelUp_;
   BOOL isWating_;
   MotionType correctMotionType_;

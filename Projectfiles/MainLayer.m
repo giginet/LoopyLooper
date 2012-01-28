@@ -19,6 +19,8 @@
 - (void)onExamplePart;
 - (void)onPlayPart;
 - (void)onGameOver;
+- (void)onClear;
+- (void)onGameEnd;
 - (void)onTick;
 - (void)beginWaiting:(ccTime*)dt;
 - (void)endWaiting:(ccTime*)dt;
@@ -33,28 +35,11 @@
   if (self) {
     self.isTouchEnabled = YES;
     currentLevel_ = 1;
+    score_ = 0;
     isWating_ = NO;
     isLevelUp_ = NO;
     currentMeasure_ = 0;
-    CCDirector* director = [CCDirector sharedDirector];
-    
-    [CCMenuItemFont setFontName:@"Helvetica"];
-    [CCMenuItemFont setFontSize:40];
-    
-    CCMenuItem* result = [CCMenuItemFont itemFromString:@"Result" 
-                                                  block:^(id sender){
-                                                    CCScene* scene = [ResultLayer nodeWithScene];
-                                                    CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
-                                                                                                                      scene:scene];
-                                                    [[CCDirector sharedDirector] replaceScene:transition];
-                                                  }];
-    
-    CCMenu* menu = [CCMenu menuWithItems:result, nil];
-    menu.position = director.screenCenter;
-    menu.tag = 100;
-    [self addChild:menu];
-    
-    [menu alignItemsVerticallyWithPadding:40];
+    score_ = 0;
     
     MotionDetector* detector = [MotionDetector shared];
     [detector setOnDetection:self selector:@selector(detectMotion:)];
@@ -78,17 +63,18 @@
   state_ = GameStateReady;
   CCLabelTTF* readyLabel = [CCLabelTTF labelWithString:@"Ready" 
                                               fontName:@"Helvetica" 
-                                              fontSize:24];
+                                              fontSize:288];
   readyLabel.scale = 0;
   readyLabel.position = [CCDirector sharedDirector].screenCenter;
-  id expand = [CCScaleTo actionWithDuration:0.5 scale:1.0];
+  id expand = [CCScaleTo actionWithDuration:0.25f scale:1.0];
   id delay = [CCDelayTime actionWithDuration:1.0];
+  id fadeout = [CCFadeOut actionWithDuration:0.25f];
   __weak MainLayer* layer = self;
   id go = [CCCallBlockN actionWithBlock:^(CCNode* node){
     [layer onStart];
     [layer removeChild:node cleanup:YES];
   }];
-  [readyLabel runAction:[CCSequence actions:expand, delay, go, nil]];
+  [readyLabel runAction:[CCSequence actions:expand, delay, fadeout, go, nil]];
   [self addChild:readyLabel];
 }
 
@@ -103,6 +89,7 @@
   if (isLevelUp_) {
     NSLog(@"LevelUp");
     [[OALSimpleAudio sharedInstance] playEffect:@"valid.caf"];
+    score_ += 5000;
     ++currentLevel_;
   } else if (currentMeasure_ != 0) {
     [[OALSimpleAudio sharedInstance] playEffect:@"invalid1.caf"];
@@ -120,6 +107,26 @@
 
 - (void)onGameOver {
   state_ = GameStateGameOver;
+}
+
+- (void)onClear {
+  [[[OALSimpleAudio sharedInstance] backgroundTrack] fadeTo:0 
+                                                   duration:1.5f 
+                                                     target:self 
+                                                   selector:@selector(onGameEnd)];
+}
+
+- (void)onGameEnd {
+  CCLayer* layer = [[ResultLayer alloc] initWithScore:score_];
+  CCScene* scene = [[CCScene alloc] init];
+  [scene addChild:layer];
+  CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
+                                                                    scene:scene];
+  [[CCDirector sharedDirector] replaceScene:transition];
+}
+
+- (void)onExit {
+  [manager_ stop];
 }
 
 - (void)onTick {
@@ -140,9 +147,14 @@
       [self schedule:@selector(beginWaiting:) interval:60.0 / manager_.bpm - 0.2];
       [self schedule:@selector(endWaiting:) interval:60.0 / manager_.bpm + 0.2];
     }
+    currentMeasure_ += PART_LENGTH;
     if (manager_.measure % PART_LENGTH == PART_LENGTH - 1) {
-      currentMeasure_ += PART_LENGTH;
-      [self onExamplePart];
+      if (currentMeasure_ <= manager_.score.scoreLength) {
+        [self onExamplePart];
+      } else {
+        // クリア
+        [self onClear];
+      }
     }
   }
 }
@@ -154,7 +166,6 @@
 
 - (void)endWaiting:(ccTime *)dt {
   if (isWating_) {
-    NSLog(@"時間切れ!");
     [self onFail];
   }
   isWating_ = NO;
@@ -165,11 +176,11 @@
   if (state_ == GameStatePlay && isWating_ && motion.motionType) {
     if (correctMotionType_ == motion.motionType) {
       // 正しい入力をしたとき
+      score_ += pow(1000, currentLevel_); // 入力のズレから決めたい 
       [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", motion.motionType]];
       isWating_ = NO;
     } else if (motion.motionType != MotionTypeNone) {
       // 間違った入力をしたとき
-      NSLog(@"まちがい！");
       [self onFail];
     }
   }
