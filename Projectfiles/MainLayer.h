@@ -9,7 +9,12 @@
 #import "KWLayer.h"
 
 @interface MainLayer : KWLayer {
-  CCLabelTTF* label_;
-}
+  CCScene* nextScene;
 
+  //TEMPORARY
+  CCMenuItem* result_;
+  CCMenu* menu_;
+}
+@property(readwrite, retain) CCScene* nextScene;
+-(void)toResult:(id)sender;
 @end

@@ -7,41 +7,39 @@
 //
 
 #import "MainLayer.h"
+#import "ResultLayer.h"
 
-@implementation MainLayer 
+@implementation MainLayer
+@synthesize nextScene = nextScene_;
 
 - (id)init {
   self = [super init];
   if (self) {
-    label_ = [CCLabelTTF labelWithString:@"" 
-                                fontName:@"Helvetica" 
-                                fontSize:13];
-    KKInput* input = [KKInput sharedInput];
-    input.gyroActive = YES;
-    input.accelerometerActive = YES;
-    input.deviceMotionActive = YES;
+    self.isTouchEnabled = YES;
+    self.nextScene = [ResultLayer nodeWithScene];
+    
     CCDirector* director = [CCDirector sharedDirector];
-    label_.position = director.screenCenter;
-    [self addChild:label_];
+    
+    [CCMenuItemFont setFontName:@"Helvetica"];
+    [CCMenuItemFont setFontSize:40];
+    
+    result_ = [CCMenuItemFont itemFromString:@"Result"
+                                     target:self
+                                   selector:@selector(toResult:)];
+    
+    menu_ = [CCMenu menuWithItems:result_, nil];
+    menu_.position = director.screenCenter;
+    menu_.tag = 100;
+    [self addChild:menu_];
+    
+    [menu_ alignItemsVerticallyWithPadding:40];
   }
   return self;
 }
-
-- (void)update:(ccTime)dt {
-  [label_ setString:@""];
-  KKInput* input = [KKInput sharedInput];
-  if (input.accelerometerActive) {
-    KKAcceleration* ac = input.acceleration;
-    if (ac.y < -0.5) {
-      [label_ setString:@"left"];
-    } else if (ac.y > 0.5) {
-      [label_ setString:@"right"];
-    }
-  }
-  if (input.deviceMotionAvailable) {
-    KKDeviceMotion* dm = input.deviceMotion;
-    NSLog(@"%f", dm.yaw);
-  }
+-(void)toResult:(id)sender{
+  CCScene* scene = self.nextScene;
+  CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
+                                                                    scene:scene];
+  [[CCDirector sharedDirector] replaceScene:transition];
 }
-
 @end

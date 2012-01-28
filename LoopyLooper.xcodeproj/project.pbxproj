@@ -33,6 +33,8 @@
 		07EC8A5C14C2458F00C388AD /* hurry.caf in Resources */ = {isa = PBXBuildFile; fileRef = 07EC8A5A14C2458F00C388AD /* hurry.caf */; };
 		07F20B8114C4EB59003D6237 /* tinymt32.c in Sources */ = {isa = PBXBuildFile; fileRef = 07F20B7F14C4EB59003D6237 /* tinymt32.c */; };
 		07F20B8414C4EC07003D6237 /* KWRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F20B8314C4EC07003D6237 /* KWRandom.m */; };
+		628664E014D3D13C00962CDA /* TitleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 628664DF14D3D13C00962CDA /* TitleLayer.m */; };
+		628664E314D3DB0600962CDA /* ResultLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 628664E214D3DB0600962CDA /* ResultLayer.m */; };
 		DC485B4813AA194F00F2BC70 /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = DC485B4713AA194F00F2BC70 /* ship.png */; };
 		DC485B4B13AA1C0E00F2BC70 /* ship-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DC485B4A13AA1C0E00F2BC70 /* ship-hd.png */; };
 		DC65615C13A969B600A7AC53 /* libbox2d-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615013A969B600A7AC53 /* libbox2d-ios.a */; };
@@ -107,6 +109,10 @@
 		07F20B8014C4EB59003D6237 /* tinymt32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinymt32.h; sourceTree = "<group>"; };
 		07F20B8214C4EC07003D6237 /* KWRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWRandom.h; sourceTree = "<group>"; };
 		07F20B8314C4EC07003D6237 /* KWRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWRandom.m; sourceTree = "<group>"; };
+		628664DE14D3D13C00962CDA /* TitleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleLayer.h; sourceTree = "<group>"; };
+		628664DF14D3D13C00962CDA /* TitleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleLayer.m; sourceTree = "<group>"; };
+		628664E114D3DB0600962CDA /* ResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultLayer.h; sourceTree = "<group>"; };
+		628664E214D3DB0600962CDA /* ResultLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultLayer.m; sourceTree = "<group>"; };
 		DC3BE97813B4FB71003739CC /* BuildSettings-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BuildSettings-iOS.xcconfig"; sourceTree = "<group>"; };
 		DC485B4713AA194F00F2BC70 /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship.png; sourceTree = "<group>"; };
 		DC485B4A13AA1C0E00F2BC70 /* ship-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ship-hd.png"; sourceTree = "<group>"; };
@@ -254,6 +260,10 @@
 			children = (
 				07BA25F114D3419F00458AEA /* MainLayer.h */,
 				07BA25F214D3419F00458AEA /* MainLayer.m */,
+				628664DE14D3D13C00962CDA /* TitleLayer.h */,
+				628664DF14D3D13C00962CDA /* TitleLayer.m */,
+				628664E114D3DB0600962CDA /* ResultLayer.h */,
+				628664E214D3DB0600962CDA /* ResultLayer.m */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -471,6 +481,8 @@
 				07D6440914CB2E7B00B0910C /* KWTimerLabel.m in Sources */,
 				07BA25F014D33DAF00458AEA /* CCAnimationExtension.m in Sources */,
 				07BA25F314D3419F00458AEA /* MainLayer.m in Sources */,
+				628664E014D3D13C00962CDA /* TitleLayer.m in Sources */,
+				628664E314D3DB0600962CDA /* ResultLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
