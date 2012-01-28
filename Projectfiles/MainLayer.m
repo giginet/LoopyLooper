@@ -10,7 +10,7 @@
 #import "ResultLayer.h"
 #import "MotionDetector.h"
 #import "Motion.h"
-#import "LoopManager.h"
+#import "LoopMusic.h"
 #define PART_LENGTH 16
 
 @interface MainLayer()
@@ -55,7 +55,7 @@
     
     MotionDetector* detector = [MotionDetector shared];
     [detector setOnDetection:self selector:@selector(detectMotion:)];
-    manager_ = [[LoopManager alloc] initWithMusicID:1];
+    manager_ = [[LoopMusic alloc] initWithMusicID:1];
   }
   return self;
 }

@@ -8,8 +8,9 @@
 
 #import "heqet.h"
 #import "Score.h"
+#import "LoopPlayer.h"
 
-@interface LoopManager : NSObject {
+@interface LoopMusic : NSObject {
   int bpm_;
   int loops_;
   int measure_;
@@ -19,6 +20,7 @@
   NSString* title_;
   NSString* file_;
   Score* score_;
+  LoopPlayer* player_;
 }
 
 @property(readonly) int bpm;
@@ -31,5 +33,6 @@
 - (id)initWithMusicID:(int)musicID;
 - (void)play;
 - (void)setCallbackOnTick:(id)delegate selector:(SEL)selector;
+- (void)changeLoopMusic:(NSInteger)number;
 
 @end

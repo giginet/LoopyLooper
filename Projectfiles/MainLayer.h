@@ -7,7 +7,7 @@
 //
 
 #import "KWLayer.h"
-#import "LoopManager.h"
+#import "LoopMusic.h"
 
 typedef enum {
   GameStateReady,
@@ -21,7 +21,7 @@ typedef enum {
   BOOL isWating_;
   MotionType correctMotionType_;
   GameState state_;
-  LoopManager* manager_;
+  LoopMusic* manager_;
 }
 
 @end

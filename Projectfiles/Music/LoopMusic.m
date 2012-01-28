@@ -6,18 +6,19 @@
 //  Copyright (c) 2012 Kawaz. All rights reserved.
 //
 
-#import "LoopManager.h"
+#import "LoopMusic.h"
 #import "Motion.h"
+#import "LoopPlayer.h"
 
 const NSString* MUSICS_DATA = @"musics.lua";
 
-@interface LoopManager()
+@interface LoopMusic()
 - (void)preLoadMusic:(NSString*)file;
 - (void)preLoadEffects:(NSString*)file;
 - (void)tick:(ccTime)dt;
 @end
 
-@implementation LoopManager
+@implementation LoopMusic
 @synthesize bpm = bpm_;
 @synthesize loops = loops_;
 @synthesize measure = measure_;
@@ -47,6 +48,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
     title_ = [music objectForKey:@"title"];
     file_ = [music objectForKey:@"file"];
     score_ = [[Score alloc] initWithFile:[music objectForKey:@"score"]];
+    player_ = [[LoopPlayer alloc] initWithFileFormat:file_];
     [self preLoadMusic:file_];
     [self preLoadEffects:file_];
   }
@@ -54,9 +56,9 @@ const NSString* MUSICS_DATA = @"musics.lua";
 }
 
 - (void)play {
-  [[OALSimpleAudio sharedInstance] playBg:[NSString stringWithFormat:file_, 0] loop:YES];
+  [player_ play];
   [[CCScheduler sharedScheduler] scheduleSelector:@selector(tick:) 
-                                        forTarget:self interval:60.0/self.bpm
+                                        forTarget:self interval:60.0 / self.bpm
                                            paused:NO];
   [self tick:0];
 }
@@ -68,6 +70,10 @@ const NSString* MUSICS_DATA = @"musics.lua";
    */
   delegate_ = delegate;
   selector_ = selector;
+}
+
+- (void)changeLoopMusic:(NSInteger)number {
+  [player_ setLoopMusicNumber:number];
 }
 
 - (void)preLoadMusic:(NSString *)file {

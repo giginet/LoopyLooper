@@ -1,0 +1,34 @@
+//
+//  Looper.m
+//  LoopyLooper
+//
+//  Created by on 12/01/28.
+//  Copyright (c) 2012 All rights reserved.
+//
+
+#import "LoopPlayer.h"
+
+@implementation LoopPlayer
+@synthesize loopMusicNumber = loopMusicNumber_;
+
+- (id)initWithFileFormat:(NSString *)format {
+  self = [super init];
+  if (self) {
+    loopMusicNumber_ = 0;
+    pathFormat_ = format;
+    manager_ = [OALSimpleAudio sharedInstance]; 
+    manager_.backgroundTrack.delegate = self;
+  }
+  return self;
+}
+
+- (void)play {
+  [manager_ playBg:[NSString stringWithFormat: pathFormat_, loopMusicNumber_] loop:YES];
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+  if (!flag) return;
+  [manager_ playBg:[NSString stringWithFormat: pathFormat_, loopMusicNumber_]];
+}
+
+@end
