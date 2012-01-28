@@ -9,14 +9,8 @@
 #import "KWLayer.h"
 
 @interface ResultLayer : KWLayer{
-  CCScene* nextScene;
-  
-  //TEMPORARY
-  CCMenuItem* title_;
-  CCMenuItem* main_;
-  CCMenu* menu_;
 }
-@property(readwrite, retain) CCScene* nextScene;
+
 -(void)toTitle:(id)sender;
 -(void)toMain:(id)sender;
 @end

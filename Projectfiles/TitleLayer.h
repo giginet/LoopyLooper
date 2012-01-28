@@ -9,13 +9,15 @@
 #import "KWLayer.h"
 
 @interface TitleLayer : KWLayer{
-/*
-  CCLabelTTF* label_;
-*/
- CCScene* nextScene;
+  /*
+   CCLabelTTF* label_;
+   */
+  CCScene* nextScene;
   CCMenuItemFont* start_;
   CCMenu* menu_;
 }
+
 @property(readwrite, retain) CCScene* nextScene;
--(void)toMain:(id)sender;
+- (void)toMain:(id)sender;
+
 @end

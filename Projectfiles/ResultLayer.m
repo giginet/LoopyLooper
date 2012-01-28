@@ -11,7 +11,6 @@
 #import "MainLayer.h"
 
 @implementation ResultLayer
-@synthesize nextScene = nextScene_;
 
 - (id)init {
   self = [super init];
@@ -24,33 +23,31 @@
     [CCMenuItemFont setFontName:@"Helvetica"];
     [CCMenuItemFont setFontSize:40];
     
-    title_ = [CCMenuItemFont itemFromString:@"Title"
-                                     target:self
-                                   selector:@selector(toTitle:)];
+    CCMenuItem* title = [CCMenuItemFont itemFromString:@"Title"
+                                                target:self
+                                              selector:@selector(toTitle:)];
     
-    main_ = [CCMenuItemFont itemFromString:@"Main"
-                                     target:self
-                                   selector:@selector(toMain:)];
+    CCMenuItem* main = [CCMenuItemFont itemFromString:@"Main"
+                                               target:self
+                                             selector:@selector(toMain:)];
     
-    menu_ = [CCMenu menuWithItems:title_, main_, nil];
-    menu_.position = director.screenCenter;
-    menu_.tag = 100;
+    CCMenu* menu = [CCMenu menuWithItems:title, main, nil];
+    menu.position = director.screenCenter;
+    menu.tag = 100;
     [self addChild:menu_];
     
     [menu_ alignItemsVerticallyWithPadding:40];
   }
   return self;
 }
--(void)toTitle:(id)sender{
-  self.nextScene = [TitleLayer nodeWithScene];
-  CCScene* scene = self.nextScene;
+- (void)toTitle:(id)sender{
+  CCScene* scene = [TitleLayer nodeWithScene];
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
                                                                     scene:scene];
   [[CCDirector sharedDirector] replaceScene:transition];
 }
--(void)toMain:(id)sender{
-  self.nextScene = [MainLayer nodeWithScene];
-  CCScene* scene = self.nextScene;
+- (void)toMain:(id)sender{
+  CCScene* scene = [MainLayer nodeWithScene];
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
                                                                     scene:scene];
   [[CCDirector sharedDirector] replaceScene:transition];

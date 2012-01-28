@@ -7,7 +7,8 @@
 //
 
 #import "LogoLayer.h"
-#import "TitleLayer.h"
+#import "MainLayer.h"
+
 @interface LogoLayer()
 - (void)goToNext;
 @end
@@ -32,7 +33,7 @@
     [logo runAction:seq];
     [self addChild:logo];
     self.isTouchEnabled = YES;
-    self.nextScene = [TitleLayer nodeWithScene];
+    self.nextScene = [MainLayer nodeWithScene];
   }
   return self;
 }

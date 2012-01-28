@@ -15,16 +15,6 @@
 - (id)init {
   self = [super init];
   if (self) {
-    /*
-     label_ = [CCLabelTTF labelWithString:@"" 
-     fontName:@"Helvetica" 
-     fontSize:13];
-     CCDirector* director = [CCDirector sharedDirector];
-     label_.position = director.screenCenter;
-     [self addChild:label_];
-     MotionDetector* detector = [MotionDetector shared];
-     [detector setOnDetection:self selector:@selector(detectMotion:)];
-     */  
     
     self.isTouchEnabled = YES;
     self.nextScene = [MainLayer nodeWithScene];
@@ -54,19 +44,5 @@
                                                                     scene:scene];
   [[CCDirector sharedDirector] replaceScene:transition];
 }
-/*
- - (void)detectMotion:(Motion *)motion {
- if (motion.motionType == MotionTypeLeftPitch) {
- [label_ setString:@"Left"];
- } else if (motion.motionType == MotionTypeRightPitch) {
- [label_ setString:@"Right"];
- } else if (motion.motionType == MotionTypeBackForth) {
- NSLog(@"前後");
- } else if (motion.motionType == MotionTypeRoll) {
- NSLog(@"roll");
- } else if (motion.motionType == MotionTypeNone) {
- [label_ setString:@""];
- }
- }
- */
+
 @end
