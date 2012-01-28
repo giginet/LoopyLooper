@@ -16,6 +16,8 @@
 
 @implementation MotionDetector
 @synthesize delegate = delegate_;
+@synthesize prevYaw = prevYaw_;
+@synthesize yawOrigin = yawOrigin_;
 
 - (id)init {
   self = [super init];
@@ -52,18 +54,34 @@
   if (input.accelerometerAvailable) {
     MotionType type = MotionTypeNone;
     KKDeviceMotion* dm = input.deviceMotion;
-    if (dm.pitch > M_PI_4) {
-      type = MotionTypeLeftPitch;
-    } else if (dm.pitch  < -M_PI_4) {
-      type = MotionTypeRightPitch;
+    if ( dm.acceleration.rawX > .4 ) {
+      type = MotionTypeUp;
+    } else if ( dm.acceleration.rawX < -.4 ) {
+      type = MotionTypeDown;
     } else if (abs(dm.acceleration.rawZ) > 1.0) {
       type = MotionTypeBackForth;
     } else if (dm.roll < M_PI_4 || dm.roll > M_PI_2 + M_PI_4) {
       type = MotionTypeRoll;
+    } else if ( [self isMotionTypeRotateWithKKDeviceMotion:dm] ) {
+      type = MotionTypeRotate;
     }
     return [Motion motionWithKKDeviceMotion:dm motionType:type];
   }
   return nil;
 }
 
+- (BOOL) isMotionTypeRotateWithKKDeviceMotion:(KKDeviceMotion*)motion {
+   const double yaw = [motion yaw];
+   BOOL isRoll = NO;
+  if ( yaw - self.prevYaw > 0.0 ) {
+     self.prevYaw = yaw;
+    if ( yaw - self.yawOrigin >= M_PI / 2.0 ) {
+       isRoll = YES;
+     }
+   } else {
+     self.prevYaw = yaw;
+     self.yawOrigin = yaw;
+   }
+   return isRoll;
+}
 @end
