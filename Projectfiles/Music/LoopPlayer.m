@@ -7,6 +7,7 @@
 //
 
 #import "LoopPlayer.h"
+#import "OALSimpleAudio.h"
 
 @implementation LoopPlayer
 @synthesize loopMusicNumber = loopMusicNumber_;
@@ -16,8 +17,10 @@
   if (self) {
     loopMusicNumber_ = 0;
     pathFormat_ = format;
-    manager_ = [OALSimpleAudio sharedInstance]; 
+    manager_ = [OALSimpleAudio sharedInstance];
     manager_.backgroundTrack.delegate = self;
+    nextTrack_ = [OALAudioTrack track];
+    [manager_ preloadBg:[NSString stringWithFormat: pathFormat_, loopMusicNumber_]];
   }
   return self;
 }
@@ -26,9 +29,12 @@
   [manager_ playBg:[NSString stringWithFormat: pathFormat_, loopMusicNumber_] loop:YES];
 }
 
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-  if (!flag) return;
-  [manager_ playBg:[NSString stringWithFormat: pathFormat_, loopMusicNumber_]];
+- (NSInteger)loopMusicNumber {
+  return loopMusicNumber_;
+}
+
+- (void)setLoopMusicNumber:(NSInteger)loopMusicNumber {
+  loopMusicNumber_ = loopMusicNumber;
 }
 
 @end

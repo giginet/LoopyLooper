@@ -12,6 +12,7 @@
   NSInteger loopMusicNumber_;
   NSString* pathFormat_;
   OALSimpleAudio* manager_;
+  OALAudioTrack* nextTrack_;
 }
 
 - (id)initWithFileFormat:(NSString*)format;

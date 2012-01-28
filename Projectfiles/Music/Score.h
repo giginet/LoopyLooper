@@ -13,6 +13,8 @@
   NSDictionary* scoreData_;
 }
 
+@property(readonly) int scoreLength;
+
 - (id)initWithFile:(NSString*)file;
 
 - (MotionType)motionTypeOnMeasure:(int)measure;

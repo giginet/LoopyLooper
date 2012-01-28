@@ -56,18 +56,18 @@
   if (input.accelerometerAvailable) {
     MotionType type = MotionTypeNone;
     KKDeviceMotion* dm = input.deviceMotion;
-    if ( dm.acceleration.rawX > .4 ) {
-      type = MotionTypeUp;
-    } else if ( dm.acceleration.rawX < -.4 ) {
-      type = MotionTypeDown;
-    } else if (abs(dm.acceleration.rawZ) > 1.0) {
-      type = MotionTypeBackForth;
-    } else if (dm.roll < M_PI_4 || dm.roll > M_PI_2 + M_PI_4) {
-      type = MotionTypeRoll;
+    if ( (abs(dm.acceleration.rawZ) > .5) ) {
+      type = MotionTypeBackForth; // 3
+    } else if ( dm.acceleration.rawX > .6 ) {
+      type = MotionTypeUp; // 1
+    } else if ( dm.acceleration.rawX < -.6 ) {
+      type = MotionTypeDown; // 2
     } else if ( [self isMotionTypeRotateWithKKDeviceMotion:dm] ) {
-      type = MotionTypeRotate;
+      type = MotionTypeRotate; // 5
     } else if ( [self isMotionTypeShakeWithKKDeviceMotion:dm] ) {
-      type = MotionTypeShake;
+      type = MotionTypeShake; // 4
+    } else if (dm.roll < M_PI_4 || dm.roll > M_PI_2 + M_PI_4) {
+      type = MotionTypeRoll; // 6
     }
     return [Motion motionWithKKDeviceMotion:dm motionType:type];
   }
@@ -99,7 +99,7 @@
   static int trigCnt = 0;
   static double threshold = .5;
   static NSTimeInterval trigTime = 0.0;
-  const NSTimeInterval period = 1.0; // sec
+  const NSTimeInterval period = .5; // sec
   const int numTrigPerShake = 3;
   const double acc = [motion acceleration].rawY;
   const NSTimeInterval time = [motion acceleration].timestamp;

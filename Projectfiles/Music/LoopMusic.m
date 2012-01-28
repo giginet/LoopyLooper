@@ -25,6 +25,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
 @synthesize title = title_;
 @synthesize nextMeasure = nextMeasure_;
 @synthesize score = score_;
+@synthesize player = player_;
 
 - (id)init {
   self = [super init];
@@ -61,6 +62,11 @@ const NSString* MUSICS_DATA = @"musics.lua";
                                         forTarget:self interval:60.0 / self.bpm
                                            paused:NO];
   [self tick:0];
+}
+
+- (void)stop {
+  [[CCScheduler sharedScheduler] unscheduleSelector:@selector(tick:) 
+                                          forTarget:self];
 }
 
 - (void)setCallbackOnTick:(id)delegate selector:(SEL)selector {

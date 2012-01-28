@@ -29,9 +29,11 @@
 @property(readwrite) int nextMeasure;
 @property(readonly, copy) NSString* title;
 @property(readonly) Score* score;
+@property(readonly) LoopPlayer* player;
 
 - (id)initWithMusicID:(int)musicID;
 - (void)play;
+- (void)stop;
 - (void)setCallbackOnTick:(id)delegate selector:(SEL)selector;
 - (void)changeLoopMusic:(NSInteger)number;
 
