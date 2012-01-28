@@ -76,6 +76,8 @@
     [label_ setString:@"roll"];
   } else if (motion.motionType == MotionTypeRotate) {
     [label_ setString:@"rotate"];
+  } else if (motion.motionType == MotionTypeShake) {
+    [label_ setString:@"shake"];
   } else if (motion.motionType == MotionTypeNone) {
     [label_ setString:@""];
   }

@@ -20,4 +20,5 @@
 @property(readwrite, assign) int yawDir;
 - (void)setOnDetection:(id)delegate selector:(SEL)selector;
 - (BOOL)isMotionTypeRotateWithKKDeviceMotion:(KKDeviceMotion*)motion;
+- (BOOL) isMotionTypeShakeWithKKDeviceMotion:(KKDeviceMotion*)motion;
 @end
