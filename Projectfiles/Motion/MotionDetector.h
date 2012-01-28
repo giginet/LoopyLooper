@@ -17,7 +17,7 @@
 @property(readwrite, weak) id delegate;
 @property(readwrite, assign) double prevYaw;
 @property(readwrite, assign) double yawOrigin;
-
+@property(readwrite, assign) int yawDir;
 - (void)setOnDetection:(id)delegate selector:(SEL)selector;
 - (BOOL)isMotionTypeRotateWithKKDeviceMotion:(KKDeviceMotion*)motion;
 @end

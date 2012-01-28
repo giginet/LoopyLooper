@@ -18,6 +18,7 @@
 @synthesize delegate = delegate_;
 @synthesize prevYaw = prevYaw_;
 @synthesize yawOrigin = yawOrigin_;
+@synthesize yawDir = yawDir_;
 
 - (id)init {
   self = [super init];
@@ -29,6 +30,7 @@
                                           forTarget:self 
                                            interval:1.0 / fps 
                                              paused:NO];
+    self.yawDir = ( [[input deviceMotion] yaw] > 0.0 ) ? 1 : -1;
   }
   return self;
 }
@@ -73,12 +75,16 @@
 - (BOOL) isMotionTypeRotateWithKKDeviceMotion:(KKDeviceMotion*)motion {
    const double yaw = [motion yaw];
    BOOL isRoll = NO;
-  if ( yaw - self.prevYaw > 0.0 ) {
-     self.prevYaw = yaw;
-    if ( yaw - self.yawOrigin >= M_PI / 2.0 ) {
+  // 一定方向に回転中かどうか
+  if ( self.yawDir * ( yaw - self.prevYaw ) > 0.0 ) {
+    self.prevYaw = yaw;
+    // 90度以上回転したかどうか
+    if ( self.yawDir * ( yaw - self.yawOrigin ) >= M_PI_2 ) {
        isRoll = YES;
      }
    } else {
+     // 回転方向変更
+     self.yawDir = ( yaw > 0.0 ) ? 1 : -1;
      self.prevYaw = yaw;
      self.yawOrigin = yaw;
    }
