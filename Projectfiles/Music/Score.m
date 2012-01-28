@@ -24,9 +24,8 @@
    * @args int measure 音楽開始からの小節数
    * @return MotionType その小節で取るべき動きのType
    */
-  if (measure >= (int)[scoreData_ count]) return MotionTypeNone; // Luaのtableのindexは1から始まる
-  MotionType type = (MotionType)[scoreData_ objectForKey:[NSString stringWithFormat:@"%d", 
-                                                          measure + 1]];
+  if (measure > (int)[scoreData_ count]) return MotionTypeNone; // Luaのtableのindexは1から始まる
+  MotionType type = (MotionType)[(NSNumber*)[scoreData_ objectForKey:[NSString stringWithFormat:@"%d", measure + 1]] intValue];
   return type;
 }
 

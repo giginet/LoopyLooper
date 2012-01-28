@@ -18,6 +18,7 @@
 @synthesize delegate = delegate_;
 @synthesize prevYaw = prevYaw_;
 @synthesize yawOrigin = yawOrigin_;
+@synthesize yawDir = yawDir_;
 
 - (id)init {
   self = [super init];
@@ -29,6 +30,7 @@
                                           forTarget:self 
                                            interval:1.0 / fps 
                                              paused:NO];
+    self.yawDir = ( [[input deviceMotion] yaw] > 0.0 ) ? 1 : -1;
   }
   return self;
 }
@@ -64,6 +66,8 @@
       type = MotionTypeRoll;
     } else if ( [self isMotionTypeRotateWithKKDeviceMotion:dm] ) {
       type = MotionTypeRotate;
+    } else if ( [self isMotionTypeShakeWithKKDeviceMotion:dm] ) {
+      type = MotionTypeShake;
     }
     return [Motion motionWithKKDeviceMotion:dm motionType:type];
   }
@@ -71,17 +75,58 @@
 }
 
 - (BOOL) isMotionTypeRotateWithKKDeviceMotion:(KKDeviceMotion*)motion {
-   const double yaw = [motion yaw];
-   BOOL isRoll = NO;
-  if ( yaw - self.prevYaw > 0.0 ) {
-     self.prevYaw = yaw;
-    if ( yaw - self.yawOrigin >= M_PI / 2.0 ) {
+  const double yaw = [motion yaw];
+  BOOL isRoll = NO;
+  
+  // 一定方向に回転中かどうか
+  if ( self.yawDir * ( yaw - self.prevYaw ) > 0.0 ) {
+    self.prevYaw = yaw;
+    // 90度以上回転したかどうか
+    if ( self.yawDir * ( yaw - self.yawOrigin ) >= M_PI_4 ) {
        isRoll = YES;
      }
    } else {
+     // 回転方向変更
+     self.yawDir = ( yaw > 0.0 ) ? 1 : -1;
      self.prevYaw = yaw;
      self.yawOrigin = yaw;
    }
    return isRoll;
+}
+
+- (BOOL) isMotionTypeShakeWithKKDeviceMotion:(KKDeviceMotion*)motion {
+  static double prevAcc = 0.0;
+  static int trigCnt = 0;
+  static double threshold = .5;
+  static NSTimeInterval trigTime = 0.0;
+  const NSTimeInterval period = 1.0; // sec
+  const int numTrigPerShake = 3;
+  const double acc = [motion acceleration].rawY;
+  const NSTimeInterval time = [motion acceleration].timestamp;
+  
+  // シェイク判定有効時間を超えた場合
+  if ( trigTime + period < time ) {
+    trigCnt = 0;
+  }
+  
+  // 加速度がしきい値を超えた(トリガー)場合
+  if ( ( prevAcc - threshold ) * ( acc - threshold ) < 0.0 ) {
+    // 初めてのトリガーの場合
+    if ( trigCnt == 0 ) {
+      // 時刻を記録する
+      trigTime = [motion acceleration].timestamp;
+    }
+    // しきい値の符号を反転
+    threshold *= -1.0;
+    trigCnt++;
+    
+    // 規定回数しきい値を超えた場合
+    if ( trigCnt >= numTrigPerShake ) {
+      trigCnt = 0;
+      return YES;
+    }
+  }
+  prevAcc = acc;
+  return NO;
 }
 @end

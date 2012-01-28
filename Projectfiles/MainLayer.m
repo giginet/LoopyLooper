@@ -10,6 +10,7 @@
 #import "ResultLayer.h"
 #import "MotionDetector.h"
 #import "Motion.h"
+#import "LoopManager.h"
 
 @interface MainLayer()
 - (void)detectMotion:(Motion*)motion;
@@ -45,11 +46,16 @@
     [self addChild:label_];
     MotionDetector* detector = [MotionDetector shared];
     [detector setOnDetection:self selector:@selector(detectMotion:)];
-
+    manager_ = [[LoopManager alloc] initWithMusicID:1];
   }
   return self;
 }
--(void)toResult:(id)sender{
+
+- (void)onEnter {
+  [manager_ play];
+}
+
+- (void)toResult:(id)sender{
   CCScene* scene = [ResultLayer nodeWithScene];
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
                                                                     scene:scene];
@@ -70,6 +76,8 @@
     [label_ setString:@"roll"];
   } else if (motion.motionType == MotionTypeRotate) {
     [label_ setString:@"rotate"];
+  } else if (motion.motionType == MotionTypeShake) {
+    [label_ setString:@"shake"];
   } else if (motion.motionType == MotionTypeNone) {
     [label_ setString:@""];
   }
