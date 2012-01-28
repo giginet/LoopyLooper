@@ -53,9 +53,11 @@
     MotionType type = MotionTypeNone;
     KKDeviceMotion* dm = input.deviceMotion;
     if (dm.pitch > M_PI_4) {
-      type = MotionTypeLeftYaw;
+      type = MotionTypeLeftPitch;
     } else if (dm.pitch  < -M_PI_4) {
-      type = MotionTypeRightYaw;
+      type = MotionTypeRightPitch;
+    } else if (abs(dm.acceleration.rawZ) > 1.0) {
+      type = MotionTypeBackForth;
     }
     return [Motion motionWithKKDeviceMotion:dm motionType:type];
   }

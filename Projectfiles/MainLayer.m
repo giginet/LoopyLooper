@@ -35,10 +35,12 @@
 }
 
 - (void)detectMotion:(Motion *)motion {
-  if (motion.motionType == MotionTypeLeftYaw) {
+  if (motion.motionType == MotionTypeLeftPitch) {
     [label_ setString:@"Left"];
-  } else if (motion.motionType == MotionTypeRightYaw) {
+  } else if (motion.motionType == MotionTypeRightPitch) {
     [label_ setString:@"Right"];
+  } else if (motion.motionType == MotionTypeBackForth) {
+    NSLog(@"前後");
   } else if (motion.motionType == MotionTypeNone) {
     [label_ setString:@""];
   }

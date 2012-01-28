@@ -10,8 +10,8 @@
 
 typedef enum {
   MotionTypeNone,
-  MotionTypeLeftYaw,
-  MotionTypeRightYaw,
+  MotionTypeLeftPitch,
+  MotionTypeRightPitch,
   MotionTypeBackForth,
   MotionTypeShake,
   MotionTypeRotate,
