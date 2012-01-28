@@ -12,7 +12,8 @@
 const NSString* MUSICS_DATA = @"musics.lua";
 
 @interface LoopManager()
-- (void)preLoadBGM:(NSString*)file;
+- (void)preLoadMusic:(NSString*)file;
+- (void)preLoadEffects:(NSString*)file;
 - (void)tick:(ccTime)dt;
 @end
 
@@ -42,6 +43,8 @@ const NSString* MUSICS_DATA = @"musics.lua";
     title_ = [music objectForKey:@"title"];
     file_ = [music objectForKey:@"file"];
     score_ = [[Score alloc] initWithFile:[music objectForKey:@"score"]];
+    [self preLoadMusic:file_];
+    [self preLoadEffects:file_];
   }
   return self;
 }
@@ -50,19 +53,28 @@ const NSString* MUSICS_DATA = @"musics.lua";
   NSLog(@"%@", file_);
   [[OALSimpleAudio sharedInstance] playBg:[NSString stringWithFormat:file_, 0] loop:YES];
   [[CCScheduler sharedScheduler] scheduleSelector:@selector(tick:) 
-                                        forTarget:self interval:1.0/self.bpm
+                                        forTarget:self interval:60.0/self.bpm
                                            paused:NO];
 }
 
-- (void)preLoadBGM:(NSString *)file {
+- (void)preLoadMusic:(NSString *)file {
   for (int i = 0; i < loops_; ++i) {
     [[OALSimpleAudio sharedInstance] preloadBg:[NSString stringWithFormat:file, i]];
+  }
+}
+
+- (void)preLoadEffects:(NSString *)file {
+  for (int i = 0; i < 2; ++i) {
+    [[OALSimpleAudio sharedInstance] preloadEffect:[NSString stringWithFormat:@"%d.caf", i]];
   }
 }
 
 - (void)tick:(ccTime)dt {
   MotionType type = [score_ motionTypeOnMeasure:measure_];
   ++measure_;
+  if (type != 0) {
+    [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", type]];
+  }
   NSLog(@"type = %d", type);
 }
 
