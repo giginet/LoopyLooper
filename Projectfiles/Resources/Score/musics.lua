@@ -1,5 +1,5 @@
 local musics = {
-    {
+  {
          file = "Loop_Poppy_%d.caf",
          score = "test.lua",
          title = "LoopyPoppy",

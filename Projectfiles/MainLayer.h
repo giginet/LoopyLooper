@@ -7,11 +7,21 @@
 //
 
 #import "KWLayer.h"
-#import "LoopManager.h"
+#import "LoopMusic.h"
+
+typedef enum {
+  GameStateReady,
+  GameStateExample,
+  GameStatePlay,
+  GameStateGameOver
+} GameState;
 
 @interface MainLayer : KWLayer {
-  CCLabelTTF* label_;
-  LoopManager* manager_;
+  int currentMeasure_;
+  BOOL isWating_;
+  MotionType correctMotionType_;
+  GameState state_;
+  LoopMusic* manager_;
 }
--(void)toResult:(id)sender;
+
 @end
