@@ -13,9 +13,9 @@ typedef enum {
   MotionTypeUp,
   MotionTypeDown,
   MotionTypeBackForth,
-  MotionTypeShake,
   MotionTypeRotate,
   MotionTypeRoll,
+  MotionTypeShake,
   MotionTypeDoubleTap
 } MotionType;
 

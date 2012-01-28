@@ -70,11 +70,11 @@
   id delay = [CCDelayTime actionWithDuration:1.0];
   id fadeout = [CCFadeOut actionWithDuration:0.25f];
   __weak MainLayer* layer = self;
-  id go = [CCCallBlockN actionWithBlock:^(CCNode* node){
+  id start = [CCCallBlockN actionWithBlock:^(CCNode* node){
     [layer onStart];
     [layer removeChild:node cleanup:YES];
   }];
-  [readyLabel runAction:[CCSequence actions:expand, delay, fadeout, go, nil]];
+  [readyLabel runAction:[CCSequence actions:expand, delay, fadeout, start, nil]];
   [self addChild:readyLabel];
 }
 
