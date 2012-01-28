@@ -16,7 +16,6 @@
   int nextMeasure_;
   id delegate_;
   SEL selector_;
-  int onMeasure_;
   NSString* title_;
   NSString* file_;
   Score* score_;
@@ -27,9 +26,10 @@
 @property(readonly) int measure;
 @property(readwrite) int nextMeasure;
 @property(readonly, copy) NSString* title;
+@property(readonly) Score* score;
 
 - (id)initWithMusicID:(int)musicID;
 - (void)play;
-- (void)setCallbackOnMeasure:(int)measure delegate: (id)delegate selector:(SEL)selector;
+- (void)setCallbackOnTick:(id)delegate selector:(SEL)selector;
 
 @end

@@ -11,6 +11,7 @@
 #import "MotionDetector.h"
 #import "Motion.h"
 #import "LoopManager.h"
+#define PART_LENGTH 16
 
 @interface MainLayer()
 - (void)onReady;
@@ -18,7 +19,7 @@
 - (void)onExamplePart;
 - (void)onPlayPart;
 - (void)onGameOver;
-- (void)changeState;
+- (void)onTick;
 - (void)detectMotion:(Motion*)motion;
 @end
 
@@ -93,29 +94,33 @@
 
 - (void)onExamplePart {
   state_ = GameStateExample;
-  [manager_ setCallbackOnMeasure:currentMeasure_ + 15
-                        delegate:self 
-                        selector:@selector(changeState)];
+  [manager_ setCallbackOnTick:self selector:@selector(onTick)];
 }
 
 - (void)onPlayPart {
   state_ = GameStatePlay;
   manager_.nextMeasure = currentMeasure_;
-  [manager_ setCallbackOnMeasure:currentMeasure_ + 15
-                        delegate:self 
-                        selector:@selector(changeState)];
+  [manager_ setCallbackOnTick:self selector:@selector(onTick)];
 }
 
 - (void)onGameOver {
   state_ = GameStateGameOver;
 }
 
-- (void)changeState {
+- (void)onTick {
+  MotionType type = [manager_.score motionTypeOnMeasure:manager_.measure];
   if (state_ == GameStateExample) {
-    [self onPlayPart];
+    if (manager_.measure % PART_LENGTH == PART_LENGTH - 1) {
+      [self onPlayPart];
+    }
+    if (type != 0) {
+      [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", type]];
+    }
   } else if (state_ == GameStatePlay) {
-    currentMeasure_ += 16;
-    [self onExamplePart];
+    if (manager_.measure % PART_LENGTH == PART_LENGTH - 1) {
+      currentMeasure_ += PART_LENGTH;
+      [self onExamplePart];
+    }
   }
 }
 
