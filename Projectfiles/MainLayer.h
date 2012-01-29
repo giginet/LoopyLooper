@@ -8,6 +8,7 @@
 
 #import "KWLayer.h"
 #import "LoopMusic.h"
+#import "SeekBar.h"
 
 typedef enum {
   GameStateReady,
@@ -25,6 +26,7 @@ typedef enum {
   MotionType correctMotionType_;
   GameState state_;
   LoopMusic* manager_;
+  SeekBar* bar_;
 }
 
 @end

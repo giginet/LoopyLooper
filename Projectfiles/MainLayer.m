@@ -11,6 +11,7 @@
 #import "MotionDetector.h"
 #import "Motion.h"
 #import "LoopMusic.h"
+#import "SeekBar.h"
 #define PART_LENGTH 16
 
 @interface MainLayer()
@@ -48,6 +49,10 @@
     for (NSString* file in [NSArray arrayWithObjects:@"bell.caf", @"invalid0.caf", @"invalid1.caf", @"valid.caf", nil]) {
       [sa preloadEffect:file];
     }
+    
+    bar_ = [SeekBar seekBarWithScore:manager_.score measure:0];
+    [self addChild:bar_];
+    bar_.position = ccp(450, 200);
   }
   return self;
 }
@@ -80,6 +85,7 @@
 
 - (void)onStart {
   [manager_ play];
+  [bar_ play];
   currentMeasure_ = 0;
   [self onExamplePart];
 }
@@ -144,12 +150,13 @@
     MotionType nextType = [manager_.score motionTypeOnMeasure:manager_.measure + 1];
     if (nextType != MotionTypeNone) {
       correctMotionType_ = nextType;
-      [self schedule:@selector(beginWaiting:) interval:60.0 / manager_.bpm - 0.2];
-      [self schedule:@selector(endWaiting:) interval:60.0 / manager_.bpm + 0.2];
+      [self schedule:@selector(beginWaiting:) interval:60.0 / manager_.bpm - 0.25];
+      [self schedule:@selector(endWaiting:) interval:60.0 / manager_.bpm + 0.25];
     }
     currentMeasure_ += PART_LENGTH;
     if (manager_.measure % PART_LENGTH == PART_LENGTH - 1) {
       if (currentMeasure_ <= manager_.score.scoreLength) {
+        [bar_ reloadBarFrom:currentLevel_];
         [self onExamplePart];
       } else {
         // クリア

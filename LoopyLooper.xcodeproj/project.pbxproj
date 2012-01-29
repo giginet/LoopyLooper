@@ -39,6 +39,11 @@
 		07C0721714D50DD200672794 /* cut_in_boss1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0721314D50DD200672794 /* cut_in_boss1.png */; };
 		07C0721814D50DD200672794 /* cutin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07C0721414D50DD200672794 /* cutin.plist */; };
 		07C0721914D50DD200672794 /* good.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07C0721514D50DD200672794 /* good.plist */; };
+		07C0721C14D50E2300672794 /* SeekBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C0721B14D50E2300672794 /* SeekBar.m */; };
+		07C0722314D50F9300672794 /* seekbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0721F14D50F9300672794 /* seekbar.png */; };
+		07C0722414D50F9300672794 /* seekbarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0722014D50F9300672794 /* seekbarBackground.png */; };
+		07C0722714D51CD900672794 /* marker_disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0722514D51CD900672794 /* marker_disable.png */; };
+		07C0722814D51CD900672794 /* marker_enable.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0722614D51CD900672794 /* marker_enable.png */; };
 		07D643FE14CB2DC900B0910C /* KWScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D643FD14CB2DC900B0910C /* KWScrollLayer.m */; };
 		07D6440714CB2E7B00B0910C /* KWGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440214CB2E7B00B0910C /* KWGauge.m */; };
 		07D6440814CB2E7B00B0910C /* KWPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440414CB2E7B00B0910C /* KWPieChart.m */; };
@@ -127,6 +132,12 @@
 		07C0721314D50DD200672794 /* cut_in_boss1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cut_in_boss1.png; sourceTree = "<group>"; };
 		07C0721414D50DD200672794 /* cutin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cutin.plist; sourceTree = "<group>"; };
 		07C0721514D50DD200672794 /* good.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = good.plist; sourceTree = "<group>"; };
+		07C0721A14D50E2300672794 /* SeekBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeekBar.h; path = Main/SeekBar.h; sourceTree = "<group>"; };
+		07C0721B14D50E2300672794 /* SeekBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SeekBar.m; path = Main/SeekBar.m; sourceTree = "<group>"; };
+		07C0721F14D50F9300672794 /* seekbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seekbar.png; sourceTree = "<group>"; };
+		07C0722014D50F9300672794 /* seekbarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seekbarBackground.png; sourceTree = "<group>"; };
+		07C0722514D51CD900672794 /* marker_disable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker_disable.png; sourceTree = "<group>"; };
+		07C0722614D51CD900672794 /* marker_enable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker_enable.png; sourceTree = "<group>"; };
 		07D643FC14CB2DC900B0910C /* KWScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWScrollLayer.h; sourceTree = "<group>"; };
 		07D643FD14CB2DC900B0910C /* KWScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWScrollLayer.m; sourceTree = "<group>"; };
 		07D6440114CB2E7B00B0910C /* KWGauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWGauge.h; sourceTree = "<group>"; };
@@ -248,6 +259,8 @@
 			children = (
 				076D1B7C14D4AADB005EA04E /* CutIn.h */,
 				076D1B7D14D4AADB005EA04E /* CutIn.m */,
+				07C0721A14D50E2300672794 /* SeekBar.h */,
+				07C0721B14D50E2300672794 /* SeekBar.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -471,6 +484,10 @@
 				DCC1A39513A94F1A005BD75D /* config.lua */,
 				07D7351314D3EC2D00623122 /* test.lua */,
 				07F70EE014D40B0A00B43B30 /* musics.lua */,
+				07C0721F14D50F9300672794 /* seekbar.png */,
+				07C0722014D50F9300672794 /* seekbarBackground.png */,
+				07C0722514D51CD900672794 /* marker_disable.png */,
+				07C0722614D51CD900672794 /* marker_enable.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -579,6 +596,10 @@
 				07C0721714D50DD200672794 /* cut_in_boss1.png in Resources */,
 				07C0721814D50DD200672794 /* cutin.plist in Resources */,
 				07C0721914D50DD200672794 /* good.plist in Resources */,
+				07C0722314D50F9300672794 /* seekbar.png in Resources */,
+				07C0722414D50F9300672794 /* seekbarBackground.png in Resources */,
+				07C0722714D51CD900672794 /* marker_disable.png in Resources */,
+				07C0722814D51CD900672794 /* marker_enable.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +640,7 @@
 				6246649514D478C600F5A356 /* LoopMusic.m in Sources */,
 				6246649614D478C600F5A356 /* LoopPlayer.m in Sources */,
 				076D1B7E14D4AADB005EA04E /* CutIn.m in Sources */,
+				07C0721C14D50E2300672794 /* SeekBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +668,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../__Kobold2D__/libs/GoogleAdMobAdsSDK\"",
 				);
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -658,6 +681,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../__Kobold2D__/libs/GoogleAdMobAdsSDK\"",
 				);
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
