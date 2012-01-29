@@ -153,8 +153,8 @@
       [self schedule:@selector(beginWaiting:) interval:60.0 / manager_.bpm - 0.25];
       [self schedule:@selector(endWaiting:) interval:60.0 / manager_.bpm + 0.25];
     }
-    currentMeasure_ += PART_LENGTH;
     if (manager_.measure % PART_LENGTH == PART_LENGTH - 1) {
+      currentMeasure_ += PART_LENGTH;
       if (currentMeasure_ <= manager_.score.scoreLength) {
         [bar_ reloadBarFrom:currentLevel_];
         [self onExamplePart];
