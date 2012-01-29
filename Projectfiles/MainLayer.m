@@ -44,10 +44,15 @@
     MotionDetector* detector = [MotionDetector shared];
     [detector setOnDetection:self selector:@selector(detectMotion:)];
     manager_ = [[LoopMusic alloc] initWithMusicID:1];
+<<<<<<< HEAD
+    
+    [self addChild:[[MusicalNote alloc] initWithInt:1]];
+=======
     OALSimpleAudio* sa =[OALSimpleAudio sharedInstance];
     for (NSString* file in [NSArray arrayWithObjects:@"bell.caf", @"invalid0.caf", @"invalid1.caf", @"valid.caf", nil]) {
       [sa preloadEffect:file];
     }
+>>>>>>> 1a345e0db257f82c3954de99160bf48f54c64c6d
   }
   return self;
 }

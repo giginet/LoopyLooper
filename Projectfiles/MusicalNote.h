@@ -5,13 +5,14 @@
 //  Created on 12/01/28.
 //  Copyright (c) 2012 All rights reserved.
 //
-
+#include "math.h"
 #import "CCNode.h"
 #import "Score.h"
 
 @interface MusicalNote : CCNode{
   @private
-  NSInteger updateCounter; //0, 1, ... , 15
+  double time;
+  NSInteger beatCounter;
   NSInteger startPoint; //0, 4, 8, ...
   NSInteger bpm;
   NSInteger loops;
@@ -23,4 +24,5 @@
   NSDictionary* music;
   Score* score;
 }
+- (id)initWithInt:(int) musicID;
 @end

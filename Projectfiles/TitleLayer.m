@@ -40,9 +40,6 @@
     
     [menu_ alignItemsVerticallyWithPadding:40];
     
-    id cutin = [[CutIn alloc] initWithFace:@"cut_in_boss1.png" background:@"bad.plist"];
-    self.position = director.screenCenter;
-    [self addChild:cutin];
   }
   return self;
 }
