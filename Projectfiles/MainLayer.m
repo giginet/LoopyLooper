@@ -66,9 +66,7 @@
 
 - (void)onReady {
   state_ = GameStateReady;
-  CCLabelTTF* readyLabel = [CCLabelTTF labelWithString:@"Ready" 
-                                              fontName:@"Helvetica" 
-                                              fontSize:288];
+  CCSprite* readyLabel = [CCSprite spriteWithFile:@"ready.png"];
   readyLabel.scale = 0;
   readyLabel.position = [CCDirector sharedDirector].screenCenter;
   id expand = [CCScaleTo actionWithDuration:0.25f scale:1.0];
@@ -147,22 +145,20 @@
       [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", type]];
       // チュートリアル出す
       int frames[] = {0, 1, 1, 2, 0, 2, 0, 0};
-      if (type != MotionTypeRotate) {
-        CCAnimation* animation = [CCAnimation animationWithFiles:[NSString stringWithFormat:@"t%d_", type] frameCount:frames[type] delay:0.1f];
-        CCSprite* tutorial = [CCSprite spriteWithFile:[NSString stringWithFormat:@"t%d_0.png", type]];
-        __weak CCLayer* layer = self;
-        [tutorial runAction:[CCSequence actions:
-                             [CCFadeIn actionWithDuration:0.25], 
-                             [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation] times:2], 
-                             [CCFadeOut actionWithDuration:0.25], 
-                             [CCCallBlockN actionWithBlock:^(CCNode* n){
-          [layer removeChild:n cleanup:YES];
-        }], 
-                             nil]];
-        CGPoint center = [[CCDirector sharedDirector] screenCenter];
-        tutorial.position = ccp(center.x, center.y + 50);
-        [self addChild:tutorial];
-      }
+      CCAnimation* animation = [CCAnimation animationWithFiles:[NSString stringWithFormat:@"t%d_", type] frameCount:frames[type] delay:0.1f];
+      CCSprite* tutorial = [CCSprite spriteWithFile:[NSString stringWithFormat:@"t%d_0.png", type]];
+      __weak CCLayer* layer = self;
+      [tutorial runAction:[CCSequence actions:
+                           [CCFadeIn actionWithDuration:0.25], 
+                           [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation] times:2], 
+                           [CCFadeOut actionWithDuration:0.25], 
+                           [CCCallBlockN actionWithBlock:^(CCNode* n){
+        [layer removeChild:n cleanup:YES];
+      }], 
+                           nil]];
+      CGPoint center = [[CCDirector sharedDirector] screenCenter];
+      tutorial.position = ccp(center.x, center.y + 50);
+      [self addChild:tutorial];
     }
   } else if (state_ == GameStatePlay) {
     MotionType nextType = [manager_.score motionTypeOnMeasure:manager_.measure + 1];

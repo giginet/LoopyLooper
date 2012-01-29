@@ -23,25 +23,17 @@
     
     CCDirector* director = [CCDirector sharedDirector];
     
-    [CCMenuItemFont setFontName:@"Helvetica"];
-    [CCMenuItemFont setFontSize:40];
-    
-    start_ = [CCMenuItemFont itemFromString:@"START"
-                                     target:self
-                                   selector:@selector(toMain:)];
-    
-    CCMenuItemFont *item = [CCMenuItemFont itemFromString:@"RESULT"
-                                                   target:self
-                                                 selector:@selector(toResult:)];
-    menu_ = [CCMenu menuWithItems:start_, item, nil];
-    menu_.position = director.screenCenter;
-    menu_.tag = 100;
-    [self addChild:menu_];
-    
-    [menu_ alignItemsVerticallyWithPadding:40];
-    
+    CCSprite* background = [CCSprite spriteWithFile:@"title.png"];
+    background.position = director.screenCenter;
+    [self addChild:background];    
+    self.isTouchEnabled = YES;
   }
   return self;
+}
+
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+  [self toMain:nil];
+  return YES;
 }
 
 -(void)toMain:(id)sender{

@@ -50,6 +50,12 @@
 		07C0723614D5305100672794 /* t3_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0723014D5305100672794 /* t3_1.png */; };
 		07C0723714D5305100672794 /* t5_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0723114D5305100672794 /* t5_0.png */; };
 		07C0723814D5305100672794 /* t5_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0723214D5305100672794 /* t5_1.png */; };
+		07C0723E14D5352D00672794 /* ready.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0723D14D5352D00672794 /* ready.png */; };
+		07C0724214D5365B00672794 /* t4_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0724014D5365B00672794 /* t4_0.png */; };
+		07C0724314D5365B00672794 /* t4_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0724114D5365B00672794 /* t4_1.png */; };
+		07C0724514D5373200672794 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0724414D5373200672794 /* title.png */; };
+		07C0724714D5387100672794 /* Loop_Poppy_mix.caf in Resources */ = {isa = PBXBuildFile; fileRef = 07C0724614D5387100672794 /* Loop_Poppy_mix.caf */; };
+		07C0724914D539D800672794 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0724814D539D800672794 /* Default-Landscape~ipad.png */; };
 		07D643FE14CB2DC900B0910C /* KWScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D643FD14CB2DC900B0910C /* KWScrollLayer.m */; };
 		07D6440714CB2E7B00B0910C /* KWGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440214CB2E7B00B0910C /* KWGauge.m */; };
 		07D6440814CB2E7B00B0910C /* KWPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440414CB2E7B00B0910C /* KWPieChart.m */; };
@@ -151,6 +157,12 @@
 		07C0723014D5305100672794 /* t3_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = t3_1.png; path = Projectfiles/Resources/t3_1.png; sourceTree = SOURCE_ROOT; };
 		07C0723114D5305100672794 /* t5_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = t5_0.png; path = Projectfiles/Resources/t5_0.png; sourceTree = SOURCE_ROOT; };
 		07C0723214D5305100672794 /* t5_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = t5_1.png; path = Projectfiles/Resources/t5_1.png; sourceTree = SOURCE_ROOT; };
+		07C0723D14D5352D00672794 /* ready.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ready.png; sourceTree = "<group>"; };
+		07C0724014D5365B00672794 /* t4_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t4_0.png; sourceTree = "<group>"; };
+		07C0724114D5365B00672794 /* t4_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t4_1.png; sourceTree = "<group>"; };
+		07C0724414D5373200672794 /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
+		07C0724614D5387100672794 /* Loop_Poppy_mix.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Loop_Poppy_mix.caf; sourceTree = "<group>"; };
+		07C0724814D539D800672794 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		07D643FC14CB2DC900B0910C /* KWScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWScrollLayer.h; sourceTree = "<group>"; };
 		07D643FD14CB2DC900B0910C /* KWScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWScrollLayer.m; sourceTree = "<group>"; };
 		07D6440114CB2E7B00B0910C /* KWGauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWGauge.h; sourceTree = "<group>"; };
@@ -256,6 +268,7 @@
 		076D1B5714D42E15005EA04E /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				07C0724614D5387100672794 /* Loop_Poppy_mix.caf */,
 				076D1B7314D49874005EA04E /* bell.caf */,
 				076D1B7414D49874005EA04E /* invalid0.caf */,
 				076D1B7514D49874005EA04E /* invalid1.caf */,
@@ -422,6 +435,7 @@
 		DCC1A0D613A94EC0005BD75D = {
 			isa = PBXGroup;
 			children = (
+				07C0724814D539D800672794 /* Default-Landscape~ipad.png */,
 				DCC1A38C13A94F1A005BD75D /* Projectfiles */,
 				DCC1A0F713A94ED5005BD75D /* Projectfiles-iOS */,
 				DCFA90ED13B4F6A0009DD35A /* BuildSettings */,
@@ -494,6 +508,8 @@
 				07C0722E14D5305100672794 /* t2_0.png */,
 				07C0722F14D5305100672794 /* t3_0.png */,
 				07C0723014D5305100672794 /* t3_1.png */,
+				07C0724014D5365B00672794 /* t4_0.png */,
+				07C0724114D5365B00672794 /* t4_1.png */,
 				07C0723114D5305100672794 /* t5_0.png */,
 				07C0723214D5305100672794 /* t5_1.png */,
 				07C0721114D50DD200672794 /* CutIn */,
@@ -505,6 +521,8 @@
 				07D7351314D3EC2D00623122 /* test.lua */,
 				333F23EB14D526A40071F94C /* score.lua */,
 				07F70EE014D40B0A00B43B30 /* musics.lua */,
+				07C0724414D5373200672794 /* title.png */,
+				07C0723D14D5352D00672794 /* ready.png */,
 				07C0721F14D50F9300672794 /* seekbar.png */,
 				07C0722014D50F9300672794 /* seekbarBackground.png */,
 				07C0722514D51CD900672794 /* marker_disable.png */,
@@ -628,6 +646,12 @@
 				07C0723714D5305100672794 /* t5_0.png in Resources */,
 				07C0723814D5305100672794 /* t5_1.png in Resources */,
 				333F23EC14D526A40071F94C /* score.lua in Resources */,
+				07C0723E14D5352D00672794 /* ready.png in Resources */,
+				07C0724214D5365B00672794 /* t4_0.png in Resources */,
+				07C0724314D5365B00672794 /* t4_1.png in Resources */,
+				07C0724514D5373200672794 /* title.png in Resources */,
+				07C0724714D5387100672794 /* Loop_Poppy_mix.caf in Resources */,
+				07C0724914D539D800672794 /* Default-Landscape~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

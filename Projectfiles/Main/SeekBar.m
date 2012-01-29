@@ -55,10 +55,10 @@
 }
 
 - (void)update:(ccTime)dt {
-  bar_.position = ccp((800 * time_ / 8) - 400, 0); // あとでかきなおす
-  if (bar_.position.x > 400) {
+  if (time_ / 8.0 >=1) {
     time_ = 0;
   }
+  bar_.position = ccp((800 * time_ / 8.0) - 400, 0); // あとでかきなおす
   time_ += dt;
 }
 
