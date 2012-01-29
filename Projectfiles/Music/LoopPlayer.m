@@ -22,13 +22,11 @@
     manager.backgroundTrack.delegate = self;
     nextTrack_ = [OALAudioTrack track];
     [manager preloadBg:[NSString stringWithFormat: pathFormat_, loopMusicNumber_]];
-    NSLog(@"init!!!!!!!!!");
   }
   return self;
 }
 
 - (void)play {
-  NSLog(@"play!!!!!!!!!!!!");
   OALSimpleAudio* manager = [OALSimpleAudio sharedInstance];
   [manager playBg:[NSString stringWithFormat: pathFormat_, loopMusicNumber_] loop:YES];
 }
