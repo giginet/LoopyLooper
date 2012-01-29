@@ -145,7 +145,7 @@
     if (type != 0) {
       [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", type]];
       // チュートリアル出す
-      int frames[] = {0, 1, 1, 2, 0, 2, 0, 0};
+      int frames[] = {0, 1, 1, 2, 2, 2, 0, 0};
       CCAnimation* animation = [CCAnimation animationWithFiles:[NSString stringWithFormat:@"t%d_", type] frameCount:frames[type] delay:0.1f];
       CCSprite* tutorial = [CCSprite spriteWithFile:[NSString stringWithFormat:@"t%d_0.png", type]];
       __weak CCLayer* layer = self;

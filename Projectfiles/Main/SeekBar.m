@@ -57,7 +57,7 @@
 - (void)update:(ccTime)dt {
   bar_.position = ccp((800 * time_ / 8.0) - 400, 0); // あとでかきなおす
   time_ += dt;
-  if (time_ / 8.0 >=1) {
+  if (time_ / 8.0 - dt >=1) {
     time_ = 0;
   }
 }
