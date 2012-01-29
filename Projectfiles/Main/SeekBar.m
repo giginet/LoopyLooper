@@ -55,11 +55,11 @@
 }
 
 - (void)update:(ccTime)dt {
+  bar_.position = ccp((800 * time_ / 8.0) - 400, 0); // あとでかきなおす
+  time_ += dt;
   if (time_ / 8.0 >=1) {
     time_ = 0;
   }
-  bar_.position = ccp((800 * time_ / 8.0) - 400, 0); // あとでかきなおす
-  time_ += dt;
 }
 
 - (void)play {
@@ -73,8 +73,18 @@
 }
 
 - (void)stop {
-  [self stop];
+  [self pause];
   bar_.position = ccp(-400, 0);
+  time_ = 0;
+}
+
+- (void)reset {
+/*  [self unschedule:@selector(update:)];
+  bar_.position = ccp(-400, 0);
+  time_ = 0;
+  int fps = [[KKStartupConfig config] maxFrameRate];
+  [self schedule:@selector(update:) interval:1.0/fps];
+  [self update:0];*/
 }
  
 @end

@@ -137,6 +137,7 @@
   MotionType type = [manager_.score motionTypeOnMeasure:manager_.measure];
   if (state_ == GameStateExample) {
     if (manager_.measure % PART_LENGTH == PART_LENGTH - 1) {
+      [bar_ reset];
       [self onPlayPart];
     } else if (manager_.measure % PART_LENGTH == PART_LENGTH - 2) {
       [[OALSimpleAudio sharedInstance] playEffect:@"bell.caf"];
@@ -168,6 +169,7 @@
       [self schedule:@selector(endWaiting:) interval:60.0 / manager_.bpm + 0.25];
     }
     if (manager_.measure % PART_LENGTH == PART_LENGTH - 1) {
+      [bar_ reset];
       currentMeasure_ += PART_LENGTH;
       if (currentMeasure_ <= manager_.score.scoreLength) {
         [bar_ reloadBarFrom:currentMeasure_];
