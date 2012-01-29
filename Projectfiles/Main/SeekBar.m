@@ -28,7 +28,7 @@
     startMeasure_ = measure;
     [self reloadBarFrom:measure];
     bar_ = [CCSprite spriteWithFile:@"seekbar.png"];
-    [self addChild:bar_];
+    [self addChild:bar_ z:10000];
     bar_.position = ccp(-400, 0);
     time_ = 0;
   }
@@ -36,11 +36,13 @@
 }
 
 - (void)reloadBarFrom:(int)measure {
-  for (CCSprite* marker in markers_) {
+  NSLog(@"measure = %d", measure);
+  startMeasure_ = measure;
+  for (CCSprite* marker in [markers_ allValues]) {
     [self removeChild:marker cleanup:YES];
   }
   [markers_ removeAllObjects];
-  NSArray* measures = [score_ motionTypesWithRange:NSMakeRange(startMeasure_, 16)];
+  NSArray* measures = [score_ motionTypesWithRange:NSMakeRange(measure, 16)];
   for(int i = 0; i < (int)[measures count]; ++i) {
     NSNumber* type = [measures objectAtIndex:i];
     if ([type intValue] != MotionTypeNone) {
@@ -53,7 +55,7 @@
 }
 
 - (void)update:(ccTime)dt {
-  bar_.position = ccp((800 * time_/8) - 400, 0);
+  bar_.position = ccp((800 * time_ / 8) - 400, 0); // あとでかきなおす
   if (bar_.position.x > 400) {
     time_ = 0;
   }

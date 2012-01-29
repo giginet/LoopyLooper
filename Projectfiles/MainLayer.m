@@ -156,7 +156,7 @@
     if (manager_.measure % PART_LENGTH == PART_LENGTH - 1) {
       currentMeasure_ += PART_LENGTH;
       if (currentMeasure_ <= manager_.score.scoreLength) {
-        [bar_ reloadBarFrom:currentLevel_];
+        [bar_ reloadBarFrom:currentMeasure_];
         [self onExamplePart];
       } else {
         // クリア

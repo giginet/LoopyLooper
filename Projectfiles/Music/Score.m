@@ -37,7 +37,7 @@
    * @retruns NSArray MotionTypeをラップしたNSNumberを含んだNSArray
    */
   NSMutableArray* types = [NSMutableArray array];
-  for (int i = range.location; i < (int)range.length; ++i) {
+  for (int i = range.location; i < (int)(range.location + range.length); ++i) {
     [types addObject:[NSNumber numberWithInt:[self motionTypeOnMeasure:i]]];
   }
   return types;
