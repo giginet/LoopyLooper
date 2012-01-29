@@ -17,16 +17,20 @@
   if (self) {
     loopMusicNumber_ = 0;
     pathFormat_ = format;
-    manager_ = [OALSimpleAudio sharedInstance];
-    manager_.backgroundTrack.delegate = self;
+    OALSimpleAudio* manager = [OALSimpleAudio sharedInstance];
+    [manager resetToDefault];
+    manager.backgroundTrack.delegate = self;
     nextTrack_ = [OALAudioTrack track];
-    [manager_ preloadBg:[NSString stringWithFormat: pathFormat_, loopMusicNumber_]];
+    [manager preloadBg:[NSString stringWithFormat: pathFormat_, loopMusicNumber_]];
+    NSLog(@"init!!!!!!!!!");
   }
   return self;
 }
 
 - (void)play {
-  [manager_ playBg:[NSString stringWithFormat: pathFormat_, loopMusicNumber_] loop:YES];
+  NSLog(@"play!!!!!!!!!!!!");
+  OALSimpleAudio* manager = [OALSimpleAudio sharedInstance];
+  [manager playBg:[NSString stringWithFormat: pathFormat_, loopMusicNumber_] loop:YES];
 }
 
 - (NSInteger)loopMusicNumber {

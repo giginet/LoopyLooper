@@ -53,14 +53,8 @@
 		07F70ED414D4090A00B43B30 /* MotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70ED214D4090A00B43B30 /* MotionDetector.m */; };
 		07F70ED814D4094200B43B30 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70ED714D4094200B43B30 /* Score.m */; };
 		07F70EE114D40B0A00B43B30 /* musics.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07F70EE014D40B0A00B43B30 /* musics.lua */; };
-		6246648B14D43D2D00F5A356 /* MusicalNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 6246648A14D43D2D00F5A356 /* MusicalNote.m */; };
 		6246649514D478C600F5A356 /* LoopMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6246649214D478C600F5A356 /* LoopMusic.m */; };
 		6246649614D478C600F5A356 /* LoopPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6246649414D478C600F5A356 /* LoopPlayer.m */; };
-		6246649A14D47C4800F5A356 /* testBGSeekbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6246649914D47C4800F5A356 /* testBGSeekbar.png */; };
-		6246649D14D49F2D00F5A356 /* SeekBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6246649B14D49F2C00F5A356 /* SeekBar.png */; };
-		6246649E14D49F2D00F5A356 /* Symbol_Circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6246649C14D49F2C00F5A356 /* Symbol_Circle.png */; };
-		624664A014D4A39100F5A356 /* Symbol_Circle_Blink.png in Resources */ = {isa = PBXBuildFile; fileRef = 6246649F14D4A39100F5A356 /* Symbol_Circle_Blink.png */; };
-		624664A214D4A49800F5A356 /* Symbol_Circle_Unable.png in Resources */ = {isa = PBXBuildFile; fileRef = 624664A114D4A49800F5A356 /* Symbol_Circle_Unable.png */; };
 		DC65615C13A969B600A7AC53 /* libbox2d-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615013A969B600A7AC53 /* libbox2d-ios.a */; };
 		DC65615D13A969B600A7AC53 /* libchipmunk-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615113A969B600A7AC53 /* libchipmunk-ios.a */; };
 		DC65615E13A969B600A7AC53 /* libchipmunk-spacemanager-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615213A969B600A7AC53 /* libchipmunk-spacemanager-ios.a */; };
@@ -96,8 +90,6 @@
 		076D1B5914D42E15005EA04E /* Loop_Poppy_1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Loop_Poppy_1.caf; sourceTree = "<group>"; };
 		076D1B5A14D42E15005EA04E /* Loop_Poppy_2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Loop_Poppy_2.caf; sourceTree = "<group>"; };
 		076D1B5B14D42E15005EA04E /* Loop_Poppy_3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Loop_Poppy_3.caf; sourceTree = "<group>"; };
-		076D1B6F14D4798C005EA04E /* MusicalNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicalNote.h; sourceTree = "<group>"; };
-		076D1B7014D4798C005EA04E /* MusicalNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicalNote.m; sourceTree = "<group>"; };
 		076D1B7314D49874005EA04E /* bell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bell.caf; sourceTree = "<group>"; };
 		076D1B7414D49874005EA04E /* invalid0.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = invalid0.caf; sourceTree = "<group>"; };
 		076D1B7514D49874005EA04E /* invalid1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = invalid1.caf; sourceTree = "<group>"; };
@@ -161,17 +153,10 @@
 		07F70ED614D4094200B43B30 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Score.h; path = Music/Score.h; sourceTree = "<group>"; };
 		07F70ED714D4094200B43B30 /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Score.m; path = Music/Score.m; sourceTree = "<group>"; };
 		07F70EE014D40B0A00B43B30 /* musics.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = musics.lua; path = Score/musics.lua; sourceTree = "<group>"; };
-		6246648914D43D2D00F5A356 /* MusicalNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicalNote.h; sourceTree = "<group>"; };
-		6246648A14D43D2D00F5A356 /* MusicalNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicalNote.m; sourceTree = "<group>"; };
 		6246649114D478C600F5A356 /* LoopMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoopMusic.h; path = Music/LoopMusic.h; sourceTree = "<group>"; };
 		6246649214D478C600F5A356 /* LoopMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoopMusic.m; path = Music/LoopMusic.m; sourceTree = "<group>"; };
 		6246649314D478C600F5A356 /* LoopPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoopPlayer.h; path = Music/LoopPlayer.h; sourceTree = "<group>"; };
 		6246649414D478C600F5A356 /* LoopPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoopPlayer.m; path = Music/LoopPlayer.m; sourceTree = "<group>"; };
-		6246649914D47C4800F5A356 /* testBGSeekbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testBGSeekbar.png; sourceTree = "<group>"; };
-		6246649B14D49F2C00F5A356 /* SeekBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SeekBar.png; sourceTree = "<group>"; };
-		6246649C14D49F2C00F5A356 /* Symbol_Circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Symbol_Circle.png; sourceTree = "<group>"; };
-		6246649F14D4A39100F5A356 /* Symbol_Circle_Blink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Symbol_Circle_Blink.png; sourceTree = "<group>"; };
-		624664A114D4A49800F5A356 /* Symbol_Circle_Unable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Symbol_Circle_Unable.png; sourceTree = "<group>"; };
 		DC3BE97813B4FB71003739CC /* BuildSettings-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BuildSettings-iOS.xcconfig"; sourceTree = "<group>"; };
 		DC65615013A969B600A7AC53 /* libbox2d-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libbox2d-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC65615113A969B600A7AC53 /* libchipmunk-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libchipmunk-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -394,8 +379,6 @@
 		07F70ED514D4091400B43B30 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				076D1B6F14D4798C005EA04E /* MusicalNote.h */,
-				076D1B7014D4798C005EA04E /* MusicalNote.m */,
 				07F70ED614D4094200B43B30 /* Score.h */,
 				07F70ED714D4094200B43B30 /* Score.m */,
 				6246649114D478C600F5A356 /* LoopMusic.h */,
@@ -461,8 +444,6 @@
 			isa = PBXGroup;
 			children = (
 				076D1B7B14D4AA9E005EA04E /* Main */,
-				6246648914D43D2D00F5A356 /* MusicalNote.h */,
-				6246648A14D43D2D00F5A356 /* MusicalNote.m */,
 				DCC1A38D13A94F1A005BD75D /* AppDelegate.h */,
 				DCC1A38E13A94F1A005BD75D /* AppDelegate.m */,
 				07F70ECC14D4061F00B43B30 /* LogoLayer.h */,
@@ -479,13 +460,7 @@
 		DCC1A39413A94F1A005BD75D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				624664A114D4A49800F5A356 /* Symbol_Circle_Unable.png */,
-				6246649F14D4A39100F5A356 /* Symbol_Circle_Blink.png */,
-				6246649B14D49F2C00F5A356 /* SeekBar.png */,
-				6246649C14D49F2C00F5A356 /* Symbol_Circle.png */,
-				6246649914D47C4800F5A356 /* testBGSeekbar.png */,
 				076D1B8314D4AC1F005EA04E /* Cutin */,
->>>>>>> 1a345e0db257f82c3954de99160bf48f54c64c6d
 				076D1B5414D42E15005EA04E /* Effect */,
 				076D1B5714D42E15005EA04E /* Music */,
 				07831F6F14B23C7D00C6FC96 /* kawaz-hd.png */,
@@ -590,11 +565,6 @@
 				076D1B5F14D42E15005EA04E /* Loop_Poppy_1.caf in Resources */,
 				076D1B6014D42E15005EA04E /* Loop_Poppy_2.caf in Resources */,
 				076D1B6114D42E15005EA04E /* Loop_Poppy_3.caf in Resources */,
-				6246649A14D47C4800F5A356 /* testBGSeekbar.png in Resources */,
-				6246649D14D49F2D00F5A356 /* SeekBar.png in Resources */,
-				6246649E14D49F2D00F5A356 /* Symbol_Circle.png in Resources */,
-				624664A014D4A39100F5A356 /* Symbol_Circle_Blink.png in Resources */,
-				624664A214D4A49800F5A356 /* Symbol_Circle_Unable.png in Resources */,
 				076D1B7714D49875005EA04E /* bell.caf in Resources */,
 				076D1B7814D49875005EA04E /* invalid0.caf in Resources */,
 				076D1B7914D49875005EA04E /* invalid1.caf in Resources */,
@@ -642,7 +612,6 @@
 				07F70ED314D4090A00B43B30 /* Motion.m in Sources */,
 				07F70ED414D4090A00B43B30 /* MotionDetector.m in Sources */,
 				07F70ED814D4094200B43B30 /* Score.m in Sources */,
-				6246648B14D43D2D00F5A356 /* MusicalNote.m in Sources */,
 				6246649514D478C600F5A356 /* LoopMusic.m in Sources */,
 				6246649614D478C600F5A356 /* LoopPlayer.m in Sources */,
 				076D1B7E14D4AADB005EA04E /* CutIn.m in Sources */,

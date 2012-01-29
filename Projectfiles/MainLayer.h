@@ -8,7 +8,6 @@
 
 #import "KWLayer.h"
 #import "LoopMusic.h"
-#import "MusicalNote.h"
 
 typedef enum {
   GameStateReady,
