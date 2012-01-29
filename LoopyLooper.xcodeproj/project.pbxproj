@@ -59,6 +59,7 @@
 		07F70ED414D4090A00B43B30 /* MotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70ED214D4090A00B43B30 /* MotionDetector.m */; };
 		07F70ED814D4094200B43B30 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70ED714D4094200B43B30 /* Score.m */; };
 		07F70EE114D40B0A00B43B30 /* musics.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07F70EE014D40B0A00B43B30 /* musics.lua */; };
+		333F23EC14D526A40071F94C /* score.lua in Resources */ = {isa = PBXBuildFile; fileRef = 333F23EB14D526A40071F94C /* score.lua */; };
 		6246649514D478C600F5A356 /* LoopMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6246649214D478C600F5A356 /* LoopMusic.m */; };
 		6246649614D478C600F5A356 /* LoopPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6246649414D478C600F5A356 /* LoopPlayer.m */; };
 		DC65615C13A969B600A7AC53 /* libbox2d-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615013A969B600A7AC53 /* libbox2d-ios.a */; };
@@ -166,6 +167,7 @@
 		07F70ED614D4094200B43B30 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Score.h; path = Music/Score.h; sourceTree = "<group>"; };
 		07F70ED714D4094200B43B30 /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Score.m; path = Music/Score.m; sourceTree = "<group>"; };
 		07F70EE014D40B0A00B43B30 /* musics.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = musics.lua; path = Score/musics.lua; sourceTree = "<group>"; };
+		333F23EB14D526A40071F94C /* score.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = score.lua; path = Score/score.lua; sourceTree = "<group>"; };
 		6246649114D478C600F5A356 /* LoopMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoopMusic.h; path = Music/LoopMusic.h; sourceTree = "<group>"; };
 		6246649214D478C600F5A356 /* LoopMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoopMusic.m; path = Music/LoopMusic.m; sourceTree = "<group>"; };
 		6246649314D478C600F5A356 /* LoopPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoopPlayer.h; path = Music/LoopPlayer.h; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 				07831F7014B23C7D00C6FC96 /* kawaz.png */,
 				DCC1A39513A94F1A005BD75D /* config.lua */,
 				07D7351314D3EC2D00623122 /* test.lua */,
+				333F23EB14D526A40071F94C /* score.lua */,
 				07F70EE014D40B0A00B43B30 /* musics.lua */,
 				07C0721F14D50F9300672794 /* seekbar.png */,
 				07C0722014D50F9300672794 /* seekbarBackground.png */,
@@ -600,6 +603,7 @@
 				07C0722414D50F9300672794 /* seekbarBackground.png in Resources */,
 				07C0722714D51CD900672794 /* marker_disable.png in Resources */,
 				07C0722814D51CD900672794 /* marker_enable.png in Resources */,
+				333F23EC14D526A40071F94C /* score.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
