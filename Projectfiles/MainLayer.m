@@ -13,6 +13,7 @@
 #import "LoopMusic.h"
 #import "SeekBar.h"
 #define PART_LENGTH 16
+#define FUZZY_TIME 0.15
 
 @interface MainLayer()
 - (void)onReady;
@@ -36,7 +37,6 @@
   if (self) {
     self.isTouchEnabled = YES;
     currentLevel_ = 1;
-    score_ = 0;
     isWating_ = NO;
     isLevelUp_ = NO;
     currentMeasure_ = 0;
@@ -171,8 +171,9 @@
     MotionType nextType = [music_.score motionTypeOnMeasure:music_.measure + 1];
     if (nextType != MotionTypeNone) {
       correctMotionType_ = nextType;
-      [self schedule:@selector(beginWaiting:) interval:60.0 / music_.bpm - 0.15];
-      [self schedule:@selector(endWaiting:) interval:60.0 / music_.bpm + 0.15];
+      inputTime_ = music_.track.currentTime + 60.0 / music_.bpm;
+      [self schedule:@selector(beginWaiting:) interval:60.0 / music_.bpm - FUZZY_TIME];
+      [self schedule:@selector(endWaiting:) interval:60.0 / music_.bpm + FUZZY_TIME];
     }
     if (music_.measure % PART_LENGTH == PART_LENGTH - 1) {
       [bar_ reset];
@@ -182,7 +183,6 @@
         [self onExamplePart];
       } else {
         // クリア
-        NSLog(@"clear!");
         [self onClear];
       }
     }
@@ -206,12 +206,14 @@
   if (state_ == GameStatePlay && isWating_ && motion.motionType) {
     if (correctMotionType_ == motion.motionType) {
       // 正しい入力をしたとき
-      score_ += pow(1000, currentLevel_); // 入力のズレから決めたい 
+      double sub = (inputTime_ - music_.track.currentTime);
+      if (sub > FUZZY_TIME) sub = FUZZY_TIME;
+      score_ += 500 * pow(2, currentLevel_) * ((FUZZY_TIME * 2) - sub) / (FUZZY_TIME * 2);
+      NSLog(@"%d", score_);
       [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", motion.motionType]];
       isWating_ = NO;
     } else if (motion.motionType != MotionTypeNone) {
       // 間違った入力をしたとき
-      NSLog(@"%d", motion.motionType);
       [self onFail];
     }
   }

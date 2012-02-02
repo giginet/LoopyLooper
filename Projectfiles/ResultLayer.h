@@ -12,7 +12,7 @@
     CCLabelTTF* scoreLabel_;
 }
 @property(readwrite, retain) CCLabelTTF* scoreLabel;
-- (id)initWithScore:(NSUInteger)score;
+- (id)initWithScore:(NSInteger)score;
 -(void)toTitle:(id)sender;
 -(void)toMain:(id)sender;
 @end

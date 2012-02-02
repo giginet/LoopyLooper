@@ -46,7 +46,7 @@
   return self;
 }
 
-- (id)initWithScore:(NSUInteger)score {
+- (id)initWithScore:(NSInteger)score {
   self = [self init];
   if (self) {
     [self.scoreLabel setString:[NSString stringWithFormat:@"score:%d", score]];

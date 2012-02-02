@@ -58,7 +58,7 @@
     KKDeviceMotion* dm = input.deviceMotion;
     if (abs(dm.rotationRate.y) >= M_PI && (dm.roll < M_PI_4 || dm.roll > M_PI_2 + M_PI_4)) {
         type = MotionTypeRoll; // 6
-    } else if((abs(dm.acceleration.rawZ > 0.7))) {
+    } else if((abs(dm.acceleration.rawZ) > 0.7 && -M_PI_4 <= dm.yaw && dm.yaw <= M_PI_4)) {
       type = MotionTypeBackForth; // 3
     } else if ( dm.acceleration.rawX > 0.8 && abs(dm.rotationRate.y) <= M_PI ) {
       type = MotionTypeUp; // 1
@@ -76,14 +76,13 @@
 
 - (BOOL) isMotionTypeRotateWithKKDeviceMotion:(KKDeviceMotion*)motion {
   const double yaw = [motion yaw];
-  BOOL isRoll = NO;
   
   // 一定方向に回転中かどうか
   if ( self.yawDir * ( yaw - self.prevYaw ) > 0.0 ) {
     self.prevYaw = yaw;
     // 45度以上回転したかどうか
     if ( self.yawDir * ( yaw - self.yawOrigin ) >= M_PI_4 ) {
-       isRoll = YES;
+       return YES;
      }
    } else {
      // 回転方向変更
@@ -91,7 +90,7 @@
      self.prevYaw = yaw;
      self.yawOrigin = yaw;
    }
-   return isRoll;
+   return NO;
 }
 
 - (BOOL) isMotionTypeShakeWithKKDeviceMotion:(KKDeviceMotion*)motion {

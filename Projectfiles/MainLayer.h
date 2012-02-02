@@ -21,6 +21,7 @@ typedef enum {
   int currentMeasure_;
   int currentLevel_;
   int score_;
+  ccTime inputTime_;
   BOOL isLevelUp_;
   BOOL isWating_;
   MotionType correctMotionType_;
