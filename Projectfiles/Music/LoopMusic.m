@@ -36,6 +36,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
     nextMeasure_ = 1;
     title_ = @"";
     isEndOfLoop_ = NO;
+    [OALSimpleAudio sharedInstance].bgVolume = 1.0;
   }
   return self;
 }
@@ -117,7 +118,6 @@ const NSString* MUSICS_DATA = @"musics.lua";
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-  NSLog(@"%d", loop_);
   [[OALSimpleAudio sharedInstance] playBg:[NSString stringWithFormat:file_, loop_] loop:YES];
 }
 

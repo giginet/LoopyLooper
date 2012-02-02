@@ -56,19 +56,19 @@
   if (input.accelerometerAvailable) {
     MotionType type = MotionTypeNone;
     KKDeviceMotion* dm = input.deviceMotion;
-    if ( (abs(dm.acceleration.rawZ) > .5) ) {
+    if (abs(dm.rotationRate.y) >= M_PI && (dm.roll < M_PI_4 || dm.roll > M_PI_2 + M_PI_4)) {
+        type = MotionTypeRoll; // 6
+    } else if((abs(dm.acceleration.rawZ > 0.7))) {
       type = MotionTypeBackForth; // 3
-    } else if ( dm.acceleration.rawX > .6 ) {
+    } else if ( dm.acceleration.rawX > 0.8 && abs(dm.rotationRate.y) <= M_PI ) {
       type = MotionTypeUp; // 1
-    } else if ( dm.acceleration.rawX < -.6 ) {
+    } else if ( dm.acceleration.rawX < -0.8 && abs(dm.rotationRate.y) <= M_PI ) {
       type = MotionTypeDown; // 2
     } else if ( [self isMotionTypeRotateWithKKDeviceMotion:dm] ) {
       type = MotionTypeRotate; // 5
     } else if ( [self isMotionTypeShakeWithKKDeviceMotion:dm] ) {
       type = MotionTypeShake; // 4
-    } else if (dm.roll < M_PI_4 || dm.roll > M_PI_2 + M_PI_4) {
-      type = MotionTypeRoll; // 6
-    }
+    } 
     return [Motion motionWithKKDeviceMotion:dm motionType:type];
   }
   return nil;
@@ -81,7 +81,7 @@
   // 一定方向に回転中かどうか
   if ( self.yawDir * ( yaw - self.prevYaw ) > 0.0 ) {
     self.prevYaw = yaw;
-    // 90度以上回転したかどうか
+    // 45度以上回転したかどうか
     if ( self.yawDir * ( yaw - self.yawOrigin ) >= M_PI_4 ) {
        isRoll = YES;
      }

@@ -177,11 +177,12 @@
     if (music_.measure % PART_LENGTH == PART_LENGTH - 1) {
       [bar_ reset];
       currentMeasure_ += PART_LENGTH;
+      [bar_ reloadBarFrom:currentMeasure_];
       if (currentMeasure_ < music_.score.scoreLength) {
-        [bar_ reloadBarFrom:currentMeasure_];
         [self onExamplePart];
       } else {
         // クリア
+        NSLog(@"clear!");
         [self onClear];
       }
     }
@@ -210,7 +211,8 @@
       isWating_ = NO;
     } else if (motion.motionType != MotionTypeNone) {
       // 間違った入力をしたとき
-      //[self onFail];
+      NSLog(@"%d", motion.motionType);
+      [self onFail];
     }
   }
 }

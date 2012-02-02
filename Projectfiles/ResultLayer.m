@@ -48,8 +48,8 @@
 
 - (id)initWithScore:(NSUInteger)score {
   self = [self init];
-  if ( nil != self ) {
-    [self.scoreLabel setString:[NSString stringWithFormat:@"score:%lu", score]];
+  if (self) {
+    [self.scoreLabel setString:[NSString stringWithFormat:@"score:%d", score]];
   }
   return self;
 }
