@@ -20,6 +20,7 @@
   NSString* title_;
   NSString* file_;
   Score* score_;
+  BOOL isEndOfLoop_;
 }
 
 @property(readonly) int bpm;

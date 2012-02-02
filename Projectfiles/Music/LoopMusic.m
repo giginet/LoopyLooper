@@ -34,6 +34,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
     measure_ = 0;
     nextMeasure_ = 1;
     title_ = @"";
+    isEndOfLoop_ = NO;
   }
   return self;
 }
@@ -57,10 +58,11 @@ const NSString* MUSICS_DATA = @"musics.lua";
 }
 
 - (void)play {
+  double fps = [[KKStartupConfig config] maxFrameRate];
   [[OALSimpleAudio sharedInstance] playBg:[NSString stringWithFormat:file_, loop_] loop:YES];
   [[CCScheduler sharedScheduler] scheduleSelector:@selector(tick:) 
                                         forTarget:self 
-                                         interval:60.0 / self.bpm
+                                         interval:1.0 / fps
                                            paused:NO];
   [self tick:0];
 }
@@ -100,12 +102,18 @@ const NSString* MUSICS_DATA = @"musics.lua";
 }
 
 - (void)tick:(ccTime)dt {
-  measure_ = nextMeasure_;
-  nextMeasure_ = measure_ + 1;
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-  [delegate_ performSelector:selector_];
-  #pragma clang diagnostic pop
+  OALSimpleAudio* sa = [OALSimpleAudio sharedInstance];
+  if (sa.backgroundTrack.currentTime - dt < 0) isEndOfLoop_ = NO;
+  if (sa.backgroundTrack.currentTime >= nextMeasure_ % 16 * 60.0 / self.bpm && !isEndOfLoop_) {
+    if (nextMeasure_ % 16 == 0) isEndOfLoop_ = YES;
+    NSLog(@"%f %d", sa.backgroundTrack.currentTime, nextMeasure_);
+    measure_ = nextMeasure_;
+    nextMeasure_ = measure_ + 1;
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [delegate_ performSelector:selector_];
+    #pragma clang diagnostic pop
+  }
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
