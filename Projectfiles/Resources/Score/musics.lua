@@ -1,10 +1,10 @@
 local musics = {
   {
          file = "Loop_Poppy_%d.caf",
-         score = "score.lua",
+         score = "test.lua",
          title = "LoopyPoppy",
          bpm = 120,
-         loops = 1
+         loops = 4
      }
 }
 

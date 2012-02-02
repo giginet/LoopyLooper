@@ -8,7 +8,6 @@
 
 #import "LoopMusic.h"
 #import "Motion.h"
-#import "LoopPlayer.h"
 
 const NSString* MUSICS_DATA = @"musics.lua";
 
@@ -25,12 +24,12 @@ const NSString* MUSICS_DATA = @"musics.lua";
 @synthesize title = title_;
 @synthesize nextMeasure = nextMeasure_;
 @synthesize score = score_;
-@synthesize player = player_;
 
 - (id)init {
   self = [super init];
   if (self) {
     bpm_ = 0;
+    loop_ = 0;
     loops_ = 0;
     measure_ = 0;
     nextMeasure_ = 1;
@@ -49,22 +48,25 @@ const NSString* MUSICS_DATA = @"musics.lua";
     title_ = [music objectForKey:@"title"];
     file_ = [music objectForKey:@"file"];
     score_ = [[Score alloc] initWithFile:[music objectForKey:@"score"]];
-    player_ = [[LoopPlayer alloc] initWithFileFormat:file_];
     [self preLoadMusic:file_];
     [self preLoadEffects:file_];
+    OALSimpleAudio* sa = [OALSimpleAudio sharedInstance];
+    sa.backgroundTrack.delegate = self;
   }
   return self;
 }
 
 - (void)play {
-  [player_ play];
+  [[OALSimpleAudio sharedInstance] playBg:[NSString stringWithFormat:file_, loop_] loop:YES];
   [[CCScheduler sharedScheduler] scheduleSelector:@selector(tick:) 
-                                        forTarget:self interval:60.0 / self.bpm
+                                        forTarget:self 
+                                         interval:60.0 / self.bpm
                                            paused:NO];
   [self tick:0];
 }
 
 - (void)stop {
+  [[OALSimpleAudio sharedInstance] stopBg];
   [[CCScheduler sharedScheduler] unscheduleSelector:@selector(tick:) 
                                           forTarget:self];
 }
@@ -78,8 +80,11 @@ const NSString* MUSICS_DATA = @"musics.lua";
   selector_ = selector;
 }
 
-- (void)changeLoopMusic:(NSInteger)number {
-  [player_ setLoopMusicNumber:number];
+- (void)changeLoop:(NSInteger)number {
+  if (loop_ == number) return;
+  loop_ = number;
+  OALSimpleAudio* sa = [OALSimpleAudio sharedInstance];
+  sa.backgroundTrack.numberOfLoops = 0;
 }
 
 - (void)preLoadMusic:(NSString *)file {
@@ -101,6 +106,10 @@ const NSString* MUSICS_DATA = @"musics.lua";
   #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
   [delegate_ performSelector:selector_];
   #pragma clang diagnostic pop
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+  [[OALSimpleAudio sharedInstance] playBg:[NSString stringWithFormat:file_, loop_] loop:YES];
 }
 
 @end

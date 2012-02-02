@@ -73,7 +73,6 @@
 		07F70EE114D40B0A00B43B30 /* musics.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07F70EE014D40B0A00B43B30 /* musics.lua */; };
 		333F23EC14D526A40071F94C /* score.lua in Resources */ = {isa = PBXBuildFile; fileRef = 333F23EB14D526A40071F94C /* score.lua */; };
 		6246649514D478C600F5A356 /* LoopMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6246649214D478C600F5A356 /* LoopMusic.m */; };
-		6246649614D478C600F5A356 /* LoopPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6246649414D478C600F5A356 /* LoopPlayer.m */; };
 		DC65615C13A969B600A7AC53 /* libbox2d-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615013A969B600A7AC53 /* libbox2d-ios.a */; };
 		DC65615D13A969B600A7AC53 /* libchipmunk-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615113A969B600A7AC53 /* libchipmunk-ios.a */; };
 		DC65615E13A969B600A7AC53 /* libchipmunk-spacemanager-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615213A969B600A7AC53 /* libchipmunk-spacemanager-ios.a */; };
@@ -194,8 +193,6 @@
 		333F23EB14D526A40071F94C /* score.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = score.lua; path = Score/score.lua; sourceTree = "<group>"; };
 		6246649114D478C600F5A356 /* LoopMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoopMusic.h; path = Music/LoopMusic.h; sourceTree = "<group>"; };
 		6246649214D478C600F5A356 /* LoopMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoopMusic.m; path = Music/LoopMusic.m; sourceTree = "<group>"; };
-		6246649314D478C600F5A356 /* LoopPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoopPlayer.h; path = Music/LoopPlayer.h; sourceTree = "<group>"; };
-		6246649414D478C600F5A356 /* LoopPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoopPlayer.m; path = Music/LoopPlayer.m; sourceTree = "<group>"; };
 		DC3BE97813B4FB71003739CC /* BuildSettings-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BuildSettings-iOS.xcconfig"; sourceTree = "<group>"; };
 		DC65615013A969B600A7AC53 /* libbox2d-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libbox2d-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC65615113A969B600A7AC53 /* libchipmunk-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libchipmunk-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -426,8 +423,6 @@
 				07F70ED714D4094200B43B30 /* Score.m */,
 				6246649114D478C600F5A356 /* LoopMusic.h */,
 				6246649214D478C600F5A356 /* LoopMusic.m */,
-				6246649314D478C600F5A356 /* LoopPlayer.h */,
-				6246649414D478C600F5A356 /* LoopPlayer.m */,
 			);
 			name = Music;
 			sourceTree = "<group>";
@@ -690,7 +685,6 @@
 				07F70ED414D4090A00B43B30 /* MotionDetector.m in Sources */,
 				07F70ED814D4094200B43B30 /* Score.m in Sources */,
 				6246649514D478C600F5A356 /* LoopMusic.m in Sources */,
-				6246649614D478C600F5A356 /* LoopPlayer.m in Sources */,
 				076D1B7E14D4AADB005EA04E /* CutIn.m in Sources */,
 				07C0721C14D50E2300672794 /* SeekBar.m in Sources */,
 			);

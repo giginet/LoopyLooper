@@ -25,7 +25,7 @@ typedef enum {
   BOOL isWating_;
   MotionType correctMotionType_;
   GameState state_;
-  LoopMusic* manager_;
+  LoopMusic* music_;
   SeekBar* bar_;
 }
 

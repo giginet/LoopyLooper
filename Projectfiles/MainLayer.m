@@ -44,13 +44,16 @@
     
     MotionDetector* detector = [MotionDetector shared];
     [detector setOnDetection:self selector:@selector(detectMotion:)];
-    manager_ = [[LoopMusic alloc] initWithMusicID:1];
+    music_ = [[LoopMusic alloc] initWithMusicID:1];
     OALSimpleAudio* sa =[OALSimpleAudio sharedInstance];
-    for (NSString* file in [NSArray arrayWithObjects:@"bell.caf", @"invalid0.caf", @"invalid1.caf", @"valid.caf", nil]) {
+    for (NSString* file in [NSArray arrayWithObjects:@"bell.caf", 
+                            @"invalid0.caf", 
+                            @"invalid1.caf", 
+                            @"valid.caf", nil]) {
       [sa preloadEffect:file];
     }
     
-    bar_ = [SeekBar seekBarWithScore:manager_.score measure:0];
+    bar_ = [SeekBar seekBarWithScore:music_.score measure:0];
     [self addChild:bar_];
     bar_.position = ccp(450, 200);
   }
@@ -82,7 +85,7 @@
 }
 
 - (void)onStart {
-  [manager_ play];
+  [music_ play];
   [bar_ play];
   currentMeasure_ = 0;
   [self onExamplePart];
@@ -91,22 +94,24 @@
 - (void)onExamplePart {
   state_ = GameStateExample;
   if (isLevelUp_) {
-    NSLog(@"LevelUp");
     [[OALSimpleAudio sharedInstance] playEffect:@"valid.caf"];
     score_ += 5000;
-    ++currentLevel_;
+    if (currentLevel_ < music_.loops - 1) {
+      NSLog(@"LevelUp");
+      ++currentLevel_;
+      [music_ changeLoop:currentLevel_];
+    }
   } else if (currentMeasure_ != 0) {
     [[OALSimpleAudio sharedInstance] playEffect:@"invalid1.caf"];
   }
-  [manager_ setCallbackOnTick:self selector:@selector(onTick)];
-  manager_.player.loopMusicNumber = currentLevel_ - 1;
+  [music_ setCallbackOnTick:self selector:@selector(onTick)];
 }
 
 - (void)onPlayPart {
   isLevelUp_ = YES;
   state_ = GameStatePlay;
-  manager_.nextMeasure = currentMeasure_;
-  [manager_ setCallbackOnTick:self selector:@selector(onTick)];
+  music_.nextMeasure = currentMeasure_;
+  [music_ setCallbackOnTick:self selector:@selector(onTick)];
 }
 
 - (void)onGameOver {
@@ -130,16 +135,16 @@
 }
 
 - (void)onExit {
-  [manager_ stop];
+  [music_ stop];
 }
 
 - (void)onTick {
-  MotionType type = [manager_.score motionTypeOnMeasure:manager_.measure];
+  MotionType type = [music_.score motionTypeOnMeasure:music_.measure];
   if (state_ == GameStateExample) {
-    if (manager_.measure % PART_LENGTH == PART_LENGTH - 1) {
+    if (music_.measure % PART_LENGTH == PART_LENGTH - 1) {
       [bar_ reset];
       [self onPlayPart];
-    } else if (manager_.measure % PART_LENGTH == PART_LENGTH - 2) {
+    } else if (music_.measure % PART_LENGTH == PART_LENGTH - 2) {
       [[OALSimpleAudio sharedInstance] playEffect:@"bell.caf"];
     }
     if (type != 0) {
@@ -162,16 +167,16 @@
       [self addChild:tutorial];
     }
   } else if (state_ == GameStatePlay) {
-    MotionType nextType = [manager_.score motionTypeOnMeasure:manager_.measure + 1];
+    MotionType nextType = [music_.score motionTypeOnMeasure:music_.measure + 1];
     if (nextType != MotionTypeNone) {
       correctMotionType_ = nextType;
-      [self schedule:@selector(beginWaiting:) interval:60.0 / manager_.bpm - 0.25];
-      [self schedule:@selector(endWaiting:) interval:60.0 / manager_.bpm + 0.25];
+      [self schedule:@selector(beginWaiting:) interval:60.0 / music_.bpm - 0.15];
+      [self schedule:@selector(endWaiting:) interval:60.0 / music_.bpm + 0.15];
     }
-    if (manager_.measure % PART_LENGTH == PART_LENGTH - 1) {
+    if (music_.measure % PART_LENGTH == PART_LENGTH - 1) {
       [bar_ reset];
       currentMeasure_ += PART_LENGTH;
-      if (currentMeasure_ <= manager_.score.scoreLength) {
+      if (currentMeasure_ < music_.score.scoreLength) {
         [bar_ reloadBarFrom:currentMeasure_];
         [self onExamplePart];
       } else {
@@ -204,7 +209,7 @@
       isWating_ = NO;
     } else if (motion.motionType != MotionTypeNone) {
       // 間違った入力をしたとき
-      [self onFail];
+      //[self onFail];
     }
   }
 }
@@ -214,7 +219,10 @@
   [[OALSimpleAudio sharedInstance] playEffect:@"invalid0.caf"];
   isWating_ = NO;
   isLevelUp_ = NO;
-  manager_.player.loopMusicNumber = 0;
+  if (currentLevel_ != 1) {
+    currentLevel_ = 1;
+    [music_ changeLoop:currentLevel_ - 1];
+  }
 }
 
 @end
