@@ -29,6 +29,7 @@
 @property(readwrite) int nextMeasure;
 @property(readonly, copy) NSString* title;
 @property(readonly) Score* score;
+@property(readonly) OALAudioTrack* track;
 
 - (id)initWithMusicID:(int)musicID;
 - (void)play;

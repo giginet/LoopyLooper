@@ -13,6 +13,7 @@
 @end
 
 @implementation SeekBar
+@synthesize time = time_;
 
 + (id)seekBarWithScore:(Score *)score measure:(int)measure {
   return [[[self class] alloc] initWithScore:score measure:measure];
@@ -47,7 +48,7 @@
     NSNumber* type = [measures objectAtIndex:i];
     if ([type intValue] != MotionTypeNone) {
       CCSprite* marker = [CCSprite spriteWithFile:@"marker_disable.png"];
-      marker.position = CGPointMake(23.5 + i * 48.5 - 450, 0);
+      marker.position = CGPointMake(i * 50 - 400, 0);
       [markers_ setObject:marker forKey:[NSNumber numberWithInt:i]];
       [self addChild:marker];
     }
@@ -55,11 +56,7 @@
 }
 
 - (void)update:(ccTime)dt {
-  bar_.position = ccp((800 * time_ / 8.0) - 400, 0); // あとでかきなおす
-  time_ += dt;
-  if (time_ / 8.0 - dt >=1) {
-    time_ = 0;
-  }
+  bar_.position = ccp((800 * time_ / 8.0) - 400, 0);
 }
 
 - (void)play {

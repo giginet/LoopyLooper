@@ -65,6 +65,7 @@
 }
 
 - (void)update:(ccTime)dt {
+  bar_.time = music_.track.currentTime;
 }
 
 - (void)onReady {
@@ -96,10 +97,10 @@
   if (isLevelUp_) {
     [[OALSimpleAudio sharedInstance] playEffect:@"valid.caf"];
     score_ += 5000;
-    if (currentLevel_ < music_.loops - 1) {
+    if (currentLevel_ < music_.loops) {
       NSLog(@"LevelUp");
       ++currentLevel_;
-      [music_ changeLoop:currentLevel_];
+      [music_ changeLoop:currentLevel_ - 1];
     }
   } else if (currentMeasure_ != 0) {
     [[OALSimpleAudio sharedInstance] playEffect:@"invalid1.caf"];

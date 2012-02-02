@@ -17,6 +17,8 @@
   Score* score_;
 }
 
+@property(readwrite) ccTime time;
+
 + (id)seekBarWithScore:(Score*)score measure:(int)measure;
 
 - (id)initWithScore:(Score*)score measure:(int)measure;

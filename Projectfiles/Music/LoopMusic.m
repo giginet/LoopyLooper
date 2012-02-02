@@ -24,6 +24,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
 @synthesize title = title_;
 @synthesize nextMeasure = nextMeasure_;
 @synthesize score = score_;
+@dynamic track;
 
 - (id)init {
   self = [super init];
@@ -96,7 +97,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
 }
 
 - (void)preLoadEffects:(NSString *)file {
-  for (int i = 1; i <= 2; ++i) {
+  for (int i = 1; i <= 5; ++i) {
     [[OALSimpleAudio sharedInstance] preloadEffect:[NSString stringWithFormat:@"%d.caf", i]];
   }
 }
@@ -106,7 +107,6 @@ const NSString* MUSICS_DATA = @"musics.lua";
   if (sa.backgroundTrack.currentTime - dt < 0) isEndOfLoop_ = NO;
   if (sa.backgroundTrack.currentTime >= nextMeasure_ % 16 * 60.0 / self.bpm && !isEndOfLoop_) {
     if (nextMeasure_ % 16 == 0) isEndOfLoop_ = YES;
-    NSLog(@"%f %d", sa.backgroundTrack.currentTime, nextMeasure_);
     measure_ = nextMeasure_;
     nextMeasure_ = measure_ + 1;
     #pragma clang diagnostic push
@@ -117,7 +117,12 @@ const NSString* MUSICS_DATA = @"musics.lua";
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+  NSLog(@"%d", loop_);
   [[OALSimpleAudio sharedInstance] playBg:[NSString stringWithFormat:file_, loop_] loop:YES];
+}
+
+- (OALAudioTrack*)track {
+  return [OALSimpleAudio sharedInstance].backgroundTrack;
 }
 
 @end
