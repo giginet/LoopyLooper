@@ -57,6 +57,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
     [self preLoadEffects:file_];
     OALSimpleAudio* sa = [OALSimpleAudio sharedInstance];
     sa.backgroundTrack.delegate = self;
+    sa.backgroundTrack.meteringEnabled = YES;
   }
   return self;
 }

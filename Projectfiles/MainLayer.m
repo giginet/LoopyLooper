@@ -29,6 +29,13 @@
 - (void)onFail;
 @end
 
+/*
+ * 命名規則として
+ *  Tick 1/fps秒のことを指す
+ *  Measure 1小節のことを指す。1/bpm秒
+ *  Beat 1拍のことをさす、Measureが区間を表しているのに対し、Beatは1点を表す
+ */
+
 @implementation MainLayer
 @synthesize music = music_;
 
@@ -56,6 +63,9 @@
                             @"valid.caf", nil]) {
       [sa preloadEffect:file];
     }
+    CCParticleSystemQuad* bg = [CCParticleSystemQuad particleWithFile:@"background.plist"];
+    bg.position = [CCDirector sharedDirector].screenCenter;
+    [self addChild:bg];
     
     bar_ = [SeekBar seekBarWithMusic:self.music measure:0];
     [self addChild:bar_];
@@ -120,7 +130,6 @@
   isLevelUp_ = YES;
   isPerfect_ = YES;
   state_ = GameStatePlay;
-  NSLog(@"onplay");
   self.music.nextMeasure = startBeat_ + 1;
 }
 
@@ -240,6 +249,9 @@
         score_ += 500 * pow(2, currentLevel_) * ((FUZZY_TIME * 2) - sub) / (FUZZY_TIME * 2);
         [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", motion.motionType]];
         isInputed_ = YES;
+        CCParticleSystemQuad* melody = [CCParticleSystemQuad particleWithFile:@"melody.plist"];
+        melody.position = ccp(bar_.position.x - 400 + (currentBeat_ - startBeat_) * 50, bar_.position.y);
+        [self addChild:melody];
       } else if (correctMotionType != MotionTypeNone) {
         // 間違った入力をしたとき
         NSLog(@"type = %d", motion.motionType); 
