@@ -52,13 +52,11 @@
 		07C0723414D5305100672794 /* t2_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0722E14D5305100672794 /* t2_0.png */; };
 		07C0723514D5305100672794 /* t3_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0722F14D5305100672794 /* t3_0.png */; };
 		07C0723614D5305100672794 /* t3_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0723014D5305100672794 /* t3_1.png */; };
-		07C0723714D5305100672794 /* t5_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0723114D5305100672794 /* t5_0.png */; };
-		07C0723814D5305100672794 /* t5_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0723214D5305100672794 /* t5_1.png */; };
 		07C0723E14D5352D00672794 /* ready.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0723D14D5352D00672794 /* ready.png */; };
-		07C0724214D5365B00672794 /* t4_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0724014D5365B00672794 /* t4_0.png */; };
-		07C0724314D5365B00672794 /* t4_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0724114D5365B00672794 /* t4_1.png */; };
 		07C0724514D5373200672794 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0724414D5373200672794 /* title.png */; };
 		07C0724914D539D800672794 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0724814D539D800672794 /* Default-Landscape~ipad.png */; };
+		07C65EA914E9702800EE1391 /* t4_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C65EA714E9702400EE1391 /* t4_0.png */; };
+		07C65EAA14E9702800EE1391 /* t5_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C65EA814E9702500EE1391 /* t5_0.png */; };
 		07D643FE14CB2DC900B0910C /* KWScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D643FD14CB2DC900B0910C /* KWScrollLayer.m */; };
 		07D6440714CB2E7B00B0910C /* KWGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440214CB2E7B00B0910C /* KWGauge.m */; };
 		07D6440814CB2E7B00B0910C /* KWPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440414CB2E7B00B0910C /* KWPieChart.m */; };
@@ -161,13 +159,11 @@
 		07C0722E14D5305100672794 /* t2_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = t2_0.png; path = Projectfiles/Resources/t2_0.png; sourceTree = SOURCE_ROOT; };
 		07C0722F14D5305100672794 /* t3_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = t3_0.png; path = Projectfiles/Resources/t3_0.png; sourceTree = SOURCE_ROOT; };
 		07C0723014D5305100672794 /* t3_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = t3_1.png; path = Projectfiles/Resources/t3_1.png; sourceTree = SOURCE_ROOT; };
-		07C0723114D5305100672794 /* t5_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = t5_0.png; path = Projectfiles/Resources/t5_0.png; sourceTree = SOURCE_ROOT; };
-		07C0723214D5305100672794 /* t5_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = t5_1.png; path = Projectfiles/Resources/t5_1.png; sourceTree = SOURCE_ROOT; };
 		07C0723D14D5352D00672794 /* ready.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ready.png; sourceTree = "<group>"; };
-		07C0724014D5365B00672794 /* t4_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t4_0.png; sourceTree = "<group>"; };
-		07C0724114D5365B00672794 /* t4_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t4_1.png; sourceTree = "<group>"; };
 		07C0724414D5373200672794 /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
 		07C0724814D539D800672794 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		07C65EA714E9702400EE1391 /* t4_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t4_0.png; sourceTree = "<group>"; };
+		07C65EA814E9702500EE1391 /* t5_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t5_0.png; sourceTree = "<group>"; };
 		07D643FC14CB2DC900B0910C /* KWScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWScrollLayer.h; sourceTree = "<group>"; };
 		07D643FD14CB2DC900B0910C /* KWScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWScrollLayer.m; sourceTree = "<group>"; };
 		07D6440114CB2E7B00B0910C /* KWGauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWGauge.h; sourceTree = "<group>"; };
@@ -512,10 +508,8 @@
 				07C0722E14D5305100672794 /* t2_0.png */,
 				07C0722F14D5305100672794 /* t3_0.png */,
 				07C0723014D5305100672794 /* t3_1.png */,
-				07C0724014D5365B00672794 /* t4_0.png */,
-				07C0724114D5365B00672794 /* t4_1.png */,
-				07C0723114D5305100672794 /* t5_0.png */,
-				07C0723214D5305100672794 /* t5_1.png */,
+				07C65EA714E9702400EE1391 /* t4_0.png */,
+				07C65EA814E9702500EE1391 /* t5_0.png */,
 				07C0721114D50DD200672794 /* CutIn */,
 				076D1B5414D42E15005EA04E /* Effect */,
 				076D1B5714D42E15005EA04E /* Music */,
@@ -647,18 +641,16 @@
 				07C0723414D5305100672794 /* t2_0.png in Resources */,
 				07C0723514D5305100672794 /* t3_0.png in Resources */,
 				07C0723614D5305100672794 /* t3_1.png in Resources */,
-				07C0723714D5305100672794 /* t5_0.png in Resources */,
-				07C0723814D5305100672794 /* t5_1.png in Resources */,
 				333F23EC14D526A40071F94C /* score.lua in Resources */,
 				07C0723E14D5352D00672794 /* ready.png in Resources */,
-				07C0724214D5365B00672794 /* t4_0.png in Resources */,
-				07C0724314D5365B00672794 /* t4_1.png in Resources */,
 				07C0724514D5373200672794 /* title.png in Resources */,
 				07C0724914D539D800672794 /* Default-Landscape~ipad.png in Resources */,
 				070C1CB914DAAC9400889A72 /* Loop_Underground_0.caf in Resources */,
 				070C1CBA14DAAC9400889A72 /* Loop_Underground_1.caf in Resources */,
 				070C1CBB14DAAC9400889A72 /* Loop_Underground_2.caf in Resources */,
 				070C1CBC14DAAC9400889A72 /* Loop_Underground_3.caf in Resources */,
+				07C65EA914E9702800EE1391 /* t4_0.png in Resources */,
+				07C65EAA14E9702800EE1391 /* t5_0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

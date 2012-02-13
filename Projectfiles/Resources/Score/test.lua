@@ -31,7 +31,7 @@ local score = {
   0,
   0,
   0,
-  13
+  1
 }
 
 return score;

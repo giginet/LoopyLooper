@@ -59,11 +59,9 @@
   if (input.accelerometerAvailable) {
     MotionType type = MotionTypeNone;
     KKDeviceMotion* dm = input.deviceMotion;
-    NSLog(@"%f", dm.acceleration.rawY);
     if (dm.acceleration.rawY > 0.7) {
       type = MotionTypeLeft; // 4
-    } else if((dm.acceleration.rawZ > 0.7 || dm.acceleration.rawZ < -0.7) && -M_PI_4 <= dm.yaw && dm.yaw <= M_PI_4) {
-      NSLog(@"%f %f", dm.acceleration.rawZ, dm.yaw);
+    } else if(dm.acceleration.rawZ > 0.7 || dm.acceleration.rawZ < -0.7) {
       type = MotionTypeBackForth; // 3
     } else if ( dm.acceleration.rawX > 0.8 && abs(dm.rotationRate.y) <= M_PI ) {
       type = MotionTypeUp; // 1
@@ -71,8 +69,6 @@
       type = MotionTypeDown; // 2
     } else if (dm.acceleration.rawY < -0.7) {
       type = MotionTypeRight; // 5
-    } else if ( [self isMotionTypeShakeWithKKDeviceMotion:dm] ) {
-      //type = MotionTypeShake; // 4
     } 
     return [Motion motionWithKKDeviceMotion:dm motionType:type];
   }
