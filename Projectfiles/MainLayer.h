@@ -23,6 +23,7 @@ typedef enum {
   int currentLevel_;
   int score_;
   BOOL isLevelUp_;
+  BOOL isPerfect_;
   BOOL isInputed_;
   NSTimeInterval prevTime_;
   GameState state_;

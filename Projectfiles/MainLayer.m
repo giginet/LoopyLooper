@@ -43,6 +43,7 @@
     currentLevel_ = 1;
     isInputed_ = NO;
     isLevelUp_ = NO;
+    isPerfect_ = NO;
     score_ = 0;
     prevTime_ = 0;
     MotionDetector* detector = [MotionDetector shared];
@@ -107,14 +108,9 @@
 
 - (void)onExamplePart {
   state_ = GameStateExample;
-  if (isLevelUp_) {
+  if (isPerfect_) {
     [[OALSimpleAudio sharedInstance] playEffect:@"valid.caf"];
     score_ += 5000;
-    if (currentLevel_ < self.music.loops) {
-      NSLog(@"LevelUp");
-      ++currentLevel_;
-      [self.music changeLoop:currentLevel_ - 1];
-    }
   } else if (startBeat_ != 0) {
     [[OALSimpleAudio sharedInstance] playEffect:@"invalid1.caf"];
   }
@@ -122,6 +118,7 @@
 
 - (void)onPlayPart {
   isLevelUp_ = YES;
+  isPerfect_ = YES;
   state_ = GameStatePlay;
   NSLog(@"onplay");
   self.music.nextMeasure = startBeat_ + 1;
@@ -204,6 +201,14 @@
   bar_.time = currentTime;
   int prevBeat = currentBeat_;
   currentBeat_ = round(currentTime / beatDuration) + startBeat_;
+  if (currentBeat_ - startBeat_ == 8 && isLevelUp_) {
+    if (currentLevel_ < self.music.loops) {
+      NSLog(@"LevelUp");
+      ++currentLevel_;
+      [self.music changeLoop:currentLevel_ - 1];
+      isLevelUp_ = NO;
+    }
+  }
   if (prevTime_ > currentTime && currentTime >= 0 && currentTime < 1 && prevTime_ > self.music.duration - 1) {
     GameState nextState = state_ == GameStatePlay ? GameStateExample : GameStatePlay;
     [self changeState:nextState];
@@ -230,8 +235,8 @@
     if (motion.motionType != MotionTypeNone && minTime <= currentTime && currentTime <= maxTime && !isInputed_) {
       if (correctMotionType == motion.motionType) {
         // 正しい入力をしたとき
-        double sub = (currentTime - self.music.currentTime);
-        if (sub > FUZZY_TIME) sub = FUZZY_TIME;
+        double sub = abs((beatDuration * (currentBeat_ - startBeat_) - currentTime));
+        if(sub > FUZZY_TIME) sub = FUZZY_TIME;
         score_ += 500 * pow(2, currentLevel_) * ((FUZZY_TIME * 2) - sub) / (FUZZY_TIME * 2);
         [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", motion.motionType]];
         isInputed_ = YES;
@@ -250,6 +255,7 @@
   [[OALSimpleAudio sharedInstance] playEffect:@"invalid0.caf"];
   isInputed_ = NO;
   isLevelUp_ = NO;
+  isPerfect_ = NO;
   if (currentLevel_ != 1) {
     currentLevel_ = 1;
     [self.music changeLoop:currentLevel_ - 1];
