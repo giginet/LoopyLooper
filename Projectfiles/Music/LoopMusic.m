@@ -25,6 +25,8 @@ const NSString* MUSICS_DATA = @"musics.lua";
 @synthesize nextMeasure = nextMeasure_;
 @synthesize score = score_;
 @dynamic track;
+@dynamic currentTime;
+@dynamic duration;
 
 - (id)init {
   self = [super init];
@@ -118,11 +120,21 @@ const NSString* MUSICS_DATA = @"musics.lua";
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+  id delegate = self.track.delegate;
   [[OALSimpleAudio sharedInstance] playBg:[NSString stringWithFormat:file_, loop_] loop:YES];
+  self.track.delegate = delegate;
 }
 
 - (OALAudioTrack*)track {
   return [OALSimpleAudio sharedInstance].backgroundTrack;
+}
+
+- (NSTimeInterval)currentTime {
+  return self.track.currentTime;
+}
+
+- (NSTimeInterval)duration {
+  return self.track.duration;
 }
 
 @end

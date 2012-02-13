@@ -60,8 +60,9 @@
     MotionType type = MotionTypeNone;
     KKDeviceMotion* dm = input.deviceMotion;
     if (abs(dm.rotationRate.y) >= M_PI_2 && (dm.roll < M_PI_4 || dm.roll > M_PI_2 + M_PI_4)) {
-        type = MotionTypeRoll; // 6
-    } else if((abs(dm.acceleration.rawZ) > 0.7 && -M_PI_4 <= dm.yaw && dm.yaw <= M_PI_4)) {
+      type = MotionTypeRoll; // 6
+    } else if((dm.acceleration.rawZ > 0.7 || dm.acceleration.rawZ < -0.7) && -M_PI_4 <= dm.yaw && dm.yaw <= M_PI_4) {
+      NSLog(@"%f %f", dm.acceleration.rawZ, dm.yaw);
       type = MotionTypeBackForth; // 3
     } else if ( dm.acceleration.rawX > 0.8 && abs(dm.rotationRate.y) <= M_PI ) {
       type = MotionTypeUp; // 1
@@ -70,7 +71,7 @@
     } else if ( [self isMotionTypeRotateWithKKDeviceMotion:dm] ) {
       type = MotionTypeRotate; // 5
     } else if ( [self isMotionTypeShakeWithKKDeviceMotion:dm] ) {
-      type = MotionTypeShake; // 4
+      //type = MotionTypeShake; // 4
     } 
     return [Motion motionWithKKDeviceMotion:dm motionType:type];
   }
@@ -121,7 +122,7 @@
     // 規定回数しきい値を超えた場合
     if ( trigCnt_ >= numTrigPerShake ) {
       trigCnt_ = 0;
-      return YES;
+      //return YES;
     }
   }
   prevAcc_ = acc;

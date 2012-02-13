@@ -18,13 +18,13 @@ typedef enum {
 } GameState;
 
 @interface MainLayer : KWLayer {
-  int currentMeasure_;
+  int startBeat_;
+  int currentBeat_;
   int currentLevel_;
   int score_;
-  ccTime inputTime_;
   BOOL isLevelUp_;
-  BOOL isWating_;
-  MotionType correctMotionType_;
+  BOOL isInputed_;
+  NSTimeInterval prevTime_;
   GameState state_;
   LoopMusic* music_;
   SeekBar* bar_;

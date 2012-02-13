@@ -26,6 +26,8 @@
 @property(readonly) int bpm;
 @property(readonly) int loops;
 @property(readonly) int measure;
+@property(readonly) NSTimeInterval currentTime;
+@property(readonly) NSTimeInterval duration;
 @property(readwrite) int nextMeasure;
 @property(readonly, copy) NSString* title;
 @property(readonly) Score* score;

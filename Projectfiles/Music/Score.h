@@ -17,7 +17,7 @@
 
 - (id)initWithFile:(NSString*)file;
 
-- (MotionType)motionTypeOnMeasure:(int)measure;
+- (MotionType)motionTypeOnBeat:(int)beat;
 - (NSArray*)motionTypesWithRange:(NSRange)range;
 
 @end

@@ -19,14 +19,14 @@
   return self;
 }
 
-- (MotionType)motionTypeOnMeasure:(int)measure {
+- (MotionType)motionTypeOnBeat:(int)beat {
   /**
-   * ゲーム開始からmeasure小節目に取るべき動きを返します
-   * @args int measure 音楽開始からの小節数
+   * ゲーム開始からbeat拍目に取るべき動きを返します
+   * @args int beat 音楽開始からの拍
    * @return MotionType その小節で取るべき動きのType
    */
-  if (measure > (int)[scoreData_ count]) return MotionTypeNone; // Luaのtableのindexは1から始まる
-  MotionType type = (MotionType)[(NSNumber*)[scoreData_ objectForKey:[NSString stringWithFormat:@"%d", measure + 1]] intValue];
+  if (beat > (int)[scoreData_ count]) return MotionTypeNone; // Luaのtableのindexは1から始まる
+  MotionType type = (MotionType)[(NSNumber*)[scoreData_ objectForKey:[NSString stringWithFormat:@"%d", beat + 1]] intValue];
   return type;
 }
 
@@ -38,7 +38,7 @@
    */
   NSMutableArray* types = [NSMutableArray array];
   for (int i = range.location; i < (int)(range.location + range.length); ++i) {
-    [types addObject:[NSNumber numberWithInt:[self motionTypeOnMeasure:i]]];
+    [types addObject:[NSNumber numberWithInt:[self motionTypeOnBeat:i]]];
   }
   return types;
 }

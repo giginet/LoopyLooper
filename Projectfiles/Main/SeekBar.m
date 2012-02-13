@@ -33,8 +33,8 @@
     markerLayer_.position = ccp(-self.contentSize.width / 2, 0);
     bar_ = [CCSprite spriteWithFile:@"seekbar.png"];
     bar_.position = ccp(-self.contentSize.width / 2, 0);
-    time_ = self.music.track.currentTime;
-    maxTime_ = self.music.track.duration;
+    time_ = self.music.currentTime;
+    maxTime_ = self.music.duration;
     [self addChild:background];
     [self addChild:markerLayer_];
     [self addChild:bar_];
@@ -44,7 +44,6 @@
 }
 
 - (void)reloadBarFrom:(int)measure {
-  NSLog(@"measure = %d", measure);
   startMeasure_ = measure;
   [markerLayer_ removeAllChildrenWithCleanup:YES];
   [markers_ removeAllObjects];
@@ -58,7 +57,6 @@
       [markerLayer_ addChild:marker];
     }
   }
-  NSLog(@"%@", markerLayer_);
 }
 
 - (void)update:(ccTime)dt {
