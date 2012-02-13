@@ -24,17 +24,21 @@
 - (id)initWithMusic:(LoopMusic *)music measure:(int)measure {
   self = [self init];
   if (self) {
-    CCSprite* background = [CCSprite spriteWithFile:@"seekbarBackground.png"];
     markers_ = [NSMutableDictionary dictionaryWithCapacity:16];
-    [self addChild:background];
+    CCSprite* background = [CCSprite spriteWithFile:@"seekbarBackground.png"];
+    self.contentSize = background.contentSize;
     music_ = music;
     startMeasure_ = measure;
-    [self reloadBarFrom:measure];
+    markerLayer_ = [CCNode node];
+    markerLayer_.position = ccp(-self.contentSize.width / 2, 0);
     bar_ = [CCSprite spriteWithFile:@"seekbar.png"];
-    [self addChild:bar_ z:10000];
-    bar_.position = ccp(-400, 0);
+    bar_.position = ccp(-self.contentSize.width / 2, 0);
     time_ = self.music.track.currentTime;
     maxTime_ = self.music.track.duration;
+    [self addChild:background];
+    [self addChild:markerLayer_];
+    [self addChild:bar_];
+    [self reloadBarFrom:measure];
   }
   return self;
 }
@@ -42,29 +46,28 @@
 - (void)reloadBarFrom:(int)measure {
   NSLog(@"measure = %d", measure);
   startMeasure_ = measure;
-  for (CCSprite* marker in [markers_ allValues]) {
-    [self removeChild:marker cleanup:YES];
-  }
+  [markerLayer_ removeAllChildrenWithCleanup:YES];
   [markers_ removeAllObjects];
   NSArray* measures = [self.music.score motionTypesWithRange:NSMakeRange(measure, 16)];
   for(int i = 0; i < (int)[measures count]; ++i) {
     NSNumber* type = [measures objectAtIndex:i];
     if ([type intValue] != MotionTypeNone) {
       CCSprite* marker = [CCSprite spriteWithFile:@"marker_disable.png"];
-      marker.position = CGPointMake(i * 50 - 400, 0);
+      marker.position = CGPointMake(i * marker.contentSize.width, 0);
       [markers_ setObject:marker forKey:[NSNumber numberWithInt:i]];
-      [self addChild:marker];
+      [markerLayer_ addChild:marker];
     }
   }
+  NSLog(@"%@", markerLayer_);
 }
 
 - (void)update:(ccTime)dt {
-  bar_.position = ccp((800 * time_ / maxTime_) - 400, 0);
+  bar_.position = ccp((self.contentSize.width * time_ / maxTime_ -self.contentSize.width / 2), 0);
 }
 
 - (void)play {
   int fps = [[KKStartupConfig config] maxFrameRate];
-  [self schedule:@selector(update:) interval:1.0/fps];
+  [self schedule:@selector(update:) interval:1.0 / fps];
   [self update:0];
 }
 

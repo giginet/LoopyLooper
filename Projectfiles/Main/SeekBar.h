@@ -14,6 +14,7 @@
   NSMutableDictionary* markers_;
   ccTime time_;
   ccTime maxTime_;
+  CCNode* markerLayer_;
   CCSprite* bar_;
   LoopMusic* music_;
 }
