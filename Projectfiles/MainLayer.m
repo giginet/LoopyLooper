@@ -23,7 +23,8 @@
 - (void)onGameOver;
 - (void)onClear;
 - (void)onGameEnd;
-- (void)onTick;
+- (void)onBeat;
+- (void)changeState:(GameState)state;
 - (void)beginWaiting:(ccTime*)dt;
 - (void)endWaiting:(ccTime*)dt;
 - (void)detectMotion:(Motion*)motion;
@@ -31,15 +32,19 @@
 @end
 
 @implementation MainLayer
+@synthesize music = music_;
 
-- (id)init {
+- (id)initWithMusicID:(NSInteger)musicID {
+  /**
+   * 音楽IDを渡して初期化します
+   * @args NSInteger musicID
+   */
   self = [super init];
   if (self) {
     self.isTouchEnabled = YES;
     currentLevel_ = 1;
     isWating_ = NO;
     isLevelUp_ = NO;
-    currentMeasure_ = 0;
     score_ = 0;
     
     MotionDetector* detector = [MotionDetector shared];
@@ -53,10 +58,15 @@
       [sa preloadEffect:file];
     }
     
-    bar_ = [SeekBar seekBarWithScore:music_.score measure:0];
+    bar_ = [SeekBar seekBarWithMusic:self.music measure:0];
     [self addChild:bar_];
-    bar_.position = ccp(450, 200);
+    bar_.position = ccp([CCDirector sharedDirector].screenCenter.x, 150);
   }
+  return self;
+}
+
+- (id)init {
+  self = [self initWithMusicID:1];
   return self;
 }
 
@@ -65,10 +75,13 @@
 }
 
 - (void)update:(ccTime)dt {
-  bar_.time = music_.track.currentTime;
+  bar_.time = self.music.track.currentTime;
 }
 
 - (void)onReady {
+  /**
+   * 画面表示後に呼ばれます
+   */
   state_ = GameStateReady;
   CCSprite* readyLabel = [CCSprite spriteWithFile:@"ready.png"];
   readyLabel.scale = 0;
@@ -86,7 +99,11 @@
 }
 
 - (void)onStart {
-  [music_ play];
+  /*
+   * ゲーム開始時に呼ばれます
+   *
+   */
+  [self.music play];
   [bar_ play];
   currentMeasure_ = 0;
   [self onExamplePart];
@@ -97,22 +114,22 @@
   if (isLevelUp_) {
     [[OALSimpleAudio sharedInstance] playEffect:@"valid.caf"];
     score_ += 5000;
-    if (currentLevel_ < music_.loops) {
+    if (currentLevel_ < self.music.loops) {
       NSLog(@"LevelUp");
       ++currentLevel_;
-      [music_ changeLoop:currentLevel_ - 1];
+      [self.music changeLoop:currentLevel_ - 1];
     }
   } else if (currentMeasure_ != 0) {
     [[OALSimpleAudio sharedInstance] playEffect:@"invalid1.caf"];
   }
-  [music_ setCallbackOnTick:self selector:@selector(onTick)];
+  [self.music setCallbackOnBeat:self selector:@selector(onBeat)];
 }
 
 - (void)onPlayPart {
   isLevelUp_ = YES;
   state_ = GameStatePlay;
-  music_.nextMeasure = currentMeasure_;
-  [music_ setCallbackOnTick:self selector:@selector(onTick)];
+  self.music.nextMeasure = currentMeasure_;
+  [self.music setCallbackOnBeat:self selector:@selector(onBeat)];
 }
 
 - (void)onGameOver {
@@ -136,16 +153,18 @@
 }
 
 - (void)onExit {
-  [music_ stop];
+  [self.music stop];
 }
 
-- (void)onTick {
-  MotionType type = [music_.score motionTypeOnMeasure:music_.measure];
+- (void)onBeat {
+  if (self.music.measure % PART_LENGTH == PART_LENGTH - 1) {
+    GameState nextState = state_ == GameStatePlay ? GameStateExample : GameStatePlay;
+    [self changeState:nextState];
+    return;
+  }
+  MotionType type = [self.music.score motionTypeOnMeasure:self.music.measure];
   if (state_ == GameStateExample) {
-    if (music_.measure % PART_LENGTH == PART_LENGTH - 1) {
-      [bar_ reset];
-      [self onPlayPart];
-    } else if (music_.measure % PART_LENGTH == PART_LENGTH - 2) {
+    if (self.music.measure % PART_LENGTH == PART_LENGTH - 2) {
       [[OALSimpleAudio sharedInstance] playEffect:@"bell.caf"];
     }
     if (type != 0) {
@@ -168,24 +187,33 @@
       [self addChild:tutorial];
     }
   } else if (state_ == GameStatePlay) {
-    MotionType nextType = [music_.score motionTypeOnMeasure:music_.measure + 1];
+    MotionType nextType = [self.music.score motionTypeOnMeasure:self.music.measure + 1];
     if (nextType != MotionTypeNone) {
       correctMotionType_ = nextType;
-      inputTime_ = music_.track.currentTime + 60.0 / music_.bpm;
-      [self schedule:@selector(beginWaiting:) interval:60.0 / music_.bpm - FUZZY_TIME];
-      [self schedule:@selector(endWaiting:) interval:60.0 / music_.bpm + FUZZY_TIME];
+      inputTime_ = self.music.track.currentTime + 60.0 / self.music.bpm;
+      [self schedule:@selector(beginWaiting:) interval:60.0 / self.music.bpm - FUZZY_TIME];
+      [self schedule:@selector(endWaiting:) interval:60.0 / self.music.bpm + FUZZY_TIME];
     }
-    if (music_.measure % PART_LENGTH == PART_LENGTH - 1) {
-      [bar_ reset];
-      currentMeasure_ += PART_LENGTH;
-      [bar_ reloadBarFrom:currentMeasure_];
-      if (currentMeasure_ < music_.score.scoreLength) {
-        [self onExamplePart];
-      } else {
-        // クリア
-        [self onClear];
-      }
+    if (self.music.measure % PART_LENGTH == PART_LENGTH - 1) {
+      
     }
+  }
+}
+
+- (void)changeState:(GameState)state {
+  state_ = state;
+  if (state == GameStateExample) {
+    [bar_ reset];
+    currentMeasure_ += PART_LENGTH;
+    [bar_ reloadBarFrom:currentMeasure_];
+    if (currentMeasure_ < self.music.score.scoreLength) {
+      [self onExamplePart];
+    } else {
+      [self onClear];
+    }
+  } else if (state == GameStatePlay) {
+    [bar_ reset];
+    [self onPlayPart];
   }
 }
 
@@ -206,14 +234,14 @@
   if (state_ == GameStatePlay && isWating_ && motion.motionType) {
     if (correctMotionType_ == motion.motionType) {
       // 正しい入力をしたとき
-      double sub = (inputTime_ - music_.track.currentTime);
+      double sub = (inputTime_ - self.music.track.currentTime);
       if (sub > FUZZY_TIME) sub = FUZZY_TIME;
       score_ += 500 * pow(2, currentLevel_) * ((FUZZY_TIME * 2) - sub) / (FUZZY_TIME * 2);
-      NSLog(@"%d", score_);
       [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", motion.motionType]];
       isWating_ = NO;
     } else if (motion.motionType != MotionTypeNone) {
       // 間違った入力をしたとき
+      NSLog(@"%d", motion.motionType); 
       [self onFail];
     }
   }
@@ -226,7 +254,7 @@
   isLevelUp_ = NO;
   if (currentLevel_ != 1) {
     currentLevel_ = 1;
-    [music_ changeLoop:currentLevel_ - 1];
+    [self.music changeLoop:currentLevel_ - 1];
   }
 }
 

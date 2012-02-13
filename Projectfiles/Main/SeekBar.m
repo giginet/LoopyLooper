@@ -14,24 +14,27 @@
 
 @implementation SeekBar
 @synthesize time = time_;
+@synthesize maxTime = maxTime_;
+@synthesize music = music_;
 
-+ (id)seekBarWithScore:(Score *)score measure:(int)measure {
-  return [[[self class] alloc] initWithScore:score measure:measure];
++ (id)seekBarWithMusic:(LoopMusic *)music measure:(int)measure {
+  return [[[self class] alloc] initWithMusic:music measure:measure];
 }
 
-- (id)initWithScore:(Score *)score measure:(int)measure {
+- (id)initWithMusic:(LoopMusic *)music measure:(int)measure {
   self = [self init];
   if (self) {
     CCSprite* background = [CCSprite spriteWithFile:@"seekbarBackground.png"];
     markers_ = [NSMutableDictionary dictionaryWithCapacity:16];
     [self addChild:background];
-    score_ = score;
+    music_ = music;
     startMeasure_ = measure;
     [self reloadBarFrom:measure];
     bar_ = [CCSprite spriteWithFile:@"seekbar.png"];
     [self addChild:bar_ z:10000];
     bar_.position = ccp(-400, 0);
-    time_ = 0;
+    time_ = self.music.track.currentTime;
+    maxTime_ = self.music.track.duration;
   }
   return self;
 }
@@ -43,7 +46,7 @@
     [self removeChild:marker cleanup:YES];
   }
   [markers_ removeAllObjects];
-  NSArray* measures = [score_ motionTypesWithRange:NSMakeRange(measure, 16)];
+  NSArray* measures = [self.music.score motionTypesWithRange:NSMakeRange(measure, 16)];
   for(int i = 0; i < (int)[measures count]; ++i) {
     NSNumber* type = [measures objectAtIndex:i];
     if ([type intValue] != MotionTypeNone) {
@@ -56,7 +59,7 @@
 }
 
 - (void)update:(ccTime)dt {
-  bar_.position = ccp((800 * time_ / 8.0) - 400, 0);
+  bar_.position = ccp((800 * time_ / maxTime_) - 400, 0);
 }
 
 - (void)play {
@@ -71,7 +74,6 @@
 
 - (void)stop {
   [self pause];
-  bar_.position = ccp(-400, 0);
   time_ = 0;
 }
 

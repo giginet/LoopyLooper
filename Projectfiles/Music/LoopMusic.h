@@ -34,7 +34,7 @@
 - (id)initWithMusicID:(int)musicID;
 - (void)play;
 - (void)stop;
-- (void)setCallbackOnTick:(id)delegate selector:(SEL)selector;
+- (void)setCallbackOnBeat:(id)delegate selector:(SEL)selector;
 - (void)changeLoop:(NSInteger)number;
 
 @end

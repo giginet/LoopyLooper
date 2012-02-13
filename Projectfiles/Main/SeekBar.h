@@ -7,21 +7,24 @@
 //
 
 #import "heqet.h"
-#import "Score.h"
+#import "LoopMusic.h"
 
 @interface SeekBar : CCNode {
   int startMeasure_;
   NSMutableDictionary* markers_;
   ccTime time_;
+  ccTime maxTime_;
   CCSprite* bar_;
-  Score* score_;
+  LoopMusic* music_;
 }
 
 @property(readwrite) ccTime time;
+@property(readwrite) ccTime maxTime;
+@property(readonly) LoopMusic* music;
 
-+ (id)seekBarWithScore:(Score*)score measure:(int)measure;
++ (id)seekBarWithMusic:(LoopMusic*)music measure:(int)measure;
 
-- (id)initWithScore:(Score*)score measure:(int)measure;
+- (id)initWithMusic:(LoopMusic*)music measure:(int)measure;
 - (void)reloadBarFrom:(int)measure;
 - (void)play;
 - (void)pause;

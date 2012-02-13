@@ -30,4 +30,8 @@ typedef enum {
   SeekBar* bar_;
 }
 
+@property(readonly, strong) LoopMusic* music;
+
+- (id)initWithMusicID:(NSInteger)musicID;
+
 @end

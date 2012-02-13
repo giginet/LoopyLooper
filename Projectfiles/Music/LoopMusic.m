@@ -75,7 +75,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
                                           forTarget:self];
 }
 
-- (void)setCallbackOnTick:(id)delegate selector:(SEL)selector {
+- (void)setCallbackOnBeat:(id)delegate selector:(SEL)selector {
   /*
    特定のmeasureに到達したときに呼ばれるコールバックを登録します
    前回に登録されたコールバックは上書きされます。

@@ -12,6 +12,9 @@
 @interface MotionDetector()
 - (void)update:(ccTime)dt;
 - (Motion*)detectMotion;
+- (BOOL)isMotionTypeRotateWithKKDeviceMotion:(KKDeviceMotion*)motion;
+- (BOOL) isMotionTypeShakeWithKKDeviceMotion:(KKDeviceMotion*)motion;
+- (void)initShakeParameter;
 @end
 
 @implementation MotionDetector
@@ -56,7 +59,7 @@
   if (input.accelerometerAvailable) {
     MotionType type = MotionTypeNone;
     KKDeviceMotion* dm = input.deviceMotion;
-    if (abs(dm.rotationRate.y) >= M_PI && (dm.roll < M_PI_4 || dm.roll > M_PI_2 + M_PI_4)) {
+    if (abs(dm.rotationRate.y) >= M_PI_2 && (dm.roll < M_PI_4 || dm.roll > M_PI_2 + M_PI_4)) {
         type = MotionTypeRoll; // 6
     } else if((abs(dm.acceleration.rawZ) > 0.7 && -M_PI_4 <= dm.yaw && dm.yaw <= M_PI_4)) {
       type = MotionTypeBackForth; // 3
@@ -94,38 +97,42 @@
 }
 
 - (BOOL) isMotionTypeShakeWithKKDeviceMotion:(KKDeviceMotion*)motion {
-  static double prevAcc = 0.0;
-  static int trigCnt = 0;
-  static double threshold = .5;
-  static NSTimeInterval trigTime = 0.0;
   const NSTimeInterval period = .5; // sec
   const int numTrigPerShake = 3;
   const double acc = [motion acceleration].rawY;
   const NSTimeInterval time = [motion acceleration].timestamp;
   
   // シェイク判定有効時間を超えた場合
-  if ( trigTime + period < time ) {
-    trigCnt = 0;
+  if ( trigTime_ + period < time ) {
+    trigCnt_ = 0;
   }
   
   // 加速度がしきい値を超えた(トリガー)場合
-  if ( ( prevAcc - threshold ) * ( acc - threshold ) < 0.0 ) {
+  if ( ( prevAcc_ - threshold_ ) * ( acc - threshold_ ) < 0.0 ) {
     // 初めてのトリガーの場合
-    if ( trigCnt == 0 ) {
+    if ( trigCnt_ == 0 ) {
       // 時刻を記録する
-      trigTime = [motion acceleration].timestamp;
+      trigTime_ = [motion acceleration].timestamp;
     }
     // しきい値の符号を反転
-    threshold *= -1.0;
-    trigCnt++;
+    threshold_ *= -1.0;
+    trigCnt_++;
     
     // 規定回数しきい値を超えた場合
-    if ( trigCnt >= numTrigPerShake ) {
-      trigCnt = 0;
+    if ( trigCnt_ >= numTrigPerShake ) {
+      trigCnt_ = 0;
       return YES;
     }
   }
-  prevAcc = acc;
+  prevAcc_ = acc;
   return NO;
 }
+
+- (void)initShakeParameter {
+  prevAcc_ = 0;
+  trigCnt_ = 0;
+  threshold_ = .5;
+  trigTime_ = 0; 
+}
+
 @end
