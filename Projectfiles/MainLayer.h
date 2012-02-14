@@ -22,6 +22,7 @@ typedef enum {
   int currentBeat_;
   int currentLevel_;
   int score_;
+  double life_;
   BOOL isLevelUp_;
   BOOL isPerfect_;
   BOOL isInputed_;
@@ -30,6 +31,7 @@ typedef enum {
   LoopMusic* music_;
   SeekBar* bar_;
   KWCounterLabel* scoreLabel_;
+  KWGauge* lifeGauge_;
 }
 
 @property(readonly, strong) LoopMusic* music;

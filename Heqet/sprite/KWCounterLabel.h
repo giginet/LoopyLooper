@@ -9,10 +9,13 @@
 #import "CCLabelTTF.h"
 
 @interface KWCounterLabel : CCLabelTTF {
+  int count_;
   float current_;
   float target_;
 }
 
+@property(readwrite) int accuracy;
+@property(readwrite) int duration;
 @property(readwrite) float target;
 @property(readwrite, weak) id onUpdateDelegate;
 @property(readwrite) SEL onUpdateCallback;

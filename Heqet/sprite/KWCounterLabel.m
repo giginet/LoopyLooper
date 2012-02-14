@@ -13,6 +13,8 @@
 @end
 
 @implementation KWCounterLabel
+@synthesize accuracy;
+@synthesize duration;
 @synthesize target = target_;
 @synthesize onUpdateDelegate;
 @synthesize onUpdateCallback;
@@ -24,7 +26,9 @@
                       fontName:name
                       fontSize:size];
   if (self) {
+    count_ = 0;
     current_ = number;
+    self.duration = 1;
     self.target = number;
   }
   return self;
@@ -38,7 +42,9 @@
                       fontName:name 
                       fontSize:size];
   if (self) {
+    count_ = 0;
     current_ = number;
+    self.duration = 1;
     self.target = number;
   }
   return self;
@@ -52,7 +58,9 @@
                       fontName:name 
                       fontSize:size];
   if (self) {
+    count_ = 0;
     current_ = number;
+    self.duration = 1;
     self.target = number;
   }
   return self;
@@ -60,6 +68,8 @@
 
 - (void)update:(ccTime)dt {
   if(current_ == target_) return;
+  count_ = ++count_ % duration;
+  if(count_ != 0) return;
   int order = floor(log10(abs(target_ - current_)));
   if (current_ < target_) {
     current_ += pow(10, order);

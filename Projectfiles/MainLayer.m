@@ -14,6 +14,7 @@
 #import "SeekBar.h"
 #define PART_LENGTH 16
 #define FUZZY_TIME 0.15
+#define MAX_LIFE 1000
 
 @interface MainLayer()
 - (void)onReady;
@@ -55,6 +56,8 @@
     isPerfect_ = NO;
     score_ = 0;
     prevTime_ = 0;
+    life_ = MAX_LIFE;
+    lifeGauge_ = [KWGauge gaugeWithColor:ccc3(0, 255, 0) andSize:CGSizeMake(400, 64)];
     MotionDetector* detector = [MotionDetector shared];
     [detector setOnDetection:self selector:@selector(detectMotion:)];
     music_ = [[LoopMusic alloc] initWithMusicID:1];
@@ -78,6 +81,8 @@
                                                 fontName:@"Arial-BoldMT" 
                                                 fontSize:24];
     scoreLabel_.position = ccp(800, 720);
+    scoreLabel_.duration = 3;
+    lifeGauge_.position = ccp(500, 720);
     [self addChild:scoreLabel_];
   }
   return self;
