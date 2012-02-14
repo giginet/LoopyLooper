@@ -27,6 +27,7 @@
 - (void)changeState:(GameState)state;
 - (void)detectMotion:(Motion*)motion;
 - (void)onFail;
+- (void)setLevel:(int)level;
 @end
 
 /*
@@ -38,6 +39,7 @@
 
 @implementation MainLayer
 @synthesize music = music_;
+@synthesize background;
 
 - (id)initWithMusicID:(NSInteger)musicID {
   /**
@@ -221,9 +223,7 @@
   if (currentBeat_ - startBeat_ == 8 && isLevelUp_) {
     if (currentLevel_ < self.music.loops) {
       NSLog(@"LevelUp");
-      ++currentLevel_;
-      [self.music changeLoop:currentLevel_ - 1];
-      isLevelUp_ = NO;
+      [self setLevel:currentLevel_ + 1];
     }
   }
   if (prevTime_ > currentTime && currentTime >= 0 && currentTime < 1 && prevTime_ > self.music.duration - 1) {
@@ -278,9 +278,16 @@
   isLevelUp_ = NO;
   isPerfect_ = NO;
   if (currentLevel_ != 1) {
-    currentLevel_ = 1;
-    [self.music changeLoop:currentLevel_ - 1];
+    [self setLevel:1];
   }
+}
+
+- (void)setLevel:(int)level {
+  currentLevel_ = level;
+  [self.music changeLoop:currentLevel_ - 1];
+  isLevelUp_ = NO;
+  self.background.startSize = 8 * pow(3, currentLevel_);
+  self.background.endSize = 3 * pow(3, currentLevel_);
 }
 
 @end

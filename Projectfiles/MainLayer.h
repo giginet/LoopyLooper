@@ -33,6 +33,7 @@ typedef enum {
 }
 
 @property(readonly, strong) LoopMusic* music;
+@property(readwrite, strong) CCParticleSystemQuad* background;
 
 - (id)initWithMusicID:(NSInteger)musicID;
 
