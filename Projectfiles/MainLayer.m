@@ -70,6 +70,13 @@
     bar_ = [SeekBar seekBarWithMusic:self.music measure:0];
     [self addChild:bar_];
     bar_.position = ccp([CCDirector sharedDirector].screenCenter.x, 150);
+    scoreLabel_ = [[KWCounterLabel alloc] initWithNumber:0 
+                                              dimensions:CGSizeMake(200, 40) 
+                                               alignment:UITextAlignmentRight 
+                                                fontName:@"Arial-BoldMT" 
+                                                fontSize:24];
+    scoreLabel_.position = ccp(800, 720);
+    [self addChild:scoreLabel_];
   }
   return self;
 }
@@ -114,6 +121,7 @@
   currentBeat_ = startBeat_;
   [self onExamplePart];
   [self.music setCallbackOnBeat:self selector:@selector(onBeat)];
+  [scoreLabel_ play];
 }
 
 - (void)onExamplePart {
@@ -244,17 +252,18 @@
     if (motion.motionType != MotionTypeNone && minTime <= currentTime && currentTime <= maxTime && !isInputed_) {
       if (correctMotionType == motion.motionType) {
         // 正しい入力をしたとき
-        double sub = abs((beatDuration * (currentBeat_ - startBeat_) - currentTime));
+        double sub = (beatDuration * (currentBeat_ - startBeat_) - currentTime);
+        if(sub < 0) sub *= -1;
         if(sub > FUZZY_TIME) sub = FUZZY_TIME;
         score_ += 500 * pow(2, currentLevel_) * ((FUZZY_TIME * 2) - sub) / (FUZZY_TIME * 2);
         [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", motion.motionType]];
         isInputed_ = YES;
         CCParticleSystemQuad* melody = [CCParticleSystemQuad particleWithFile:@"melody.plist"];
         melody.position = ccp(bar_.position.x - 400 + (currentBeat_ - startBeat_) * 50, bar_.position.y);
+        scoreLabel_.target = (float)score_;
         [self addChild:melody];
       } else if (correctMotionType != MotionTypeNone) {
         // 間違った入力をしたとき
-        NSLog(@"type = %d", motion.motionType); 
         [self onFail];
         isInputed_ = YES;
       }

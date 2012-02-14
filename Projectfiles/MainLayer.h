@@ -29,6 +29,7 @@ typedef enum {
   GameState state_;
   LoopMusic* music_;
   SeekBar* bar_;
+  KWCounterLabel* scoreLabel_;
 }
 
 @property(readonly, strong) LoopMusic* music;

@@ -32,6 +32,7 @@
 #import "KWMusicManager.h"
 
 #import "KWTimerLabel.h"
+#import "KWCounterLabel.h"
 #import "KWPieChart.h"
 #import "KWGauge.h"
 #import "KWScrollLayer.h"

@@ -59,6 +59,7 @@
 		07C65EAA14E9702800EE1391 /* t5_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C65EA814E9702500EE1391 /* t5_0.png */; };
 		07C65EAE14E9925400EE1391 /* melody.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07C65EAC14E9925300EE1391 /* melody.plist */; };
 		07C65EB014E9962100EE1391 /* background.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07C65EAF14E9961F00EE1391 /* background.plist */; };
+		07C65EB314E9987900EE1391 /* KWCounterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C65EB214E9987900EE1391 /* KWCounterLabel.m */; };
 		07D643FE14CB2DC900B0910C /* KWScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D643FD14CB2DC900B0910C /* KWScrollLayer.m */; };
 		07D6440714CB2E7B00B0910C /* KWGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440214CB2E7B00B0910C /* KWGauge.m */; };
 		07D6440814CB2E7B00B0910C /* KWPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440414CB2E7B00B0910C /* KWPieChart.m */; };
@@ -168,6 +169,8 @@
 		07C65EA814E9702500EE1391 /* t5_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t5_0.png; sourceTree = "<group>"; };
 		07C65EAC14E9925300EE1391 /* melody.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = melody.plist; path = Particle/melody.plist; sourceTree = "<group>"; };
 		07C65EAF14E9961F00EE1391 /* background.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = background.plist; path = Particle/background.plist; sourceTree = "<group>"; };
+		07C65EB114E9987900EE1391 /* KWCounterLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWCounterLabel.h; sourceTree = "<group>"; };
+		07C65EB214E9987900EE1391 /* KWCounterLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWCounterLabel.m; sourceTree = "<group>"; };
 		07D643FC14CB2DC900B0910C /* KWScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWScrollLayer.h; sourceTree = "<group>"; };
 		07D643FD14CB2DC900B0910C /* KWScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWScrollLayer.m; sourceTree = "<group>"; };
 		07D6440114CB2E7B00B0910C /* KWGauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWGauge.h; sourceTree = "<group>"; };
@@ -356,6 +359,8 @@
 				07831F9D14B2428D00C6FC96 /* CCSpriteExtension.m */,
 				07D643FC14CB2DC900B0910C /* KWScrollLayer.h */,
 				07D643FD14CB2DC900B0910C /* KWScrollLayer.m */,
+				07C65EB114E9987900EE1391 /* KWCounterLabel.h */,
+				07C65EB214E9987900EE1391 /* KWCounterLabel.m */,
 			);
 			path = sprite;
 			sourceTree = "<group>";
@@ -699,6 +704,7 @@
 				6246649514D478C600F5A356 /* LoopMusic.m in Sources */,
 				076D1B7E14D4AADB005EA04E /* CutIn.m in Sources */,
 				07C0721C14D50E2300672794 /* SeekBar.m in Sources */,
+				07C65EB314E9987900EE1391 /* KWCounterLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
