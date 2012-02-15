@@ -58,6 +58,7 @@
     prevTime_ = 0;
     life_ = MAX_LIFE;
     lifeGauge_ = [KWGauge gaugeWithColor:ccc3(0, 255, 0) andSize:CGSizeMake(400, 64)];
+    beatLabel_ = [CCLabelTTF labelWithString:@"" fontName:@"Arial-BoldMT" fontSize:24];
     MotionDetector* detector = [MotionDetector shared];
     [detector setOnDetection:self selector:@selector(detectMotion:)];
     music_ = [[LoopMusic alloc] initWithMusicID:1];
@@ -84,6 +85,8 @@
     scoreLabel_.duration = 3;
     lifeGauge_.position = ccp(500, 720);
     [self addChild:scoreLabel_];
+    beatLabel_.position = ccp(100, 100);
+    [self addChild:beatLabel_];
   }
   return self;
 }
@@ -173,6 +176,11 @@
 }
 
 - (void)onBeat {
+  /*
+   * Beatを打つ度に呼ばれます
+   * self.music.measureとかで何拍目か取れます
+   */
+  [beatLabel_ setString:[NSString stringWithFormat:@"%d", self.music.measure]];
   MotionType type = [self.music.score motionTypeOnBeat:self.music.measure];
   if (state_ == GameStateExample) {
     if (self.music.measure % PART_LENGTH == PART_LENGTH - 2) {
@@ -233,6 +241,7 @@
   }
   if (prevTime_ > currentTime && currentTime >= 0 && currentTime < 1 && prevTime_ > self.music.duration - 1) {
     GameState nextState = state_ == GameStatePlay ? GameStateExample : GameStatePlay;
+    NSLog(@"change : %d", nextState);
     [self changeState:nextState];
   }
   if (state_ == GameStatePlay && currentBeat_ > prevBeat) {
@@ -288,6 +297,7 @@
 }
 
 - (void)setLevel:(int)level {
+  NSLog(@"levelDown");
   currentLevel_ = level;
   [self.music changeLoop:currentLevel_ - 1];
   isLevelUp_ = NO;

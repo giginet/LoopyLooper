@@ -107,10 +107,9 @@ const NSString* MUSICS_DATA = @"musics.lua";
 }
 
 - (void)tick:(ccTime)dt {
-  OALSimpleAudio* sa = [OALSimpleAudio sharedInstance];
-  if (sa.backgroundTrack.currentTime - dt < 0) isEndOfLoop_ = NO;
-  if (sa.backgroundTrack.currentTime >= nextMeasure_ % 16 * 60.0 / self.bpm && !isEndOfLoop_) {
-    if (nextMeasure_ % 16 == 0) isEndOfLoop_ = YES;
+  if (self.currentTime < 15 * 60.0 / self.bpm) isEndOfLoop_ = NO;
+  if (self.currentTime >= nextMeasure_ % 16 * 60.0 / self.bpm && !isEndOfLoop_) {
+    if (nextMeasure_ % 16 == 16 - 1) isEndOfLoop_ = YES;
     measure_ = nextMeasure_;
     nextMeasure_ = measure_ + 1;
     #pragma clang diagnostic push
@@ -124,6 +123,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
   id delegate = self.track.delegate;
   [[OALSimpleAudio sharedInstance] playBg:[NSString stringWithFormat:file_, loop_] loop:YES];
   self.track.delegate = delegate;
+  NSLog(@"change Loop");
 }
 
 - (OALAudioTrack*)track {

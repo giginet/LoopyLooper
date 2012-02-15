@@ -27,6 +27,7 @@ typedef enum {
   BOOL isPerfect_;
   BOOL isInputed_;
   NSTimeInterval prevTime_;
+  CCLabelTTF* beatLabel_;
   GameState state_;
   LoopMusic* music_;
   SeekBar* bar_;

@@ -25,7 +25,7 @@
   self = [self init];
   if (self) {
     markers_ = [NSMutableDictionary dictionaryWithCapacity:16];
-    CCSprite* background = [CCSprite spriteWithFile:@"seekbarBackground.png"];
+    CCSprite* background = [CCSprite spriteWithFile:@"seek_background.png"];
     self.contentSize = background.contentSize;
     music_ = music;
     startMeasure_ = measure;
@@ -51,7 +51,7 @@
   for(int i = 0; i < (int)[measures count]; ++i) {
     NSNumber* type = [measures objectAtIndex:i];
     if ([type intValue] != MotionTypeNone) {
-      CCSprite* marker = [CCSprite spriteWithFile:@"marker_disable.png"];
+      CCSprite* marker = [CCSprite spriteWithFile:@"seek_marker0.png"];
       marker.position = CGPointMake(i * marker.contentSize.width, 0);
       [markers_ setObject:marker forKey:[NSNumber numberWithInt:i]];
       [markerLayer_ addChild:marker];
