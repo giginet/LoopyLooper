@@ -12,6 +12,7 @@
 @interface LoopMusic : NSObject <AVAudioPlayerDelegate> {
   int bpm_;
   int loop_;
+  int nextLoop_;
   int loops_;
   int measure_;
   int nextMeasure_;
@@ -21,6 +22,8 @@
   NSString* file_;
   Score* score_;
   BOOL isEndOfLoop_;
+  OALAudioTrack* currentTrack_;
+  NSMutableArray* audioTracks_;
 }
 
 @property(readonly) int bpm;

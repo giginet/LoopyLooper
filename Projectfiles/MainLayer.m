@@ -13,7 +13,7 @@
 #import "LoopMusic.h"
 #import "SeekBar.h"
 #define PART_LENGTH 16
-#define FUZZY_TIME 0.15
+#define FUZZY_TIME 0.1
 #define MAX_LIFE 1000
 
 @interface MainLayer()
@@ -47,6 +47,7 @@
    * 音楽IDを渡して初期化します
    * @args NSInteger musicID
    */
+  self.backgroundColor = ccc4(255, 255, 255, 255);
   self = [super init];
   if (self) {
     self.isTouchEnabled = YES;
@@ -69,9 +70,9 @@
                             @"valid.caf", nil]) {
       [sa preloadEffect:file];
     }
-    CCParticleSystemQuad* bg = [CCParticleSystemQuad particleWithFile:@"background.plist"];
-    bg.position = [CCDirector sharedDirector].screenCenter;
-    [self addChild:bg];
+    background = [CCParticleSystemQuad particleWithFile:@"background.plist"];
+    background.position = [CCDirector sharedDirector].screenCenter;
+    [self addChild:background];
     
     bar_ = [SeekBar seekBarWithMusic:self.music measure:0];
     [self addChild:bar_];
@@ -301,8 +302,8 @@
   currentLevel_ = level;
   [self.music changeLoop:currentLevel_ - 1];
   isLevelUp_ = NO;
-  self.background.startSize = 8 * pow(3, currentLevel_);
-  self.background.endSize = 3 * pow(3, currentLevel_);
+  self.background.startSize = 8 * pow(2, currentLevel_);
+  self.background.endSize = 3 * pow(2, currentLevel_);
 }
 
 @end

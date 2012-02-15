@@ -38,7 +38,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
     nextMeasure_ = 1;
     title_ = @"";
     isEndOfLoop_ = NO;
-    [OALSimpleAudio sharedInstance].bgVolume = 1.0;
+    audioTracks_ = [NSMutableArray array];
   }
   return self;
 }
@@ -55,16 +55,14 @@ const NSString* MUSICS_DATA = @"musics.lua";
     score_ = [[Score alloc] initWithFile:[music objectForKey:@"score"]];
     [self preLoadMusic:file_];
     [self preLoadEffects:file_];
-    OALSimpleAudio* sa = [OALSimpleAudio sharedInstance];
-    sa.backgroundTrack.delegate = self;
-    sa.backgroundTrack.meteringEnabled = YES;
+    currentTrack_ = (OALAudioTrack*)[audioTracks_ objectAtIndex:0];
   }
   return self;
 }
 
 - (void)play {
   double fps = [[KKStartupConfig config] maxFrameRate];
-  [[OALSimpleAudio sharedInstance] playBg:[NSString stringWithFormat:file_, loop_] loop:YES];
+  [(OALAudioTrack*)[audioTracks_ objectAtIndex:0] play];
   [[CCScheduler sharedScheduler] scheduleSelector:@selector(tick:) 
                                         forTarget:self 
                                          interval:1.0 / fps
@@ -73,7 +71,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
 }
 
 - (void)stop {
-  [[OALSimpleAudio sharedInstance] stopBg];
+  [(OALAudioTrack*)[audioTracks_ objectAtIndex:loop_] stop];
   [[CCScheduler sharedScheduler] unscheduleSelector:@selector(tick:) 
                                           forTarget:self];
 }
@@ -89,14 +87,25 @@ const NSString* MUSICS_DATA = @"musics.lua";
 
 - (void)changeLoop:(NSInteger)number {
   if (loop_ == number) return;
-  loop_ = number;
-  OALSimpleAudio* sa = [OALSimpleAudio sharedInstance];
-  sa.backgroundTrack.numberOfLoops = 0;
+  OALAudioTrack* currentTrack = [audioTracks_ objectAtIndex:loop_];
+  OALAudioTrack* nextTrack = [audioTracks_ objectAtIndex:number];
+  currentTrack.numberOfLoops = 0;
+  nextTrack.numberOfLoops = -1;
+  NSTimeInterval deviceTime = currentTrack.deviceCurrentTime;
+  NSTimeInterval trackTimeRemaining = currentTrack.duration - currentTrack.currentTime;
+  [nextTrack playAtTime:deviceTime + trackTimeRemaining];
+  nextLoop_ = number;
 }
 
 - (void)preLoadMusic:(NSString *)file {
   for (int i = 0; i < loops_; ++i) {
-    [[OALSimpleAudio sharedInstance] preloadBg:[NSString stringWithFormat:file, i]];
+    NSString* filename = [NSString stringWithFormat:file, i];
+    OALAudioTrack* track = [OALAudioTrack track];
+    [track preloadFile:filename];
+    track.autoPreload = YES;
+    track.numberOfLoops = -1;
+    track.delegate = self;
+    [audioTracks_ addObject:track];
   }
 }
 
@@ -120,14 +129,12 @@ const NSString* MUSICS_DATA = @"musics.lua";
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-  id delegate = self.track.delegate;
-  [[OALSimpleAudio sharedInstance] playBg:[NSString stringWithFormat:file_, loop_] loop:YES];
-  self.track.delegate = delegate;
-  NSLog(@"change Loop");
+  currentTrack_ = [audioTracks_ objectAtIndex:nextLoop_];
+  loop_ = nextLoop_;
 }
 
 - (OALAudioTrack*)track {
-  return [OALSimpleAudio sharedInstance].backgroundTrack;
+  return currentTrack_;
 }
 
 - (NSTimeInterval)currentTime {
