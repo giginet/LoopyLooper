@@ -24,7 +24,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
 @synthesize title = title_;
 @synthesize nextMeasure = nextMeasure_;
 @synthesize score = score_;
-@dynamic track;
+@synthesize track = currentTrack_;
 @dynamic currentTime;
 @dynamic duration;
 
@@ -62,7 +62,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
 
 - (void)play {
   double fps = [[KKStartupConfig config] maxFrameRate];
-  [(OALAudioTrack*)[audioTracks_ objectAtIndex:0] play];
+  [currentTrack_ play];
   [[CCScheduler sharedScheduler] scheduleSelector:@selector(tick:) 
                                         forTarget:self 
                                          interval:1.0 / fps
@@ -70,8 +70,14 @@ const NSString* MUSICS_DATA = @"musics.lua";
   [self tick:0];
 }
 
+- (void)pause {
+  self.track.paused = YES;
+  [[CCScheduler sharedScheduler] unscheduleSelector:@selector(tick:) 
+                                          forTarget:self];
+}
+
 - (void)stop {
-  [(OALAudioTrack*)[audioTracks_ objectAtIndex:loop_] stop];
+  [self.track stop];
   [[CCScheduler sharedScheduler] unscheduleSelector:@selector(tick:) 
                                           forTarget:self];
 }
@@ -131,10 +137,6 @@ const NSString* MUSICS_DATA = @"musics.lua";
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
   currentTrack_ = [audioTracks_ objectAtIndex:nextLoop_];
   loop_ = nextLoop_;
-}
-
-- (OALAudioTrack*)track {
-  return currentTrack_;
 }
 
 - (NSTimeInterval)currentTime {

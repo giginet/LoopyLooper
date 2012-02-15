@@ -57,7 +57,7 @@
     isPerfect_ = NO;
     score_ = 0;
     prevTime_ = 0;
-    life_ = MAX_LIFE;
+    life_ = MAX_LIFE / 2;
     lifeGauge_ = [KWGauge gaugeWithColor:ccc3(0, 255, 0) andSize:CGSizeMake(400, 64)];
     beatLabel_ = [CCLabelTTF labelWithString:@"" fontName:@"Arial-BoldMT" fontSize:24];
     MotionDetector* detector = [MotionDetector shared];
@@ -82,11 +82,14 @@
                                                alignment:UITextAlignmentRight 
                                                 fontName:@"Arial-BoldMT" 
                                                 fontSize:24];
+    scoreLabel_.color = ccc3(0, 0, 0);
     scoreLabel_.position = ccp(800, 720);
     scoreLabel_.duration = 3;
     lifeGauge_.position = ccp(500, 720);
-    [self addChild:scoreLabel_];
+    lifeGauge_.gaugeColor = ccc3(255, 0, 0);
     beatLabel_.position = ccp(100, 100);
+    [self addChild:scoreLabel_];
+    [self addChild:lifeGauge_];
     [self addChild:beatLabel_];
   }
   return self;
@@ -124,7 +127,6 @@
 - (void)onStart {
   /*
    * ゲーム開始時に呼ばれます
-   *
    */
   [self.music play];
   [bar_ play];
@@ -154,13 +156,19 @@
 
 - (void)onGameOver {
   state_ = GameStateGameOver;
+  [self.music pause];
+  background.duration = 0;
+  [self runAction:[CCSequence actions:
+                   [CCDelayTime actionWithDuration:4.0],
+                   [CCCallFunc actionWithTarget:self selector:@selector(onGameEnd)]
+                   , nil]];
 }
 
 - (void)onClear {
-  [[[OALSimpleAudio sharedInstance] backgroundTrack] fadeTo:0 
-                                                   duration:1.5f 
-                                                     target:self 
-                                                   selector:@selector(onGameEnd)];
+  [self.music.track fadeTo:0 
+                  duration:1.5f 
+                    target:self 
+                  selector:@selector(onGameEnd)];
 }
 
 - (void)onGameEnd {
@@ -250,11 +258,21 @@
     if (!isInputed_ && prevCorrectMotionType != MotionTypeNone) {
       // 入力し損ねたとき
       NSLog(@"miss : %d %d %d", currentBeat_, prevBeat, prevCorrectMotionType);
+      life_ -= 200;
       [self onFail];
     }
     isInputed_ = NO;
   }
-  prevTime_ = currentTime;
+  if (state_ != GameStateGameOver) {
+    prevTime_ = currentTime;
+    if(life_ >= MAX_LIFE) {
+      life_ = MAX_LIFE;
+    } else if (life_ <= 0){
+      [self onGameOver];
+    }
+  }
+  lifeGauge_.rate = (double)life_ / (double)MAX_LIFE;
+  NSLog(@"%f", lifeGauge_.rate);
 }
 
 - (void)detectMotion:(Motion *)motion {
@@ -271,6 +289,7 @@
         if(sub < 0) sub *= -1;
         if(sub > FUZZY_TIME) sub = FUZZY_TIME;
         score_ += 500 * pow(2, currentLevel_) * ((FUZZY_TIME * 2) - sub) / (FUZZY_TIME * 2);
+        life_ += 50 * ((FUZZY_TIME * 2) - sub) / (FUZZY_TIME * 2);
         [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", motion.motionType]];
         isInputed_ = YES;
         CCParticleSystemQuad* melody = [CCParticleSystemQuad particleWithFile:@"melody.plist"];
@@ -279,6 +298,7 @@
         [self addChild:melody];
       } else if (correctMotionType != MotionTypeNone) {
         // 間違った入力をしたとき
+        life_ -= 50;
         [self onFail];
         isInputed_ = YES;
       }
@@ -302,8 +322,8 @@
   currentLevel_ = level;
   [self.music changeLoop:currentLevel_ - 1];
   isLevelUp_ = NO;
-  self.background.startSize = 8 * pow(2, currentLevel_);
-  self.background.endSize = 3 * pow(2, currentLevel_);
+  self.background.startSize = 8 * currentLevel_;
+  self.background.endSize = 3 * currentLevel_;
 }
 
 @end
