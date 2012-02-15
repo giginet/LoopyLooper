@@ -158,7 +158,7 @@
 
 - (void)onGameOver {
   state_ = GameStateGameOver;
-  [self.music pause];
+  [self.music stop];
   background.duration = 0;
   [self runAction:[CCSequence actions:
                    [CCDelayTime actionWithDuration:4.0],
@@ -277,7 +277,6 @@
     }
   }
   lifeGauge_.rate = (double)life_ / (double)MAX_LIFE;
-  NSLog(@"%f", lifeGauge_.rate);
 }
 
 - (void)detectMotion:(Motion *)motion {
