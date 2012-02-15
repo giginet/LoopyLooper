@@ -8,7 +8,7 @@
 
 #import "CCNode.h"
 
-@interface CutIn : CCSprite
+@interface CutIn : CCNode
 
 - (id)initWithFace:(NSString*)faceFile background:(NSString*)backgroundFile;
 

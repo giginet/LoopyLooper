@@ -12,6 +12,8 @@
 #import "Motion.h"
 #import "LoopMusic.h"
 #import "SeekBar.h"
+#import "CutIn.h"
+
 #define PART_LENGTH 16
 #define FUZZY_TIME 0.1
 #define MAX_LIFE 1000
@@ -242,10 +244,13 @@
   bar_.time = currentTime;
   int prevBeat = currentBeat_;
   currentBeat_ = round(currentTime / beatDuration) + startBeat_;
-  if (currentBeat_ - startBeat_ == 8 && isLevelUp_) {
+  if (currentBeat_ - startBeat_ == PART_LENGTH - 1 && isLevelUp_) {
     if (currentLevel_ < self.music.loops) {
       NSLog(@"LevelUp");
       [self setLevel:currentLevel_ + 1];
+      CutIn* cutin = [[CutIn alloc] initWithFace:@"cut_in_boss1.png" background:@"cutin.plist"];
+      cutin.position = ccp(0, [CCDirector sharedDirector].screenCenter.y);
+      [self addChild:cutin];
     }
   }
   if (prevTime_ > currentTime && currentTime >= 0 && currentTime < 1 && prevTime_ > self.music.duration - 1) {
