@@ -39,6 +39,7 @@
     [self addChild:markerLayer_];
     [self addChild:bar_];
     [self reloadBarFrom:measure];
+    [[CCTextureCache sharedTextureCache] addImage:@"seek_marker1.png"];
   }
   return self;
 }
@@ -61,6 +62,13 @@
 
 - (void)update:(ccTime)dt {
   bar_.position = ccp((self.contentSize.width * time_ / maxTime_ -self.contentSize.width / 2), 0);
+  for(CCSprite* marker in [markers_ allValues]) {
+    int no = 0;
+    if([marker intersectsNode:bar_]) {
+      no = 1;
+    }
+    [marker setTexture:[[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"seek_marker%d.png", no]]];
+  }
 }
 
 - (void)play {

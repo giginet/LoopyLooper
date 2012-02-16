@@ -28,10 +28,10 @@
     self.position = ccp(-director.screenSize.width + director.screenCenter.x, 0);
     cutin.position = ccp(-face.contentSize.width / 2, 0);
     [cutin runAction:[CCSequence actions:
-                      [CCMoveTo actionWithDuration:0.25 position:ccp(director.screenCenter.x, 0)], 
-                      [CCDelayTime actionWithDuration:1], 
-                      [CCMoveTo actionWithDuration:0.25 position:ccp(director.screenSize.width + face.contentSize.width / 2, 0)],
-                      [CCDelayTime actionWithDuration:0.5],
+                      [CCMoveTo actionWithDuration:0.15 position:ccp(director.screenCenter.x, 0)], 
+                      [CCDelayTime actionWithDuration:0.5], 
+                      [CCMoveTo actionWithDuration:0.15 position:ccp(director.screenSize.width + face.contentSize.width / 2, 0)],
+                      [CCDelayTime actionWithDuration:0.25],
                       [CCCallBlock actionWithBlock:^() {
       [me.parent removeChild:me cleanup:YES];
     }],

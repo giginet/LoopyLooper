@@ -216,6 +216,16 @@
       tutorial.position = ccp(center.x, center.y + 50);
       [self addChild:tutorial];
     }
+  } else if (state_ == GameStatePlay) {
+    if (self.music.measure % PART_LENGTH == PART_LENGTH - 1) {
+      CutIn* cutin = [[CutIn alloc] initWithFace:@"cut_in_boss1.png" background:@"cutin.plist"];
+      cutin.position = ccp(0, [CCDirector sharedDirector].screenCenter.y);
+      [self addChild:cutin];
+      if (currentLevel_ < self.music.loops) {
+        NSLog(@"LevelUp");
+        [self setLevel:currentLevel_ + 1];
+      }
+    }
   }
 }
 
@@ -244,15 +254,6 @@
   bar_.time = currentTime;
   int prevBeat = currentBeat_;
   currentBeat_ = round(currentTime / beatDuration) + startBeat_;
-  if (currentBeat_ - startBeat_ == PART_LENGTH - 1 && isLevelUp_) {
-    if (currentLevel_ < self.music.loops) {
-      NSLog(@"LevelUp");
-      [self setLevel:currentLevel_ + 1];
-      CutIn* cutin = [[CutIn alloc] initWithFace:@"cut_in_boss1.png" background:@"cutin.plist"];
-      cutin.position = ccp(0, [CCDirector sharedDirector].screenCenter.y);
-      [self addChild:cutin];
-    }
-  }
   if (prevTime_ > currentTime && currentTime >= 0 && currentTime < 1 && prevTime_ > self.music.duration - 1) {
     GameState nextState = state_ == GameStatePlay ? GameStateExample : GameStatePlay;
     NSLog(@"change : %d", nextState);
@@ -326,8 +327,8 @@
   currentLevel_ = level;
   [self.music changeLoop:currentLevel_ - 1];
   isLevelUp_ = NO;
-  self.background.startSize = 8 * currentLevel_;
-  self.background.endSize = 3 * currentLevel_;
+  self.background.startSize = 4 * currentLevel_;
+  self.background.endSize = 2 * currentLevel_;
 }
 
 @end
