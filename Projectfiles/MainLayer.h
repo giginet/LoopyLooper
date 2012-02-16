@@ -14,7 +14,8 @@ typedef enum {
   GameStateReady,
   GameStateExample,
   GameStatePlay,
-  GameStateGameOver
+  GameStateGameOver,
+  GameStateClear
 } GameState;
 
 @interface MainLayer : KWLayer {

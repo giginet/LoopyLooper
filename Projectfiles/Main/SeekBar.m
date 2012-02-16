@@ -64,7 +64,7 @@
   bar_.position = ccp((self.contentSize.width * time_ / maxTime_ -self.contentSize.width / 2), 0);
   for(CCSprite* marker in [markers_ allValues]) {
     int no = 0;
-    if([marker intersectsNode:bar_]) {
+    if(CGRectContainsPoint(bar_.boundingBox, ccpAdd(marker.position, ccp(-self.contentSize.width / 2, 0)))) {
       no = 1;
     }
     [marker setTexture:[[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"seek_marker%d.png", no]]];

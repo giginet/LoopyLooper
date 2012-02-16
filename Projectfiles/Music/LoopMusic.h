@@ -22,8 +22,8 @@
   NSString* file_;
   Score* score_;
   BOOL isEndOfLoop_;
-  OALAudioTrack* currentTrack_;
-  NSMutableArray* audioTracks_;
+  OALAudioTrack* track_;
+  NSMutableArray* tracks_;
 }
 
 @property(readonly) int bpm;
@@ -35,6 +35,7 @@
 @property(readonly, copy) NSString* title;
 @property(readonly) Score* score;
 @property(readonly) OALAudioTrack* track;
+@property(readonly) NSArray* tracks;
 
 - (id)initWithMusicID:(int)musicID;
 - (void)play;

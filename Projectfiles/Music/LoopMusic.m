@@ -24,7 +24,8 @@ const NSString* MUSICS_DATA = @"musics.lua";
 @synthesize title = title_;
 @synthesize nextMeasure = nextMeasure_;
 @synthesize score = score_;
-@synthesize track = currentTrack_;
+@synthesize track = track_;
+@synthesize tracks = tracks_;
 @dynamic currentTime;
 @dynamic duration;
 
@@ -38,7 +39,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
     nextMeasure_ = 1;
     title_ = @"";
     isEndOfLoop_ = NO;
-    audioTracks_ = [NSMutableArray array];
+    tracks_ = [NSMutableArray array];
   }
   return self;
 }
@@ -55,14 +56,14 @@ const NSString* MUSICS_DATA = @"musics.lua";
     score_ = [[Score alloc] initWithFile:[music objectForKey:@"score"]];
     [self preLoadMusic:file_];
     [self preLoadEffects:file_];
-    currentTrack_ = (OALAudioTrack*)[audioTracks_ objectAtIndex:0];
+    track_ = (OALAudioTrack*)[tracks_ objectAtIndex:0];
   }
   return self;
 }
 
 - (void)play {
   double fps = [[KKStartupConfig config] maxFrameRate];
-  [currentTrack_ play];
+  [track_ play];
   [[CCScheduler sharedScheduler] scheduleSelector:@selector(tick:) 
                                         forTarget:self 
                                          interval:1.0 / fps
@@ -93,8 +94,8 @@ const NSString* MUSICS_DATA = @"musics.lua";
 
 - (void)changeLoop:(NSInteger)number {
   if (loop_ == number) return;
-  OALAudioTrack* currentTrack = [audioTracks_ objectAtIndex:loop_];
-  OALAudioTrack* nextTrack = [audioTracks_ objectAtIndex:number];
+  OALAudioTrack* currentTrack = [tracks_ objectAtIndex:loop_];
+  OALAudioTrack* nextTrack = [tracks_ objectAtIndex:number];
   currentTrack.numberOfLoops = 0;
   nextTrack.numberOfLoops = -1;
   NSTimeInterval deviceTime = currentTrack.deviceCurrentTime;
@@ -111,7 +112,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
     track.autoPreload = YES;
     track.numberOfLoops = -1;
     track.delegate = self;
-    [audioTracks_ addObject:track];
+    [tracks_ addObject:track];
   }
 }
 
@@ -135,7 +136,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-  currentTrack_ = [audioTracks_ objectAtIndex:nextLoop_];
+  track_ = [tracks_ objectAtIndex:nextLoop_];
   loop_ = nextLoop_;
 }
 

@@ -167,10 +167,13 @@
 }
 
 - (void)onClear {
-  [self.music.track fadeTo:0 
-                  duration:1.5f 
-                    target:self 
-                  selector:@selector(onGameEnd)];
+  state_ = GameStateClear;
+  for(OALAudioTrack* track in self.music.tracks) {
+    [track fadeTo:0 
+         duration:1.5f 
+           target:self 
+         selector:@selector(onGameEnd)];
+  }
 }
 
 - (void)onGameEnd {
@@ -216,16 +219,9 @@
       tutorial.position = ccp(center.x, center.y + 50);
       [self addChild:tutorial];
     }
-  } else if (state_ == GameStatePlay) {
-    if (self.music.measure % PART_LENGTH == PART_LENGTH - 1) {
-      CutIn* cutin = [[CutIn alloc] initWithFace:@"cut_in_boss1.png" background:@"cutin.plist"];
-      cutin.position = ccp(0, [CCDirector sharedDirector].screenCenter.y);
-      [self addChild:cutin];
-      if (currentLevel_ < self.music.loops) {
-        NSLog(@"LevelUp");
-        [self setLevel:currentLevel_ + 1];
-      }
-    }
+  }
+  if (state_ != GameStateClear && startBeat_ >= self.music.score.scoreLength) {
+    [self onClear];
   }
 }
 
@@ -235,11 +231,7 @@
     [bar_ reset];
     startBeat_ += PART_LENGTH;
     [bar_ reloadBarFrom:startBeat_];
-    if (startBeat_ < self.music.score.scoreLength) {
-      [self onExamplePart];
-    } else {
-      [self onClear];
-    }
+    [self onExamplePart];
   } else if (state == GameStatePlay) {
     NSLog(@"Play");
     [bar_ reset];
@@ -266,6 +258,14 @@
       NSLog(@"miss : %d %d %d", currentBeat_, prevBeat, prevCorrectMotionType);
       life_ -= 200;
       [self onFail];
+    } else if (currentBeat_ - startBeat_ == PART_LENGTH && isLevelUp_ && isPerfect_) {
+      CutIn* cutin = [[CutIn alloc] initWithFace:@"cut_in_boss1.png" background:@"cutin.plist"];
+      cutin.position = ccp(0, [CCDirector sharedDirector].screenCenter.y);
+      [self addChild:cutin];
+      if (currentLevel_ < self.music.loops) {
+        NSLog(@"LevelUp");
+        [self setLevel:currentLevel_ + 1];
+      }
     }
     isInputed_ = NO;
   }
@@ -327,8 +327,8 @@
   currentLevel_ = level;
   [self.music changeLoop:currentLevel_ - 1];
   isLevelUp_ = NO;
-  self.background.startSize = 4 * currentLevel_;
-  self.background.endSize = 2 * currentLevel_;
+  self.background.startSize = 8 * currentLevel_;
+  self.background.endSize = 3 * currentLevel_;
 }
 
 @end
