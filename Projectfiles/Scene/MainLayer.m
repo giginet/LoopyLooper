@@ -182,11 +182,7 @@
 
 - (void)onGameEnd {
   CCLayer* layer = [[ResultLayer alloc] initWithScore:score_];
-  CCScene* scene = [[CCScene alloc] init];
-  [scene addChild:layer];
-  CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
-                                                                    scene:scene];
-  [[CCDirector sharedDirector] replaceScene:transition];
+  [self addChild:layer];
 }
 
 - (void)onExit {

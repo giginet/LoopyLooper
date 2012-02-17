@@ -14,6 +14,7 @@
 @synthesize scoreLabel = scoreLabel_;
 
 - (id)init {
+  self.backgroundColor = ccc4(128, 128, 128, 196);
   self = [super init];
   if (self) {
     self.isTouchEnabled = YES;
