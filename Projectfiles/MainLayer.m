@@ -57,6 +57,7 @@
     isInputed_ = NO;
     isLevelUp_ = NO;
     isPerfect_ = NO;
+    CCDirector* director = [CCDirector sharedDirector];
     score_ = 0;
     prevTime_ = 0;
     life_ = MAX_LIFE / 2;
@@ -73,7 +74,7 @@
       [sa preloadEffect:file];
     }
     background = [CCParticleSystemQuad particleWithFile:@"background.plist"];
-    background.position = [CCDirector sharedDirector].screenCenter;
+    background.position = director.screenCenter;
     [self addChild:background];
     
     bar_ = [SeekBar seekBarWithMusic:self.music measure:0];
@@ -94,7 +95,7 @@
     [self addChild:lifeGauge_];
     [self addChild:beatLabel_];
     CCSprite* status = [CCSprite spriteWithFile:@"status.png"];
-    status.position = ccp(512, 693);
+    status.position = ccp(512, director.screenSize.height - status.contentSize.height / 2);
     [self addChild:status];
   }
   return self;

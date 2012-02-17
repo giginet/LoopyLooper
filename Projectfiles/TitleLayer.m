@@ -26,7 +26,6 @@
     CCSprite* background = [CCSprite spriteWithFile:@"title.png"];
     background.position = director.screenCenter;
     [self addChild:background];    
-    self.isTouchEnabled = YES;
   }
   return self;
 }
@@ -36,14 +35,14 @@
   return YES;
 }
 
--(void)toMain:(id)sender{
+- (void)toMain:(id)sender{
   CCScene* scene = self.nextScene;
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
                                                                     scene:scene];
   [[CCDirector sharedDirector] replaceScene:transition];
 }
 
--(void)toResult:(id)sender{
+- (void)toResult:(id)sender{
   ResultLayer *layer = [[ResultLayer alloc] initWithScore:100];
   CCScene *scene = [[CCScene alloc] init];
   [scene addChild:layer];

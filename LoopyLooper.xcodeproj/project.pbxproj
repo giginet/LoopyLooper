@@ -16,7 +16,7 @@
 		0741723D14ED620E0022D9F1 /* Loop_3_2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0741723914ED620E0022D9F1 /* Loop_3_2.caf */; };
 		0741723E14ED620E0022D9F1 /* Loop_3_3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0741723A14ED620E0022D9F1 /* Loop_3_3.caf */; };
 		0741724014ED63400022D9F1 /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = 0741723F14ED63400022D9F1 /* status.png */; };
-		0741724214ED6D680022D9F1 /* Loop_3_3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0741724114ED6D680022D9F1 /* Loop_3_3.caf */; };
+		0741724A14EE4FD70022D9F1 /* KWMessageWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0741724914EE4FD70022D9F1 /* KWMessageWindow.m */; };
 		075A497714BD81BB0047AAD2 /* KWMusicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A497614BD81BB0047AAD2 /* KWMusicManager.m */; };
 		075A498514BEB36A0047AAD2 /* KWDrawingPrimitives.m in Sources */ = {isa = PBXBuildFile; fileRef = 075A498414BEB36A0047AAD2 /* KWDrawingPrimitives.m */; };
 		076D1B5C14D42E15005EA04E /* 1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 076D1B5514D42E15005EA04E /* 1.caf */; };
@@ -118,7 +118,8 @@
 		0741723914ED620E0022D9F1 /* Loop_3_2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Loop_3_2.caf; path = ../../../../../../Dropbox/LoopyLooper/resources/sound/Loop_3/Loop_3_2.caf; sourceTree = "<group>"; };
 		0741723A14ED620E0022D9F1 /* Loop_3_3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Loop_3_3.caf; path = ../../../../../../Dropbox/LoopyLooper/resources/sound/Loop_3/Loop_3_3.caf; sourceTree = "<group>"; };
 		0741723F14ED63400022D9F1 /* status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status.png; sourceTree = "<group>"; };
-		0741724114ED6D680022D9F1 /* Loop_3_3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Loop_3_3.caf; path = ../../../../../../Dropbox/LoopyLooper/resources/sound/Loop_3/Loop_3_3.caf; sourceTree = "<group>"; };
+		0741724814EE4FD70022D9F1 /* KWMessageWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWMessageWindow.h; sourceTree = "<group>"; };
+		0741724914EE4FD70022D9F1 /* KWMessageWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWMessageWindow.m; sourceTree = "<group>"; };
 		075A497514BD81BB0047AAD2 /* KWMusicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWMusicManager.h; sourceTree = "<group>"; };
 		075A497614BD81BB0047AAD2 /* KWMusicManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWMusicManager.m; sourceTree = "<group>"; };
 		075A498314BEB3690047AAD2 /* KWDrawingPrimitives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWDrawingPrimitives.h; sourceTree = "<group>"; };
@@ -187,6 +188,7 @@
 		07C65EE114ECEFE900EE1391 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
 		07C65EE314ECEFFC00EE1391 /* HowtoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowtoLayer.h; sourceTree = "<group>"; };
 		07C65EE414ECEFFE00EE1391 /* HowtoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowtoLayer.m; sourceTree = "<group>"; };
+		07D41EA414EE516300D91359 /* KWMessageWindowDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWMessageWindowDelegate.h; sourceTree = "<group>"; };
 		07D643FC14CB2DC900B0910C /* KWScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWScrollLayer.h; sourceTree = "<group>"; };
 		07D643FD14CB2DC900B0910C /* KWScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWScrollLayer.m; sourceTree = "<group>"; };
 		07D6440114CB2E7B00B0910C /* KWGauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWGauge.h; sourceTree = "<group>"; };
@@ -306,7 +308,6 @@
 				0741723814ED620E0022D9F1 /* Loop_3_1.caf */,
 				0741723914ED620E0022D9F1 /* Loop_3_2.caf */,
 				0741723A14ED620E0022D9F1 /* Loop_3_3.caf */,
-				0741724114ED6D680022D9F1 /* Loop_3_3.caf */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -382,6 +383,9 @@
 				07D643FD14CB2DC900B0910C /* KWScrollLayer.m */,
 				07C65EB114E9987900EE1391 /* KWCounterLabel.h */,
 				07C65EB214E9987900EE1391 /* KWCounterLabel.m */,
+				0741724814EE4FD70022D9F1 /* KWMessageWindow.h */,
+				0741724914EE4FD70022D9F1 /* KWMessageWindow.m */,
+				07D41EA414EE516300D91359 /* KWMessageWindowDelegate.h */,
 			);
 			path = sprite;
 			sourceTree = "<group>";
@@ -725,7 +729,6 @@
 				0741723D14ED620E0022D9F1 /* Loop_3_2.caf in Resources */,
 				0741723E14ED620E0022D9F1 /* Loop_3_3.caf in Resources */,
 				0741724014ED63400022D9F1 /* status.png in Resources */,
-				0741724214ED6D680022D9F1 /* Loop_3_3.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -769,6 +772,7 @@
 				07C65EB314E9987900EE1391 /* KWCounterLabel.m in Sources */,
 				07C65EE214ECEFE900EE1391 /* MenuLayer.m in Sources */,
 				07C65EE514ECF00000EE1391 /* HowtoLayer.m in Sources */,
+				0741724A14EE4FD70022D9F1 /* KWMessageWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

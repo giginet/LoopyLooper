@@ -36,3 +36,5 @@
 #import "KWPieChart.h"
 #import "KWGauge.h"
 #import "KWScrollLayer.h"
+#import "KWMessageWindow.h"
+#import "KWMessageWindowDelegate.h"
