@@ -93,6 +93,9 @@
     [self addChild:scoreLabel_];
     [self addChild:lifeGauge_];
     [self addChild:beatLabel_];
+    CCSprite* status = [CCSprite spriteWithFile:@"status.png"];
+    status.position = ccp(512, 693);
+    [self addChild:status];
   }
   return self;
 }
