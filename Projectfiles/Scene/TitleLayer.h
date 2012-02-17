@@ -18,6 +18,6 @@
 }
 
 @property(readwrite, retain) CCScene* nextScene;
-- (void)toMain:(id)sender;
+-(void)toMain:(id)sender;
 -(void)toResult:(id)sender;
 @end

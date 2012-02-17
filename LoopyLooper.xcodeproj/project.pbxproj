@@ -44,7 +44,6 @@
 		07831F9B14B23CC400C6FC96 /* NSArrayExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 07831F9014B23CC400C6FC96 /* NSArrayExtension.m */; };
 		07831F9E14B2428D00C6FC96 /* CCSpriteExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 07831F9D14B2428D00C6FC96 /* CCSpriteExtension.m */; };
 		07BA25F014D33DAF00458AEA /* CCAnimationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BA25EF14D33DAF00458AEA /* CCAnimationExtension.m */; };
-		07BA25F314D3419F00458AEA /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BA25F214D3419F00458AEA /* MainLayer.m */; };
 		07C0721714D50DD200672794 /* cut_in_boss1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0721314D50DD200672794 /* cut_in_boss1.png */; };
 		07C0721C14D50E2300672794 /* SeekBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C0721B14D50E2300672794 /* SeekBar.m */; };
 		07C0724914D539D800672794 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0724814D539D800672794 /* Default-Landscape~ipad.png */; };
@@ -65,8 +64,13 @@
 		07C65ED714EBB19B00EE1391 /* t5_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C65ECA14EBB19B00EE1391 /* t5_0.png */; };
 		07C65ED914EBCD4700EE1391 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C65ED814EBCD4700EE1391 /* title.png */; };
 		07C65EDF14EC13C600EE1391 /* cutin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07C65EDE14EC13C600EE1391 /* cutin.plist */; };
-		07C65EE214ECEFE900EE1391 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C65EE114ECEFE900EE1391 /* MenuLayer.m */; };
-		07C65EE514ECF00000EE1391 /* HowtoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C65EE414ECEFFE00EE1391 /* HowtoLayer.m */; };
+		07D41EB214EEE8A500D91359 /* HowtoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D41EA714EEE8A500D91359 /* HowtoLayer.m */; };
+		07D41EB314EEE8A500D91359 /* LogoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D41EA914EEE8A500D91359 /* LogoLayer.m */; };
+		07D41EB414EEE8A500D91359 /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D41EAB14EEE8A500D91359 /* MainLayer.m */; };
+		07D41EB514EEE8A500D91359 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D41EAD14EEE8A500D91359 /* MenuLayer.m */; };
+		07D41EB614EEE8A500D91359 /* ResultLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D41EAF14EEE8A500D91359 /* ResultLayer.m */; };
+		07D41EB714EEE8A500D91359 /* TitleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D41EB114EEE8A500D91359 /* TitleLayer.m */; };
+		07D41EB914EEEA3400D91359 /* kawaz-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D41EB814EEEA3400D91359 /* kawaz-ipad.png */; };
 		07D643FE14CB2DC900B0910C /* KWScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D643FD14CB2DC900B0910C /* KWScrollLayer.m */; };
 		07D6440714CB2E7B00B0910C /* KWGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440214CB2E7B00B0910C /* KWGauge.m */; };
 		07D6440814CB2E7B00B0910C /* KWPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440414CB2E7B00B0910C /* KWPieChart.m */; };
@@ -75,9 +79,6 @@
 		07EC8A5714C22F9700C388AD /* KWUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC8A5614C22F9700C388AD /* KWUtility.m */; };
 		07F20B8114C4EB59003D6237 /* tinymt32.c in Sources */ = {isa = PBXBuildFile; fileRef = 07F20B7F14C4EB59003D6237 /* tinymt32.c */; };
 		07F20B8414C4EC07003D6237 /* KWRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F20B8314C4EC07003D6237 /* KWRandom.m */; };
-		07F70ECA14D4060E00B43B30 /* ResultLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70EC714D4060D00B43B30 /* ResultLayer.m */; };
-		07F70ECB14D4060E00B43B30 /* TitleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70EC914D4060E00B43B30 /* TitleLayer.m */; };
-		07F70ECE14D4061F00B43B30 /* LogoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70ECD14D4061F00B43B30 /* LogoLayer.m */; };
 		07F70ED314D4090A00B43B30 /* Motion.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70ED014D4090A00B43B30 /* Motion.m */; };
 		07F70ED414D4090A00B43B30 /* MotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70ED214D4090A00B43B30 /* MotionDetector.m */; };
 		07F70ED814D4094200B43B30 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70ED714D4094200B43B30 /* Score.m */; };
@@ -160,8 +161,6 @@
 		07831F9D14B2428D00C6FC96 /* CCSpriteExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSpriteExtension.m; sourceTree = "<group>"; };
 		07BA25EE14D33DAF00458AEA /* CCAnimationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAnimationExtension.h; sourceTree = "<group>"; };
 		07BA25EF14D33DAF00458AEA /* CCAnimationExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAnimationExtension.m; sourceTree = "<group>"; };
-		07BA25F114D3419F00458AEA /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
-		07BA25F214D3419F00458AEA /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
 		07C0721314D50DD200672794 /* cut_in_boss1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cut_in_boss1.png; sourceTree = "<group>"; };
 		07C0721A14D50E2300672794 /* SeekBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeekBar.h; path = Main/SeekBar.h; sourceTree = "<group>"; };
 		07C0721B14D50E2300672794 /* SeekBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SeekBar.m; path = Main/SeekBar.m; sourceTree = "<group>"; };
@@ -184,11 +183,20 @@
 		07C65ECA14EBB19B00EE1391 /* t5_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t5_0.png; sourceTree = "<group>"; };
 		07C65ED814EBCD4700EE1391 /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
 		07C65EDE14EC13C600EE1391 /* cutin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = cutin.plist; path = Projectfiles/Resources/Particle/cutin.plist; sourceTree = SOURCE_ROOT; };
-		07C65EE014ECEFE900EE1391 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
-		07C65EE114ECEFE900EE1391 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
-		07C65EE314ECEFFC00EE1391 /* HowtoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowtoLayer.h; sourceTree = "<group>"; };
-		07C65EE414ECEFFE00EE1391 /* HowtoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowtoLayer.m; sourceTree = "<group>"; };
 		07D41EA414EE516300D91359 /* KWMessageWindowDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWMessageWindowDelegate.h; sourceTree = "<group>"; };
+		07D41EA614EEE8A500D91359 /* HowtoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HowtoLayer.h; path = Scene/HowtoLayer.h; sourceTree = "<group>"; };
+		07D41EA714EEE8A500D91359 /* HowtoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HowtoLayer.m; path = Scene/HowtoLayer.m; sourceTree = "<group>"; };
+		07D41EA814EEE8A500D91359 /* LogoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogoLayer.h; path = Scene/LogoLayer.h; sourceTree = "<group>"; };
+		07D41EA914EEE8A500D91359 /* LogoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogoLayer.m; path = Scene/LogoLayer.m; sourceTree = "<group>"; };
+		07D41EAA14EEE8A500D91359 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainLayer.h; path = Scene/MainLayer.h; sourceTree = "<group>"; };
+		07D41EAB14EEE8A500D91359 /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainLayer.m; path = Scene/MainLayer.m; sourceTree = "<group>"; };
+		07D41EAC14EEE8A500D91359 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuLayer.h; path = Scene/MenuLayer.h; sourceTree = "<group>"; };
+		07D41EAD14EEE8A500D91359 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuLayer.m; path = Scene/MenuLayer.m; sourceTree = "<group>"; };
+		07D41EAE14EEE8A500D91359 /* ResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultLayer.h; path = Scene/ResultLayer.h; sourceTree = "<group>"; };
+		07D41EAF14EEE8A500D91359 /* ResultLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultLayer.m; path = Scene/ResultLayer.m; sourceTree = "<group>"; };
+		07D41EB014EEE8A500D91359 /* TitleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleLayer.h; path = Scene/TitleLayer.h; sourceTree = "<group>"; };
+		07D41EB114EEE8A500D91359 /* TitleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleLayer.m; path = Scene/TitleLayer.m; sourceTree = "<group>"; };
+		07D41EB814EEEA3400D91359 /* kawaz-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kawaz-ipad.png"; path = "Projectfiles/Resources/kawaz-ipad.png"; sourceTree = SOURCE_ROOT; };
 		07D643FC14CB2DC900B0910C /* KWScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWScrollLayer.h; sourceTree = "<group>"; };
 		07D643FD14CB2DC900B0910C /* KWScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWScrollLayer.m; sourceTree = "<group>"; };
 		07D6440114CB2E7B00B0910C /* KWGauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWGauge.h; sourceTree = "<group>"; };
@@ -204,12 +212,6 @@
 		07F20B8014C4EB59003D6237 /* tinymt32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinymt32.h; sourceTree = "<group>"; };
 		07F20B8214C4EC07003D6237 /* KWRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWRandom.h; sourceTree = "<group>"; };
 		07F20B8314C4EC07003D6237 /* KWRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWRandom.m; sourceTree = "<group>"; };
-		07F70EC614D4060D00B43B30 /* ResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultLayer.h; sourceTree = "<group>"; };
-		07F70EC714D4060D00B43B30 /* ResultLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultLayer.m; sourceTree = "<group>"; };
-		07F70EC814D4060D00B43B30 /* TitleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleLayer.h; sourceTree = "<group>"; };
-		07F70EC914D4060E00B43B30 /* TitleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleLayer.m; sourceTree = "<group>"; };
-		07F70ECC14D4061F00B43B30 /* LogoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoLayer.h; sourceTree = "<group>"; };
-		07F70ECD14D4061F00B43B30 /* LogoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoLayer.m; sourceTree = "<group>"; };
 		07F70ECF14D4090A00B43B30 /* Motion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Motion.h; path = Motion/Motion.h; sourceTree = "<group>"; };
 		07F70ED014D4090A00B43B30 /* Motion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Motion.m; path = Motion/Motion.m; sourceTree = "<group>"; };
 		07F70ED114D4090A00B43B30 /* MotionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MotionDetector.h; path = Motion/MotionDetector.h; sourceTree = "<group>"; };
@@ -414,18 +416,18 @@
 		07BA25F414D341AB00458AEA /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				07F70EC614D4060D00B43B30 /* ResultLayer.h */,
-				07F70EC714D4060D00B43B30 /* ResultLayer.m */,
-				07F70EC814D4060D00B43B30 /* TitleLayer.h */,
-				07F70EC914D4060E00B43B30 /* TitleLayer.m */,
-				07BA25F114D3419F00458AEA /* MainLayer.h */,
-				07BA25F214D3419F00458AEA /* MainLayer.m */,
-				07F70ECC14D4061F00B43B30 /* LogoLayer.h */,
-				07F70ECD14D4061F00B43B30 /* LogoLayer.m */,
-				07C65EE014ECEFE900EE1391 /* MenuLayer.h */,
-				07C65EE114ECEFE900EE1391 /* MenuLayer.m */,
-				07C65EE314ECEFFC00EE1391 /* HowtoLayer.h */,
-				07C65EE414ECEFFE00EE1391 /* HowtoLayer.m */,
+				07D41EA614EEE8A500D91359 /* HowtoLayer.h */,
+				07D41EA714EEE8A500D91359 /* HowtoLayer.m */,
+				07D41EA814EEE8A500D91359 /* LogoLayer.h */,
+				07D41EA914EEE8A500D91359 /* LogoLayer.m */,
+				07D41EAA14EEE8A500D91359 /* MainLayer.h */,
+				07D41EAB14EEE8A500D91359 /* MainLayer.m */,
+				07D41EAC14EEE8A500D91359 /* MenuLayer.h */,
+				07D41EAD14EEE8A500D91359 /* MenuLayer.m */,
+				07D41EAE14EEE8A500D91359 /* ResultLayer.h */,
+				07D41EAF14EEE8A500D91359 /* ResultLayer.m */,
+				07D41EB014EEE8A500D91359 /* TitleLayer.h */,
+				07D41EB114EEE8A500D91359 /* TitleLayer.m */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -590,6 +592,7 @@
 				076D1B5414D42E15005EA04E /* Effect */,
 				076D1B5714D42E15005EA04E /* Music */,
 				07831F6F14B23C7D00C6FC96 /* kawaz-hd.png */,
+				07D41EB814EEEA3400D91359 /* kawaz-ipad.png */,
 				07831F7014B23C7D00C6FC96 /* kawaz.png */,
 				DCC1A39513A94F1A005BD75D /* config.lua */,
 				07D7351314D3EC2D00623122 /* test.lua */,
@@ -729,6 +732,7 @@
 				0741723D14ED620E0022D9F1 /* Loop_3_2.caf in Resources */,
 				0741723E14ED620E0022D9F1 /* Loop_3_3.caf in Resources */,
 				0741724014ED63400022D9F1 /* status.png in Resources */,
+				07D41EB914EEEA3400D91359 /* kawaz-ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,10 +763,6 @@
 				07D6440814CB2E7B00B0910C /* KWPieChart.m in Sources */,
 				07D6440914CB2E7B00B0910C /* KWTimerLabel.m in Sources */,
 				07BA25F014D33DAF00458AEA /* CCAnimationExtension.m in Sources */,
-				07BA25F314D3419F00458AEA /* MainLayer.m in Sources */,
-				07F70ECA14D4060E00B43B30 /* ResultLayer.m in Sources */,
-				07F70ECB14D4060E00B43B30 /* TitleLayer.m in Sources */,
-				07F70ECE14D4061F00B43B30 /* LogoLayer.m in Sources */,
 				07F70ED314D4090A00B43B30 /* Motion.m in Sources */,
 				07F70ED414D4090A00B43B30 /* MotionDetector.m in Sources */,
 				07F70ED814D4094200B43B30 /* Score.m in Sources */,
@@ -770,9 +770,13 @@
 				076D1B7E14D4AADB005EA04E /* CutIn.m in Sources */,
 				07C0721C14D50E2300672794 /* SeekBar.m in Sources */,
 				07C65EB314E9987900EE1391 /* KWCounterLabel.m in Sources */,
-				07C65EE214ECEFE900EE1391 /* MenuLayer.m in Sources */,
-				07C65EE514ECF00000EE1391 /* HowtoLayer.m in Sources */,
 				0741724A14EE4FD70022D9F1 /* KWMessageWindow.m in Sources */,
+				07D41EB214EEE8A500D91359 /* HowtoLayer.m in Sources */,
+				07D41EB314EEE8A500D91359 /* LogoLayer.m in Sources */,
+				07D41EB414EEE8A500D91359 /* MainLayer.m in Sources */,
+				07D41EB514EEE8A500D91359 /* MenuLayer.m in Sources */,
+				07D41EB614EEE8A500D91359 /* ResultLayer.m in Sources */,
+				07D41EB714EEE8A500D91359 /* TitleLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,8 +9,6 @@
 #import "heqet.h"
 
 @interface LogoLayer : KWLayer{
-  CCScene* nextScene_;
 }
 
-@property(readwrite, retain) CCScene* nextScene;
 @end

@@ -21,8 +21,8 @@ const NSString* IPAD_DEFAULT_SUFFIX = @"-ipad";
     if (!suffix) {
       suffix = (NSString*)IPAD_DEFAULT_SUFFIX;
     }
-    NSString* suffixedPath = [NSString stringWithFormat:@"%@%@%@", basename, suffix, ext];
-    if (![[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@%@", basename, suffix] ofType:ext] ) {
+    NSString* suffixedPath = [NSString stringWithFormat:@"%@%@.%@", basename, suffix, ext];
+    if ([[NSBundle mainBundle] pathForAuxiliaryExecutable:suffixedPath] ) {
       return suffixedPath;
     } else {
       CCLOG(@"The file named '%@' is not found.", suffixedPath);

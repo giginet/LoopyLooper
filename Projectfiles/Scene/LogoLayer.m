@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Kawaz. All rights reserved.
 //
 
+
+#import "KWUtility.h"
 #import "LogoLayer.h"
 #import "TitleLayer.h"
 
@@ -14,14 +16,12 @@
 @end
 
 @implementation LogoLayer
-@synthesize nextScene=nextScene_;
 
 - (id)init {
   self.backgroundColor = ccc4(255, 255, 255, 255);
   if( (self = [super init]) ) {
-    self.nextScene = nil;
     CCDirector* director = [CCDirector sharedDirector];
-    CCSprite* logo = [CCSprite spriteWithFile:@"kawaz.png"];
+    CCSprite* logo = [CCSprite spriteWithFile:[KWUtility fileNameWithiPadSuffix:@"kawaz.png"]];
     logo.position = director.screenCenter;
     logo.opacity = 0;
     id fadeIn = [CCFadeIn actionWithDuration:2];
@@ -33,7 +33,6 @@
     [logo runAction:seq];
     [self addChild:logo];
     self.isTouchEnabled = YES;
-    self.nextScene = [TitleLayer nodeWithScene];
   }
   return self;
 }
@@ -53,7 +52,7 @@
 }
 
 - (void)goToNext{
-  CCScene* scene = self.nextScene;
+  CCScene* scene = [TitleLayer nodeWithScene];
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
                                                                     scene:scene];
   [[CCDirector sharedDirector] replaceScene:transition];

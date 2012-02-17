@@ -11,8 +11,11 @@
 @interface ResultLayer : KWLayer{
     CCLabelTTF* scoreLabel_;
 }
+
 @property(readwrite, retain) CCLabelTTF* scoreLabel;
+
 - (id)initWithScore:(NSInteger)score;
--(void)toTitle:(id)sender;
--(void)toMain:(id)sender;
+- (void)toTitle:(id)sender;
+- (void)toMain:(id)sender;
+
 @end
