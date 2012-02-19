@@ -15,7 +15,7 @@
 #import "CutIn.h"
 
 #define PART_LENGTH 16
-#define FUZZY_TIME 0.1
+#define FUZZY_TIME 0.15
 #define MAX_LIFE 1000
 
 @interface MainLayer()
@@ -31,6 +31,7 @@
 - (void)detectMotion:(Motion*)motion;
 - (void)onFail;
 - (void)setLevel:(int)level;
+- (void)addMotionLabel:(NSString*)filename beat:(int)beat;
 @end
 
 /*
@@ -118,7 +119,7 @@
   CCSprite* readyLabel = [CCSprite spriteWithFile:@"ready.png"];
   readyLabel.scale = 0;
   readyLabel.position = [CCDirector sharedDirector].screenCenter;
-  id expand = [CCScaleTo actionWithDuration:0.25f scale:1.0];
+  id expand = [CCScaleTo actionWithDuration:0.1f scale:1.0];
   id delay = [CCDelayTime actionWithDuration:1.0];
   id fadeout = [CCFadeOut actionWithDuration:0.25f];
   __weak MainLayer* layer = self;
@@ -134,6 +135,19 @@
   /*
    * ゲーム開始時に呼ばれます
    */
+  CCSprite* goLabel = [CCSprite spriteWithFile:@"go.png"];
+  goLabel.scale = 0;
+  goLabel.position = [CCDirector sharedDirector].screenCenter;
+  id expand = [CCScaleTo actionWithDuration:0.25f scale:1.0];
+  id delay = [CCDelayTime actionWithDuration:0.5f];
+  id fadeout = [CCFadeOut actionWithDuration:0.25f];
+  __weak MainLayer* layer = self;
+  id suicide = [CCCallBlockN actionWithBlock:^(CCNode* node){
+    [layer removeChild:node cleanup:YES];
+  }];
+  [goLabel runAction:[CCSequence actions:expand, delay, fadeout, suicide, nil]];
+  [self addChild:goLabel];
+  
   [self.music play];
   [bar_ play];
   startBeat_ = 0;
@@ -164,6 +178,13 @@
   state_ = GameStateGameOver;
   [self.music stop];
   background.duration = 0;
+  CCSprite* gameoverLabel = [CCSprite spriteWithFile:@"gameover.png"];
+  gameoverLabel.scale = 0;
+  gameoverLabel.position = [CCDirector sharedDirector].screenCenter;
+  id expand = [CCScaleTo actionWithDuration:0.25f scale:1.0];
+  [gameoverLabel runAction:[CCSequence actions:expand, nil]];
+  [self addChild:gameoverLabel];
+
   [self runAction:[CCSequence actions:
                    [CCDelayTime actionWithDuration:4.0],
                    [CCCallFunc actionWithTarget:self selector:@selector(onGameEnd)]
@@ -178,6 +199,18 @@
            target:self 
          selector:@selector(onGameEnd)];
   }
+  CCSprite* clearLabel = [CCSprite spriteWithFile:@"finish.png"];
+  clearLabel.scale = 0;
+  clearLabel.position = [CCDirector sharedDirector].screenCenter;
+  id expand = [CCScaleTo actionWithDuration:0.25f scale:1.0];
+  id delay = [CCDelayTime actionWithDuration:1.0f];
+  id fadeout = [CCFadeOut actionWithDuration:0.25f];
+  __weak MainLayer* layer = self;
+  id suicide = [CCCallBlockN actionWithBlock:^(CCNode* node){
+    [layer removeChild:node cleanup:YES];
+  }];
+  [clearLabel runAction:[CCSequence actions:expand, delay, fadeout, suicide, nil]];
+  [self addChild:clearLabel];
 }
 
 - (void)onGameEnd {
@@ -257,6 +290,7 @@
       // 入力し損ねたとき
       NSLog(@"miss : %d %d %d", currentBeat_, prevBeat, prevCorrectMotionType);
       life_ -= 200;
+      [self addMotionLabel:@"miss.png" beat:currentBeat_ - startBeat_ - 1];
       [self onFail];
     } else if (currentBeat_ - startBeat_ == PART_LENGTH && isLevelUp_ && isPerfect_) {
       CutIn* cutin = [[CutIn alloc] initWithFace:@"cut_in_boss1.png" background:@"cutin.plist"];
@@ -301,9 +335,15 @@
         melody.position = ccp(bar_.position.x - 400 + (currentBeat_ - startBeat_) * 50, bar_.position.y);
         scoreLabel_.target = (float)score_;
         [self addChild:melody];
+        if (sub <= FUZZY_TIME / 2) {
+          [self addMotionLabel:@"great.png" beat:currentBeat_ - startBeat_];
+        } else {
+          [self addMotionLabel:@"ok.png" beat:currentBeat_ - startBeat_];
+        }
       } else if (correctMotionType != MotionTypeNone) {
         // 間違った入力をしたとき
         life_ -= 50;
+        [self addMotionLabel:@"bad.png" beat:currentBeat_ - startBeat_];
         [self onFail];
         isInputed_ = YES;
       }
@@ -329,6 +369,20 @@
   isLevelUp_ = NO;
   self.background.startSize = 8 * currentLevel_;
   self.background.endSize = 3 * currentLevel_;
+}
+
+- (void)addMotionLabel:(NSString *)filename beat:(int)beat {
+  CCSprite* label = [CCSprite spriteWithFile:filename];
+  label.position = ccp(bar_.position.x - 400 + beat * 50, bar_.position.y + 30);
+  id expand = [CCScaleTo actionWithDuration:0.1f scale:1.0];
+  id delay = [CCDelayTime actionWithDuration:0.2f];
+  id fadeout = [CCFadeOut actionWithDuration:0.1f];
+  __weak MainLayer* layer = self;
+  id suicide = [CCCallBlockN actionWithBlock:^(CCNode* node){
+    [layer removeChild:node cleanup:YES];
+  }];
+  [label runAction:[CCSequence actions:expand, delay, fadeout, suicide, nil]];
+  [self addChild:label];
 }
 
 @end
