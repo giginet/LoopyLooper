@@ -62,7 +62,7 @@
       type = MotionTypeDown; // 2
     } else if (dm.acceleration.rawY < -0.7) {
       type = MotionTypeRight; // 5
-    } 
+    }
     return [Motion motionWithKKDeviceMotion:dm motionType:type];
   }
   return nil;

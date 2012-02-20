@@ -62,7 +62,6 @@
 		07C65ED514EBB19B00EE1391 /* t3_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C65EC814EBB19B00EE1391 /* t3_1.png */; };
 		07C65ED614EBB19B00EE1391 /* t4_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C65EC914EBB19B00EE1391 /* t4_0.png */; };
 		07C65ED714EBB19B00EE1391 /* t5_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C65ECA14EBB19B00EE1391 /* t5_0.png */; };
-		07C65ED914EBCD4700EE1391 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C65ED814EBCD4700EE1391 /* title.png */; };
 		07C65EDF14EC13C600EE1391 /* cutin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07C65EDE14EC13C600EE1391 /* cutin.plist */; };
 		07D41EB214EEE8A500D91359 /* HowtoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D41EA714EEE8A500D91359 /* HowtoLayer.m */; };
 		07D41EB314EEE8A500D91359 /* LogoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D41EA914EEE8A500D91359 /* LogoLayer.m */; };
@@ -80,6 +79,14 @@
 		07D41ED014F0FDA600D91359 /* miss.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D41ECC14F0FDA600D91359 /* miss.png */; };
 		07D41ED114F0FDA600D91359 /* ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D41ECD14F0FDA600D91359 /* ok.png */; };
 		07D41ED314F0FEE900D91359 /* go.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D41ED214F0FEE900D91359 /* go.png */; };
+		07D41ED614F1058000D91359 /* StatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D41ED514F1058000D91359 /* StatusBar.m */; };
+		07D41ED814F13C4A00D91359 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D41ED714F13C4A00D91359 /* menu.png */; };
+		07D41EDF14F13DBB00D91359 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D41ED914F13DB800D91359 /* frame.png */; };
+		07D41EE014F13DBB00D91359 /* gauge_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D41EDA14F13DB800D91359 /* gauge_left.png */; };
+		07D41EE114F13DBB00D91359 /* gauge_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D41EDB14F13DB800D91359 /* gauge_right.png */; };
+		07D41EE214F13DBB00D91359 /* gauge0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D41EDC14F13DB900D91359 /* gauge0.png */; };
+		07D41EE314F13DBB00D91359 /* gauge1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D41EDD14F13DBA00D91359 /* gauge1.png */; };
+		07D41EE414F13DBB00D91359 /* gauge2.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D41EDE14F13DBA00D91359 /* gauge2.png */; };
 		07D643FE14CB2DC900B0910C /* KWScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D643FD14CB2DC900B0910C /* KWScrollLayer.m */; };
 		07D6440714CB2E7B00B0910C /* KWGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440214CB2E7B00B0910C /* KWGauge.m */; };
 		07D6440814CB2E7B00B0910C /* KWPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440414CB2E7B00B0910C /* KWPieChart.m */; };
@@ -190,7 +197,6 @@
 		07C65EC814EBB19B00EE1391 /* t3_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t3_1.png; sourceTree = "<group>"; };
 		07C65EC914EBB19B00EE1391 /* t4_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t4_0.png; sourceTree = "<group>"; };
 		07C65ECA14EBB19B00EE1391 /* t5_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t5_0.png; sourceTree = "<group>"; };
-		07C65ED814EBCD4700EE1391 /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
 		07C65EDE14EC13C600EE1391 /* cutin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = cutin.plist; path = Projectfiles/Resources/Particle/cutin.plist; sourceTree = SOURCE_ROOT; };
 		07D41EA414EE516300D91359 /* KWMessageWindowDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWMessageWindowDelegate.h; sourceTree = "<group>"; };
 		07D41EA614EEE8A500D91359 /* HowtoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HowtoLayer.h; path = Scene/HowtoLayer.h; sourceTree = "<group>"; };
@@ -215,6 +221,15 @@
 		07D41ECC14F0FDA600D91359 /* miss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = miss.png; sourceTree = "<group>"; };
 		07D41ECD14F0FDA600D91359 /* ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok.png; sourceTree = "<group>"; };
 		07D41ED214F0FEE900D91359 /* go.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = go.png; sourceTree = "<group>"; };
+		07D41ED414F1058000D91359 /* StatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusBar.h; path = Main/StatusBar.h; sourceTree = "<group>"; };
+		07D41ED514F1058000D91359 /* StatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatusBar.m; path = Main/StatusBar.m; sourceTree = "<group>"; };
+		07D41ED714F13C4A00D91359 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		07D41ED914F13DB800D91359 /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
+		07D41EDA14F13DB800D91359 /* gauge_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gauge_left.png; sourceTree = "<group>"; };
+		07D41EDB14F13DB800D91359 /* gauge_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gauge_right.png; sourceTree = "<group>"; };
+		07D41EDC14F13DB900D91359 /* gauge0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gauge0.png; sourceTree = "<group>"; };
+		07D41EDD14F13DBA00D91359 /* gauge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gauge1.png; sourceTree = "<group>"; };
+		07D41EDE14F13DBA00D91359 /* gauge2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gauge2.png; sourceTree = "<group>"; };
 		07D643FC14CB2DC900B0910C /* KWScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWScrollLayer.h; sourceTree = "<group>"; };
 		07D643FD14CB2DC900B0910C /* KWScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWScrollLayer.m; sourceTree = "<group>"; };
 		07D6440114CB2E7B00B0910C /* KWGauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWGauge.h; sourceTree = "<group>"; };
@@ -490,6 +505,12 @@
 		07C65EBE14EBB19B00EE1391 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				07D41ED914F13DB800D91359 /* frame.png */,
+				07D41EDA14F13DB800D91359 /* gauge_left.png */,
+				07D41EDB14F13DB800D91359 /* gauge_right.png */,
+				07D41EDC14F13DB900D91359 /* gauge0.png */,
+				07D41EDD14F13DBA00D91359 /* gauge1.png */,
+				07D41EDE14F13DBA00D91359 /* gauge2.png */,
 				07D41EC414F0F51B00D91359 /* ready.png */,
 				07D41EC114F0F51B00D91359 /* finish.png */,
 				07D41EC214F0F51B00D91359 /* gameover.png */,
@@ -519,7 +540,7 @@
 		07C65ECB14EBB19B00EE1391 /* Title */ = {
 			isa = PBXGroup;
 			children = (
-				07C65ED814EBCD4700EE1391 /* title.png */,
+				07D41ED714F13C4A00D91359 /* menu.png */,
 			);
 			path = Title;
 			sourceTree = "<group>";
@@ -540,6 +561,8 @@
 				07F70ED714D4094200B43B30 /* Score.m */,
 				6246649114D478C600F5A356 /* LoopMusic.h */,
 				6246649214D478C600F5A356 /* LoopMusic.m */,
+				07D41ED414F1058000D91359 /* StatusBar.h */,
+				07D41ED514F1058000D91359 /* StatusBar.m */,
 			);
 			name = Music;
 			sourceTree = "<group>";
@@ -752,7 +775,6 @@
 				07C65ED514EBB19B00EE1391 /* t3_1.png in Resources */,
 				07C65ED614EBB19B00EE1391 /* t4_0.png in Resources */,
 				07C65ED714EBB19B00EE1391 /* t5_0.png in Resources */,
-				07C65ED914EBCD4700EE1391 /* title.png in Resources */,
 				07C65EDF14EC13C600EE1391 /* cutin.plist in Resources */,
 				0741723B14ED620E0022D9F1 /* Loop_3_0.caf in Resources */,
 				0741723C14ED620E0022D9F1 /* Loop_3_1.caf in Resources */,
@@ -769,6 +791,13 @@
 				07D41ED014F0FDA600D91359 /* miss.png in Resources */,
 				07D41ED114F0FDA600D91359 /* ok.png in Resources */,
 				07D41ED314F0FEE900D91359 /* go.png in Resources */,
+				07D41ED814F13C4A00D91359 /* menu.png in Resources */,
+				07D41EDF14F13DBB00D91359 /* frame.png in Resources */,
+				07D41EE014F13DBB00D91359 /* gauge_left.png in Resources */,
+				07D41EE114F13DBB00D91359 /* gauge_right.png in Resources */,
+				07D41EE214F13DBB00D91359 /* gauge0.png in Resources */,
+				07D41EE314F13DBB00D91359 /* gauge1.png in Resources */,
+				07D41EE414F13DBB00D91359 /* gauge2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,6 +842,7 @@
 				07D41EB514EEE8A500D91359 /* MenuLayer.m in Sources */,
 				07D41EB614EEE8A500D91359 /* ResultLayer.m in Sources */,
 				07D41EB714EEE8A500D91359 /* TitleLayer.m in Sources */,
+				07D41ED614F1058000D91359 /* StatusBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

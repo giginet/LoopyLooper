@@ -9,6 +9,7 @@
 #import "KWLayer.h"
 #import "LoopMusic.h"
 #import "SeekBar.h"
+#import "StatusBar.h"
 
 typedef enum {
   GameStateReady,
@@ -28,12 +29,10 @@ typedef enum {
   BOOL isPerfect_;
   BOOL isInputed_;
   NSTimeInterval prevTime_;
-  CCLabelTTF* beatLabel_;
   GameState state_;
   LoopMusic* music_;
   SeekBar* bar_;
-  KWCounterLabel* scoreLabel_;
-  KWGauge* lifeGauge_;
+  StatusBar* status_;
 }
 
 @property(readonly, strong) LoopMusic* music;

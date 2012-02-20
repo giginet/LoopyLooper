@@ -16,12 +16,12 @@
   int loops_;
   int measure_;
   int nextMeasure_;
+  BOOL isEndOfLoop_;
   id delegate_;
   SEL selector_;
   NSString* title_;
   NSString* file_;
   Score* score_;
-  BOOL isEndOfLoop_;
   OALAudioTrack* track_;
   NSMutableArray* tracks_;
 }

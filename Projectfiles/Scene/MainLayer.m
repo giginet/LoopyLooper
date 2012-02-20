@@ -62,8 +62,6 @@
     score_ = 0;
     prevTime_ = 0;
     life_ = MAX_LIFE / 2;
-    lifeGauge_ = [KWGauge gaugeWithColor:ccc3(0, 255, 0) andSize:CGSizeMake(400, 64)];
-    beatLabel_ = [CCLabelTTF labelWithString:@"" fontName:@"Arial-BoldMT" fontSize:24];
     MotionDetector* detector = [MotionDetector shared];
     [detector setOnDetection:self selector:@selector(detectMotion:)];
     music_ = [[LoopMusic alloc] initWithMusicID:1];
@@ -81,23 +79,9 @@
     bar_ = [SeekBar seekBarWithMusic:self.music measure:0];
     [self addChild:bar_];
     bar_.position = ccp([CCDirector sharedDirector].screenCenter.x, 150);
-    scoreLabel_ = [[KWCounterLabel alloc] initWithNumber:0 
-                                              dimensions:CGSizeMake(200, 40) 
-                                               alignment:UITextAlignmentRight 
-                                                fontName:@"Arial-BoldMT" 
-                                                fontSize:24];
-    scoreLabel_.color = ccc3(0, 0, 0);
-    scoreLabel_.position = ccp(800, 720);
-    scoreLabel_.duration = 3;
-    lifeGauge_.position = ccp(500, 720);
-    lifeGauge_.gaugeColor = ccc3(255, 0, 0);
-    beatLabel_.position = ccp(100, 100);
-    [self addChild:scoreLabel_];
-    [self addChild:lifeGauge_];
-    [self addChild:beatLabel_];
-    CCSprite* status = [CCSprite spriteWithFile:@"status.png"];
-    status.position = ccp(512, director.screenSize.height - status.contentSize.height / 2);
-    [self addChild:status];
+    status_ = [StatusBar spriteWithFile:@"status.png"];
+    status_.position = ccp(512, director.screenSize.height - status_.contentSize.height / 2);
+    [self addChild:status_];
   }
   return self;
 }
@@ -154,7 +138,7 @@
   currentBeat_ = startBeat_;
   [self onExamplePart];
   [self.music setCallbackOnBeat:self selector:@selector(onBeat)];
-  [scoreLabel_ play];
+  [status_.scoreLabel play];
 }
 
 - (void)onExamplePart {
@@ -227,7 +211,6 @@
    * Beatを打つ度に呼ばれます
    * self.music.measureとかで何拍目か取れます
    */
-  [beatLabel_ setString:[NSString stringWithFormat:@"%d", self.music.measure]];
   MotionType type = [self.music.score motionTypeOnBeat:self.music.measure];
   if (state_ == GameStateExample) {
     if (self.music.measure % PART_LENGTH == PART_LENGTH - 2) {
@@ -311,7 +294,7 @@
       [self onGameOver];
     }
   }
-  lifeGauge_.rate = (double)life_ / (double)MAX_LIFE;
+  //lifeGauge_.rate = (double)life_ / (double)MAX_LIFE;
 }
 
 - (void)detectMotion:(Motion *)motion {
@@ -333,7 +316,8 @@
         isInputed_ = YES;
         CCParticleSystemQuad* melody = [CCParticleSystemQuad particleWithFile:@"melody.plist"];
         melody.position = ccp(bar_.position.x - 400 + (currentBeat_ - startBeat_) * 50, bar_.position.y);
-        scoreLabel_.target = (float)score_;
+        NSLog(@"%@", status_.scoreLabel);
+        status_.scoreLabel.target = (float)score_;
         [self addChild:melody];
         if (sub <= FUZZY_TIME / 2) {
           [self addMotionLabel:@"great.png" beat:currentBeat_ - startBeat_];

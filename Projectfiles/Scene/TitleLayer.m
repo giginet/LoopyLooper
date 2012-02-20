@@ -23,7 +23,7 @@
     
     CCDirector* director = [CCDirector sharedDirector];
     
-    CCSprite* background = [CCSprite spriteWithFile:@"title.png"];
+    CCSprite* background = [CCSprite spriteWithFile:@"menu.png"];
     background.position = director.screenCenter;
     [self addChild:background];    
   }
