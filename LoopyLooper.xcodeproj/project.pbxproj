@@ -87,6 +87,7 @@
 		07D41EE214F13DBB00D91359 /* gauge0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D41EDC14F13DB900D91359 /* gauge0.png */; };
 		07D41EE314F13DBB00D91359 /* gauge1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D41EDD14F13DBA00D91359 /* gauge1.png */; };
 		07D41EE414F13DBB00D91359 /* gauge2.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D41EDE14F13DBA00D91359 /* gauge2.png */; };
+		07D41EE614F217CA00D91359 /* level_badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D41EE514F217C900D91359 /* level_badge.png */; };
 		07D643FE14CB2DC900B0910C /* KWScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D643FD14CB2DC900B0910C /* KWScrollLayer.m */; };
 		07D6440714CB2E7B00B0910C /* KWGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440214CB2E7B00B0910C /* KWGauge.m */; };
 		07D6440814CB2E7B00B0910C /* KWPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440414CB2E7B00B0910C /* KWPieChart.m */; };
@@ -230,6 +231,7 @@
 		07D41EDC14F13DB900D91359 /* gauge0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gauge0.png; sourceTree = "<group>"; };
 		07D41EDD14F13DBA00D91359 /* gauge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gauge1.png; sourceTree = "<group>"; };
 		07D41EDE14F13DBA00D91359 /* gauge2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gauge2.png; sourceTree = "<group>"; };
+		07D41EE514F217C900D91359 /* level_badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level_badge.png; sourceTree = "<group>"; };
 		07D643FC14CB2DC900B0910C /* KWScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWScrollLayer.h; sourceTree = "<group>"; };
 		07D643FD14CB2DC900B0910C /* KWScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWScrollLayer.m; sourceTree = "<group>"; };
 		07D6440114CB2E7B00B0910C /* KWGauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWGauge.h; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 		07C65EBE14EBB19B00EE1391 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				07D41EE514F217C900D91359 /* level_badge.png */,
 				07D41ED914F13DB800D91359 /* frame.png */,
 				07D41EDA14F13DB800D91359 /* gauge_left.png */,
 				07D41EDB14F13DB800D91359 /* gauge_right.png */,
@@ -798,6 +801,7 @@
 				07D41EE214F13DBB00D91359 /* gauge0.png in Resources */,
 				07D41EE314F13DBB00D91359 /* gauge1.png in Resources */,
 				07D41EE414F13DBB00D91359 /* gauge2.png in Resources */,
+				07D41EE614F217CA00D91359 /* level_badge.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

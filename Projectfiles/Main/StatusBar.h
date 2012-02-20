@@ -10,8 +10,11 @@
 #import "heqet.h"
 
 @interface StatusBar : CCSprite {
+  int level_;
   KWCounterLabel* scoreLabel_;
 }
+
+- (void)setLevel:(int)level;
 
 @property(readwrite, strong) KWCounterLabel* scoreLabel;
 

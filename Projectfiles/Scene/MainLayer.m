@@ -179,7 +179,7 @@
   state_ = GameStateClear;
   for(OALAudioTrack* track in self.music.tracks) {
     [track fadeTo:0 
-         duration:1.5f 
+         duration:3.0f 
            target:self 
          selector:@selector(onGameEnd)];
   }
@@ -353,6 +353,7 @@
   isLevelUp_ = NO;
   self.background.startSize = 8 * currentLevel_;
   self.background.endSize = 3 * currentLevel_;
+  [status_ setLevel:level];
 }
 
 - (void)addMotionLabel:(NSString *)filename beat:(int)beat {

@@ -10,7 +10,6 @@
 
 @implementation StatusBar
 @synthesize scoreLabel = scoreLabel_;
-@synthesize lifeGauge = lifeGauge_;
 
 - (id)initWithFile:(NSString *)filename {
   self = [super initWithFile:filename];
@@ -27,8 +26,24 @@
     frame.position = ccp(500, 140);
     [self addChild:scoreLabel_];
     [self addChild:frame];
+    level_ = 0;
+    [self setLevel:1];
   }
   return self;
+}
+
+- (void)setLevel:(int)level {
+  for (int i = level; i < 4; ++i) {
+    [self removeChildByTag:i cleanup:YES];
+  }
+  for (int i = level_; i < level; ++i) {
+    CCSprite* badge = [CCSprite spriteWithFile:@"level_badge.png"];
+    badge.position = ccp(938 + (i - 1) * 28, 168);
+    badge.scale = 0;
+    [badge runAction:[CCScaleTo actionWithDuration:1.0f scale:1]];
+    [self addChild:badge z:i tag:i];
+  }
+  level_ = level;
 }
 
 @end
