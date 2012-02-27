@@ -7,7 +7,12 @@
 //
 
 #import "KWLayer.h"
+#import "MenuWindow.h"
 
-@interface MenuLayer : KWLayer
+@interface MenuLayer : KWLayer {
+}
+
+@property(readwrite, strong) CCMenu* musicSelect;
+@property(readwrite, strong) MenuWindow* menuWindow;
 
 @end

@@ -7,47 +7,49 @@
 //
 
 #import "TitleLayer.h"
-#import "MainLayer.h"
+#import "MenuLayer.h"
 #import "ResultLayer.h"
-#import "CutIn.h"
 
 @implementation TitleLayer
-@synthesize nextScene = nextScene_;
 
 - (id)init {
   self = [super init];
   if (self) {
     
     self.isTouchEnabled = YES;
-    self.nextScene = [MainLayer nodeWithScene];
-    
     CCDirector* director = [CCDirector sharedDirector];
     
     CCSprite* background = [CCSprite spriteWithFile:@"menu.png"];
     background.position = director.screenCenter;
-    [self addChild:background];    
+    [self addChild:background];
   }
   return self;
 }
 
+- (void)onEnterTransitionDidFinish {
+  CCDirector* director = [CCDirector sharedDirector];
+  CCSprite* logo = [CCSprite spriteWithFile:@"logo.png"];
+  logo.position = ccp(director.screenCenter.x, director.screenCenter.y + 150);
+  [logo runAction:[CCFadeIn actionWithDuration:1.0]];
+  [self addChild:logo];
+  CCLabelTTF* start = [CCLabelTTF labelWithString:@"Touch to start" 
+                                         fontName:@"Helvetica-Bold" 
+                                         fontSize:24];
+  start.color = ccc3(33, 37, 68);
+  [start runAction:[CCRepeatForever actionWithAction:[CCSequence actions:
+                                                      [CCFadeTo actionWithDuration:1.0f opacity:64], 
+                                                      [CCFadeTo actionWithDuration:1.0f opacity:255], 
+                                                      nil]]];
+  start.position = ccp(director.screenCenter.x, director.screenCenter.y - 100); 
+  [self addChild:start];
+}
+
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-  [self toMain:nil];
+  CCScene* scene = [MenuLayer nodeWithScene];
+  CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
+                                                                    scene:scene];
+  [[CCDirector sharedDirector] replaceScene:transition];
   return YES;
 }
 
-- (void)toMain:(id)sender{
-  CCScene* scene = self.nextScene;
-  CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
-                                                                    scene:scene];
-  [[CCDirector sharedDirector] replaceScene:transition];
-}
-
-- (void)toResult:(id)sender{
-  ResultLayer *layer = [[ResultLayer alloc] initWithScore:100];
-  CCScene *scene = [[CCScene alloc] init];
-  [scene addChild:layer];
-  CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
-                                                                    scene:scene];
-  [[CCDirector sharedDirector] replaceScene:transition];
-}
 @end
