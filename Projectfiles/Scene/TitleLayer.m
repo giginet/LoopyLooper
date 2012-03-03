@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 All rights reserved.
 //
 
+#import "ObjectAL.h"
+
 #import "TitleLayer.h"
 #import "MenuLayer.h"
 #import "ResultLayer.h"
@@ -42,13 +44,14 @@
                                                       nil]]];
   start.position = ccp(director.screenCenter.x, director.screenCenter.y - 100); 
   [self addChild:start];
+  [[OALSimpleAudio sharedInstance] playBg:@"Theme.caf" loop:true];
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
   CCScene* scene = [MenuLayer nodeWithScene];
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
                                                                     scene:scene];
-  [[CCDirector sharedDirector] replaceScene:transition];
+  [[CCDirector sharedDirector] pushScene:transition];
   return YES;
 }
 

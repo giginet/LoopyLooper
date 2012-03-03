@@ -8,6 +8,8 @@
 
 #import "CCSprite.h"
 
-@interface MenuWindow : CCSprite
+@interface MenuWindow : CCSprite {
+  CCMenu* difficultyMenu_;
+}
 
 @end

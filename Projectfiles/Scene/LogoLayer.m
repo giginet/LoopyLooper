@@ -10,6 +10,7 @@
 #import "KWUtility.h"
 #import "LogoLayer.h"
 #import "TitleLayer.h"
+#import "ObjectAL.h"
 
 @interface LogoLayer()
 - (void)goToNext;
@@ -33,6 +34,7 @@
     [logo runAction:seq];
     [self addChild:logo];
     self.isTouchEnabled = YES;
+    [[OALSimpleAudio sharedInstance] preloadBg:@"Theme.caf"];
   }
   return self;
 }
