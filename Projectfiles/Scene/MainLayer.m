@@ -26,6 +26,7 @@
 - (void)onGameOver;
 - (void)onClear;
 - (void)onGameEnd;
+- (void)addMenuLayer;
 - (void)onBeat;
 - (void)changeState:(GameState)state;
 - (void)detectMotion:(Motion*)motion;
@@ -161,6 +162,8 @@
 - (void)onGameOver {
   state_ = GameStateGameOver;
   [self.music stop];
+  [OALSimpleAudio sharedInstance].backgroundTrack.volume = 1.0;
+  [[OALSimpleAudio sharedInstance] playBg:@"Gameover.caf" loop:true];
   background.duration = 0;
   CCSprite* gameoverLabel = [CCSprite spriteWithFile:@"gameover.png"];
   gameoverLabel.scale = 0;
@@ -171,7 +174,7 @@
 
   [self runAction:[CCSequence actions:
                    [CCDelayTime actionWithDuration:4.0],
-                   [CCCallFunc actionWithTarget:self selector:@selector(onGameEnd)]
+                   [CCCallFunc actionWithTarget:self selector:@selector(addMenuLayer)]
                    , nil]];
 }
 
@@ -187,19 +190,20 @@
   clearLabel.scale = 0;
   clearLabel.position = [CCDirector sharedDirector].screenCenter;
   id expand = [CCScaleTo actionWithDuration:0.25f scale:1.0];
-  id delay = [CCDelayTime actionWithDuration:1.0f];
-  id fadeout = [CCFadeOut actionWithDuration:0.25f];
-  __weak MainLayer* layer = self;
-  id suicide = [CCCallBlockN actionWithBlock:^(CCNode* node){
-    [layer removeChild:node cleanup:YES];
-  }];
-  [clearLabel runAction:[CCSequence actions:expand, delay, fadeout, suicide, nil]];
+  [clearLabel runAction:[CCSequence actions:expand, nil]];
   [self addChild:clearLabel];
 }
 
 - (void)onGameEnd {
+  [OALSimpleAudio sharedInstance].backgroundTrack.volume = 1.0;
+  [[OALSimpleAudio sharedInstance] playBg:@"Result.caf" loop:true];
+  [self addMenuLayer];
+}
+
+- (void)addMenuLayer {
   CCLayer* layer = [[ResultLayer alloc] initWithScore:score_];
   [self addChild:layer];
+  [self.music stop];
 }
 
 - (void)onExit {

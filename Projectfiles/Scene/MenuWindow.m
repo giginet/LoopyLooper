@@ -11,7 +11,7 @@
 
 @interface MenuWindow()
 - (void)pressDifficultyButton:(id)sender;
-- (void)pressPlayButton:(id)sender;
+- (void)onFinishedFadeOut:(id)sender;
 @end
 
 @implementation MenuWindow
@@ -43,10 +43,15 @@
     [difficultyMenu_ alignItemsVertically];
     [self addChild:difficultyMenu_];
     
+    __block id window = self;
     CCMenuItemImage* play = [CCMenuItemImage itemFromNormalImage:@"play_button.png"
                                                    selectedImage:@"play_button_selected.png"
-                                                          target:self 
-                                                        selector:@selector(pressPlayButton:)];
+                                                           block:^(id sender){
+                                                             [[OALSimpleAudio sharedInstance].backgroundTrack fadeTo:0 
+                                                                                                            duration:1.0 
+                                                                                                              target:window 
+                                                                                                            selector:@selector(onFinishedFadeOut:)];                                                             
+                                                           }];
     CCMenu* playMenu = [CCMenu menuWithItems:play, nil];
     playMenu.position = ccp(200, 80);
     [self addChild:playMenu];
@@ -58,8 +63,9 @@
 - (void)pressDifficultyButton:(id)sender {
 }
 
-- (void)pressPlayButton:(id)sender {
-  [[OALSimpleAudio sharedInstance].backgroundTrack fadeTo:0 duration:1.0 target:nil selector:nil];
+- (void)onFinishedFadeOut:(id)sender {
+  [[OALSimpleAudio sharedInstance] stopBg];
+  [OALSimpleAudio sharedInstance].backgroundTrack.volume = 1.0;
   MainLayer* mainLayer = [[MainLayer alloc] initWithMusicID:0];
   CCScene* scene = [CCScene node];
   [scene addChild:mainLayer];

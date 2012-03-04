@@ -14,7 +14,6 @@
 @synthesize scoreLabel = scoreLabel_;
 
 - (id)init {
-  self.backgroundColor = ccc4(128, 128, 128, 196);
   self = [super init];
   if (self) {
     self.isTouchEnabled = YES;
@@ -23,20 +22,21 @@
     [CCMenuItemFont setFontName:@"Helvetica"];
     [CCMenuItemFont setFontSize:40];
     
-    CCMenuItem* title = [CCMenuItemFont itemFromString:@"Title"
-                                                target:self
-                                              selector:@selector(toTitle:)];
+    CCMenuItem* title = [CCMenuItemImage itemFromNormalImage:@"title_button.png" 
+                                               selectedImage:@"title_button_selected.png" 
+                                                      target:self 
+                                                    selector:@selector(toTitle:)];
     
-    CCMenuItem* main = [CCMenuItemFont itemFromString:@"Main"
-                                               target:self
-                                             selector:@selector(toMain:)];
+    CCMenuItem* replay = [CCMenuItemImage itemFromNormalImage:@"replay_button.png" 
+                                                selectedImage:@"replay_button_selected.png" 
+                                                       target:self 
+                                                     selector:@selector(toMain:)];
     
-    CCMenu* menu = [CCMenu menuWithItems:title, main, nil];
-    menu.position = director.screenCenter;
+    CCMenu* menu = [CCMenu menuWithItems:title, replay, nil];
+    [menu alignItemsHorizontallyWithPadding:40];
+    menu.position = ccp(director.screenCenter.x, director.screenCenter.y - 150);
     menu.tag = 100;
     [self addChild:menu];
-    
-    [menu alignItemsVerticallyWithPadding:40];
     
     scoreLabel_ = [CCLabelTTF labelWithString:@"" 
                                 fontName:@"Helvetica" 
@@ -55,12 +55,14 @@
   return self;
 }
 - (void)toTitle:(id)sender{
+  [[OALSimpleAudio sharedInstance] stopBg];
   CCScene* scene = [TitleLayer nodeWithScene];
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
                                                                     scene:scene];
   [[CCDirector sharedDirector] replaceScene:transition];
 }
 - (void)toMain:(id)sender{
+  [[OALSimpleAudio sharedInstance] stopBg];
   CCScene* scene = [MainLayer nodeWithScene];
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
                                                                     scene:scene];
