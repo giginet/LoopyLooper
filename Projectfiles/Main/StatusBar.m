@@ -10,6 +10,7 @@
 
 @implementation StatusBar
 @synthesize scoreLabel = scoreLabel_;
+@synthesize lifeGauge;
 
 - (id)initWithFile:(NSString *)filename {
   self = [super initWithFile:filename];
@@ -22,6 +23,10 @@
     scoreLabel_.color = ccc3(33, 37, 68);
     scoreLabel_.position = ccp(950, 118);
     scoreLabel_.duration = 3;
+    lifeGauge = [KWGauge gaugeWithFile:@"lifegauge.png"];
+    lifeGauge.rate = 1;
+    lifeGauge.position = ccp(500, 140);
+    [self addChild:lifeGauge];
     CCSprite* frame = [CCSprite spriteWithFile:@"frame.png"];
     frame.position = ccp(500, 140);
     [self addChild:scoreLabel_];

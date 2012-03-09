@@ -298,7 +298,7 @@
       [self onGameOver];
     }
   }
-  //lifeGauge_.rate = (double)life_ / (double)MAX_LIFE;
+  status_.lifeGauge.rate = (double)life_ / (double)MAX_LIFE;
 }
 
 - (void)detectMotion:(Motion *)motion {

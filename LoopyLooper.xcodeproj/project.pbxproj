@@ -47,6 +47,7 @@
 		07831F9A14B23CC400C6FC96 /* KWVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 07831F8E14B23CC400C6FC96 /* KWVector.m */; };
 		07831F9B14B23CC400C6FC96 /* NSArrayExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 07831F9014B23CC400C6FC96 /* NSArrayExtension.m */; };
 		07831F9E14B2428D00C6FC96 /* CCSpriteExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 07831F9D14B2428D00C6FC96 /* CCSpriteExtension.m */; };
+		078780911508EA4500074F69 /* lifegauge.png in Resources */ = {isa = PBXBuildFile; fileRef = 078780901508EA4500074F69 /* lifegauge.png */; };
 		07BA25F014D33DAF00458AEA /* CCAnimationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BA25EF14D33DAF00458AEA /* CCAnimationExtension.m */; };
 		07C0721714D50DD200672794 /* cut_in_boss1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0721314D50DD200672794 /* cut_in_boss1.png */; };
 		07C0721C14D50E2300672794 /* SeekBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C0721B14D50E2300672794 /* SeekBar.m */; };
@@ -201,6 +202,7 @@
 		07831F9014B23CC400C6FC96 /* NSArrayExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayExtension.m; sourceTree = "<group>"; };
 		07831F9C14B2428D00C6FC96 /* CCSpriteExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSpriteExtension.h; sourceTree = "<group>"; };
 		07831F9D14B2428D00C6FC96 /* CCSpriteExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSpriteExtension.m; sourceTree = "<group>"; };
+		078780901508EA4500074F69 /* lifegauge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lifegauge.png; sourceTree = "<group>"; };
 		07BA25EE14D33DAF00458AEA /* CCAnimationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAnimationExtension.h; sourceTree = "<group>"; };
 		07BA25EF14D33DAF00458AEA /* CCAnimationExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAnimationExtension.m; sourceTree = "<group>"; };
 		07C0721314D50DD200672794 /* cut_in_boss1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cut_in_boss1.png; sourceTree = "<group>"; };
@@ -403,6 +405,8 @@
 				076D1B7D14D4AADB005EA04E /* CutIn.m */,
 				07C0721A14D50E2300672794 /* SeekBar.h */,
 				07C0721B14D50E2300672794 /* SeekBar.m */,
+				07D41ED414F1058000D91359 /* StatusBar.h */,
+				07D41ED514F1058000D91359 /* StatusBar.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -556,6 +560,7 @@
 		07C65EBE14EBB19B00EE1391 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				078780901508EA4500074F69 /* lifegauge.png */,
 				073E0C5D150221F900FA7FD6 /* replay_button_selected.png */,
 				073E0C5E150221F900FA7FD6 /* replay_button.png */,
 				073E0C5F150221F900FA7FD6 /* title_button_selected.png */,
@@ -630,8 +635,6 @@
 				07F70ED714D4094200B43B30 /* Score.m */,
 				6246649114D478C600F5A356 /* LoopMusic.h */,
 				6246649214D478C600F5A356 /* LoopMusic.m */,
-				07D41ED414F1058000D91359 /* StatusBar.h */,
-				07D41ED514F1058000D91359 /* StatusBar.m */,
 			);
 			name = Music;
 			sourceTree = "<group>";
@@ -887,6 +890,7 @@
 				073E0C62150221F900FA7FD6 /* replay_button.png in Resources */,
 				073E0C63150221F900FA7FD6 /* title_button_selected.png in Resources */,
 				073E0C64150221F900FA7FD6 /* title_button.png in Resources */,
+				078780911508EA4500074F69 /* lifegauge.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

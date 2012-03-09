@@ -17,5 +17,6 @@
 - (void)setLevel:(int)level;
 
 @property(readwrite, strong) KWCounterLabel* scoreLabel;
+@property(readonly, strong) KWGauge* lifeGauge;
 
 @end
