@@ -108,6 +108,7 @@
       [other setSelectedIndex:0];
     }
   }
+  [self updateLabels];
 }
 
 - (void)onFinishedFadeOut:(id)sender {

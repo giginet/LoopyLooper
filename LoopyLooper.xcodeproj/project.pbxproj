@@ -111,6 +111,8 @@
 		07E0816D150FC5F30097185E /* normal2.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07E08163150FC5F30097185E /* normal2.lua */; };
 		07E0816E150FC5F30097185E /* test.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07E08164150FC5F30097185E /* test.lua */; };
 		07E08171150FC9440097185E /* SaveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E08170150FC9440097185E /* SaveManager.m */; };
+		07E08173150FDB6C0097185E /* howto.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07E08172150FDB6C0097185E /* howto.lua */; };
+		07E08175150FEE0D0097185E /* howto0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07E08174150FEE0D0097185E /* howto0.png */; };
 		07EBCA7414FB1C51005E6769 /* easy_button_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 07EBCA6714FB1C51005E6769 /* easy_button_selected.png */; };
 		07EBCA7514FB1C51005E6769 /* easy_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 07EBCA6814FB1C51005E6769 /* easy_button.png */; };
 		07EBCA7614FB1C51005E6769 /* hard_button_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 07EBCA6914FB1C51005E6769 /* hard_button_selected.png */; };
@@ -292,6 +294,8 @@
 		07E08164150FC5F30097185E /* test.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.lua; path = Score/test.lua; sourceTree = "<group>"; };
 		07E0816F150FC9440097185E /* SaveManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaveManager.h; path = Main/SaveManager.h; sourceTree = "<group>"; };
 		07E08170150FC9440097185E /* SaveManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SaveManager.m; path = Main/SaveManager.m; sourceTree = "<group>"; };
+		07E08172150FDB6C0097185E /* howto.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = howto.lua; sourceTree = "<group>"; };
+		07E08174150FEE0D0097185E /* howto0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = howto0.png; sourceTree = "<group>"; };
 		07EBCA6714FB1C51005E6769 /* easy_button_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = easy_button_selected.png; sourceTree = "<group>"; };
 		07EBCA6814FB1C51005E6769 /* easy_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = easy_button.png; sourceTree = "<group>"; };
 		07EBCA6914FB1C51005E6769 /* hard_button_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hard_button_selected.png; sourceTree = "<group>"; };
@@ -576,6 +580,8 @@
 		07C65EBD14EBB19B00EE1391 /* Howto */ = {
 			isa = PBXGroup;
 			children = (
+				07E08172150FDB6C0097185E /* howto.lua */,
+				07E08174150FEE0D0097185E /* howto0.png */,
 			);
 			path = Howto;
 			sourceTree = "<group>";
@@ -938,6 +944,8 @@
 				07E0816C150FC5F30097185E /* normal1.lua in Resources */,
 				07E0816D150FC5F30097185E /* normal2.lua in Resources */,
 				07E0816E150FC5F30097185E /* test.lua in Resources */,
+				07E08173150FDB6C0097185E /* howto.lua in Resources */,
+				07E08175150FEE0D0097185E /* howto0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

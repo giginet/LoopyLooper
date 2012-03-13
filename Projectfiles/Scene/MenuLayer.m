@@ -8,9 +8,11 @@
 
 #import "MenuLayer.h"
 #import "MenuWindow.h"
+#import "HowtoLayer.h"
 
 @interface MenuLayer()
 - (void)pressMusicButton:(id)sender;
+- (void)pressHowtoButton:(id)sender;
 @end
 
 @implementation MenuLayer
@@ -31,8 +33,8 @@
     
     CCMenuItemImage* howtoItem = [CCMenuItemImage itemFromNormalImage:@"howto_button.png" 
                                                         selectedImage:@"howto_button_selected.png" 
-                                                                block:^(id sender) {
-    }];
+                                                               target:self 
+                                                             selector:@selector(pressHowtoButton:)];
     CCMenu* howtoMenu = [CCMenu menuWithItems:howtoItem, nil];
     howtoMenu.position = ccp(director.screenSize.width / 2, 
                              director.screenSize.height - howtoItem.contentSize.height / 2);
@@ -73,6 +75,13 @@
       [other setSelectedIndex:0];
     }
   }
+}
+
+- (void)pressHowtoButton:(id)sender {
+  CCScene* scene = [HowtoLayer nodeWithScene];
+  CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
+                                                                    scene:scene];
+  [[CCDirector sharedDirector] pushScene:transition];
 }
 
 @end

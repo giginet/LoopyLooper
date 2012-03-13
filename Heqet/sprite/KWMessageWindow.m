@@ -62,7 +62,7 @@
 }
 
 - (BOOL)isEndMessages {
-  return self.currentMessageIndex >= (int)[messages_ count];
+  return self.currentMessageIndex >= (int)[messages_ count] - 1;
 }
 
 - (NSInteger)currentMessageLength {
@@ -130,6 +130,7 @@
   currentMessageIndex_ = currentMessageIndex;
   self.currentTextIndex = 0;
   [messageLabel_ setString:self.currentMessage];
+  [timer_ play];
 }
 
 - (void)onEnter {
