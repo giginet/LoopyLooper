@@ -21,9 +21,9 @@
 - (id)initWithFile:(NSString *)filename {
   self = [super initWithFile:filename];
   if (self) {
+    const NSString* difficulties[] = {@"easy", @"normal", @"hard"};
     NSMutableArray* buttons = [NSMutableArray array];
     for (int i = 0; i < 3; ++i) {
-      NSString* difficulties[] = {@"easy", @"normal", @"hard"};
       NSString* filename = [NSString stringWithFormat:@"%@_button.png", difficulties[i]];
       NSString* selected = [NSString stringWithFormat:@"%@_button_selected.png", difficulties[i]];
       CCMenuItemToggle* button = [CCMenuItemToggle itemWithTarget:self 
@@ -81,7 +81,7 @@
   [[OALSimpleAudio sharedInstance] stopBg];
   [OALSimpleAudio sharedInstance].backgroundTrack.volume = 1.0;
   NSLog(@"%d %d", self.difficulty, self.musicNumber);
-  MainLayer* mainLayer = [[MainLayer alloc] initWithMusicID:0];
+  MainLayer* mainLayer = [[MainLayer alloc] initWithMusicID:self.musicNumber + 1 dificulty:self.difficulty];
   CCScene* scene = [CCScene node];
   [scene addChild:mainLayer];
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 

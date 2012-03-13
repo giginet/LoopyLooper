@@ -10,6 +10,7 @@
 #import "LoopMusic.h"
 #import "SeekBar.h"
 #import "StatusBar.h"
+#import "difficulty.h"
 
 typedef enum {
   GameStateReady,
@@ -38,6 +39,6 @@ typedef enum {
 @property(readonly, strong) LoopMusic* music;
 @property(readwrite, strong) CCParticleSystemQuad* background;
 
-- (id)initWithMusicID:(NSInteger)musicID;
+- (id)initWithMusicID:(NSInteger)musicID dificulty:(Difficulty)dificulty;
 
 @end

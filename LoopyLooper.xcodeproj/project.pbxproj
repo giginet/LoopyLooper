@@ -100,7 +100,16 @@
 		07D6440714CB2E7B00B0910C /* KWGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440214CB2E7B00B0910C /* KWGauge.m */; };
 		07D6440814CB2E7B00B0910C /* KWPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440414CB2E7B00B0910C /* KWPieChart.m */; };
 		07D6440914CB2E7B00B0910C /* KWTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D6440614CB2E7B00B0910C /* KWTimerLabel.m */; };
-		07D7351414D3EC2D00623122 /* test.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07D7351314D3EC2D00623122 /* test.lua */; };
+		07E08165150FC5F30097185E /* easy0.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07E0815B150FC5F30097185E /* easy0.lua */; };
+		07E08166150FC5F30097185E /* easy1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07E0815C150FC5F30097185E /* easy1.lua */; };
+		07E08167150FC5F30097185E /* easy2.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07E0815D150FC5F30097185E /* easy2.lua */; };
+		07E08168150FC5F30097185E /* hard0.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07E0815E150FC5F30097185E /* hard0.lua */; };
+		07E08169150FC5F30097185E /* hard1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07E0815F150FC5F30097185E /* hard1.lua */; };
+		07E0816A150FC5F30097185E /* hard2.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07E08160150FC5F30097185E /* hard2.lua */; };
+		07E0816B150FC5F30097185E /* normal0.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07E08161150FC5F30097185E /* normal0.lua */; };
+		07E0816C150FC5F30097185E /* normal1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07E08162150FC5F30097185E /* normal1.lua */; };
+		07E0816D150FC5F30097185E /* normal2.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07E08163150FC5F30097185E /* normal2.lua */; };
+		07E0816E150FC5F30097185E /* test.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07E08164150FC5F30097185E /* test.lua */; };
 		07EBCA7414FB1C51005E6769 /* easy_button_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 07EBCA6714FB1C51005E6769 /* easy_button_selected.png */; };
 		07EBCA7514FB1C51005E6769 /* easy_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 07EBCA6814FB1C51005E6769 /* easy_button.png */; };
 		07EBCA7614FB1C51005E6769 /* hard_button_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 07EBCA6914FB1C51005E6769 /* hard_button_selected.png */; };
@@ -122,7 +131,6 @@
 		07F70ED414D4090A00B43B30 /* MotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70ED214D4090A00B43B30 /* MotionDetector.m */; };
 		07F70ED814D4094200B43B30 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F70ED714D4094200B43B30 /* Score.m */; };
 		07F70EE114D40B0A00B43B30 /* musics.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07F70EE014D40B0A00B43B30 /* musics.lua */; };
-		333F23EC14D526A40071F94C /* score.lua in Resources */ = {isa = PBXBuildFile; fileRef = 333F23EB14D526A40071F94C /* score.lua */; };
 		6246649514D478C600F5A356 /* LoopMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6246649214D478C600F5A356 /* LoopMusic.m */; };
 		DC65615C13A969B600A7AC53 /* libbox2d-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615013A969B600A7AC53 /* libbox2d-ios.a */; };
 		DC65615D13A969B600A7AC53 /* libchipmunk-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65615113A969B600A7AC53 /* libchipmunk-ios.a */; };
@@ -270,7 +278,17 @@
 		07D6440414CB2E7B00B0910C /* KWPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWPieChart.m; sourceTree = "<group>"; };
 		07D6440514CB2E7B00B0910C /* KWTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWTimerLabel.h; sourceTree = "<group>"; };
 		07D6440614CB2E7B00B0910C /* KWTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWTimerLabel.m; sourceTree = "<group>"; };
-		07D7351314D3EC2D00623122 /* test.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.lua; path = Projectfiles/Resources/Score/test.lua; sourceTree = SOURCE_ROOT; };
+		07E08158150FC2E00097185E /* difficulty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = difficulty.h; path = Main/difficulty.h; sourceTree = "<group>"; };
+		07E0815B150FC5F30097185E /* easy0.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = easy0.lua; path = Score/easy0.lua; sourceTree = "<group>"; };
+		07E0815C150FC5F30097185E /* easy1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = easy1.lua; path = Score/easy1.lua; sourceTree = "<group>"; };
+		07E0815D150FC5F30097185E /* easy2.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = easy2.lua; path = Score/easy2.lua; sourceTree = "<group>"; };
+		07E0815E150FC5F30097185E /* hard0.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hard0.lua; path = Score/hard0.lua; sourceTree = "<group>"; };
+		07E0815F150FC5F30097185E /* hard1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hard1.lua; path = Score/hard1.lua; sourceTree = "<group>"; };
+		07E08160150FC5F30097185E /* hard2.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hard2.lua; path = Score/hard2.lua; sourceTree = "<group>"; };
+		07E08161150FC5F30097185E /* normal0.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = normal0.lua; path = Score/normal0.lua; sourceTree = "<group>"; };
+		07E08162150FC5F30097185E /* normal1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = normal1.lua; path = Score/normal1.lua; sourceTree = "<group>"; };
+		07E08163150FC5F30097185E /* normal2.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = normal2.lua; path = Score/normal2.lua; sourceTree = "<group>"; };
+		07E08164150FC5F30097185E /* test.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.lua; path = Score/test.lua; sourceTree = "<group>"; };
 		07EBCA6714FB1C51005E6769 /* easy_button_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = easy_button_selected.png; sourceTree = "<group>"; };
 		07EBCA6814FB1C51005E6769 /* easy_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = easy_button.png; sourceTree = "<group>"; };
 		07EBCA6914FB1C51005E6769 /* hard_button_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hard_button_selected.png; sourceTree = "<group>"; };
@@ -299,7 +317,6 @@
 		07F70ED614D4094200B43B30 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Score.h; path = Music/Score.h; sourceTree = "<group>"; };
 		07F70ED714D4094200B43B30 /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Score.m; path = Music/Score.m; sourceTree = "<group>"; };
 		07F70EE014D40B0A00B43B30 /* musics.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = musics.lua; path = Score/musics.lua; sourceTree = "<group>"; };
-		333F23EB14D526A40071F94C /* score.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = score.lua; path = Score/score.lua; sourceTree = "<group>"; };
 		6246649114D478C600F5A356 /* LoopMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoopMusic.h; path = Music/LoopMusic.h; sourceTree = "<group>"; };
 		6246649214D478C600F5A356 /* LoopMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoopMusic.m; path = Music/LoopMusic.m; sourceTree = "<group>"; };
 		DC3BE97813B4FB71003739CC /* BuildSettings-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BuildSettings-iOS.xcconfig"; sourceTree = "<group>"; };
@@ -401,6 +418,7 @@
 		076D1B7B14D4AA9E005EA04E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				07E08158150FC2E00097185E /* difficulty.h */,
 				076D1B7C14D4AADB005EA04E /* CutIn.h */,
 				076D1B7D14D4AADB005EA04E /* CutIn.m */,
 				07C0721A14D50E2300672794 /* SeekBar.h */,
@@ -619,6 +637,23 @@
 			path = Title;
 			sourceTree = "<group>";
 		};
+		07E0815A150FC5650097185E /* Score */ = {
+			isa = PBXGroup;
+			children = (
+				07E0815B150FC5F30097185E /* easy0.lua */,
+				07E0815C150FC5F30097185E /* easy1.lua */,
+				07E0815D150FC5F30097185E /* easy2.lua */,
+				07E0815E150FC5F30097185E /* hard0.lua */,
+				07E0815F150FC5F30097185E /* hard1.lua */,
+				07E08160150FC5F30097185E /* hard2.lua */,
+				07E08161150FC5F30097185E /* normal0.lua */,
+				07E08162150FC5F30097185E /* normal1.lua */,
+				07E08163150FC5F30097185E /* normal2.lua */,
+				07E08164150FC5F30097185E /* test.lua */,
+			);
+			name = Score;
+			sourceTree = "<group>";
+		};
 		07F20B7E14C4EB59003D6237 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,6 +743,7 @@
 		DCC1A39413A94F1A005BD75D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				07E0815A150FC5650097185E /* Score */,
 				07C65EBC14EBB19B00EE1391 /* Image */,
 				07C0721114D50DD200672794 /* CutIn */,
 				076D1B5414D42E15005EA04E /* Effect */,
@@ -716,8 +752,6 @@
 				07D41EB814EEEA3400D91359 /* kawaz-ipad.png */,
 				07831F7014B23C7D00C6FC96 /* kawaz.png */,
 				DCC1A39513A94F1A005BD75D /* config.lua */,
-				07D7351314D3EC2D00623122 /* test.lua */,
-				333F23EB14D526A40071F94C /* score.lua */,
 				07F70EE014D40B0A00B43B30 /* musics.lua */,
 				07C65EAF14E9961F00EE1391 /* background.plist */,
 				07C65EAC14E9925300EE1391 /* melody.plist */,
@@ -810,7 +844,6 @@
 				DCC1A3AF13A94F1A005BD75D /* config.lua in Resources */,
 				07831F7114B23C7D00C6FC96 /* kawaz-hd.png in Resources */,
 				07831F7214B23C7D00C6FC96 /* kawaz.png in Resources */,
-				07D7351414D3EC2D00623122 /* test.lua in Resources */,
 				07F70EE114D40B0A00B43B30 /* musics.lua in Resources */,
 				076D1B5C14D42E15005EA04E /* 1.caf in Resources */,
 				076D1B5D14D42E15005EA04E /* 2.caf in Resources */,
@@ -826,7 +859,6 @@
 				076D1B8A14D4B16E005EA04E /* 4.caf in Resources */,
 				076D1B8B14D4B16E005EA04E /* 5.caf in Resources */,
 				07C0721714D50DD200672794 /* cut_in_boss1.png in Resources */,
-				333F23EC14D526A40071F94C /* score.lua in Resources */,
 				070C1CB914DAAC9400889A72 /* Loop_Underground_0.caf in Resources */,
 				070C1CBA14DAAC9400889A72 /* Loop_Underground_1.caf in Resources */,
 				070C1CBB14DAAC9400889A72 /* Loop_Underground_2.caf in Resources */,
@@ -891,6 +923,16 @@
 				073E0C63150221F900FA7FD6 /* title_button_selected.png in Resources */,
 				073E0C64150221F900FA7FD6 /* title_button.png in Resources */,
 				078780911508EA4500074F69 /* lifegauge.png in Resources */,
+				07E08165150FC5F30097185E /* easy0.lua in Resources */,
+				07E08166150FC5F30097185E /* easy1.lua in Resources */,
+				07E08167150FC5F30097185E /* easy2.lua in Resources */,
+				07E08168150FC5F30097185E /* hard0.lua in Resources */,
+				07E08169150FC5F30097185E /* hard1.lua in Resources */,
+				07E0816A150FC5F30097185E /* hard2.lua in Resources */,
+				07E0816B150FC5F30097185E /* normal0.lua in Resources */,
+				07E0816C150FC5F30097185E /* normal1.lua in Resources */,
+				07E0816D150FC5F30097185E /* normal2.lua in Resources */,
+				07E0816E150FC5F30097185E /* test.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

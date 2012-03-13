@@ -46,7 +46,7 @@
 @synthesize music = music_;
 @synthesize background;
 
-- (id)initWithMusicID:(NSInteger)musicID {
+- (id)initWithMusicID:(NSInteger)musicID dificulty:(Difficulty)dificulty {
   /**
    * 音楽IDを渡して初期化します
    * @args NSInteger musicID
@@ -65,7 +65,7 @@
     life_ = MAX_LIFE / 2;
     MotionDetector* detector = [MotionDetector shared];
     [detector setOnDetection:self selector:@selector(detectMotion:)];
-    music_ = [[LoopMusic alloc] initWithMusicID:1];
+    music_ = [[LoopMusic alloc] initWithMusicID:musicID difficulty:dificulty];
     OALSimpleAudio* sa =[OALSimpleAudio sharedInstance];
     for (NSString* file in [NSArray arrayWithObjects:@"bell.caf", 
                             @"invalid0.caf", 
@@ -88,7 +88,7 @@
 }
 
 - (id)init {
-  self = [self initWithMusicID:1];
+  self = [self initWithMusicID:1 dificulty:DifficultyEasy];
   return self;
 }
 

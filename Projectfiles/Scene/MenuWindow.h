@@ -7,12 +7,7 @@
 //
 
 #import "CCSprite.h"
-
-typedef enum {
-  DifficultyEasy,
-  DifficultyNormal,
-  DifficultyHard
-} Difficulty;
+#import "difficulty.h"
 
 @interface MenuWindow : CCSprite {
   CCMenu* difficultyMenu_;

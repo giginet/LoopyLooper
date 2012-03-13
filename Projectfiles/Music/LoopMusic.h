@@ -8,6 +8,7 @@
 
 #import "heqet.h"
 #import "Score.h"
+#import "difficulty.h"
 
 @interface LoopMusic : NSObject <AVAudioPlayerDelegate> {
   int bpm_;
@@ -38,6 +39,7 @@
 @property(readonly) NSArray* tracks;
 
 - (id)initWithMusicID:(int)musicID;
+- (id)initWithMusicID:(int)musicID difficulty:(Difficulty)difficulty;
 - (void)play;
 - (void)pause;
 - (void)stop;
