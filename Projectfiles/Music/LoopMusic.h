@@ -11,6 +11,7 @@
 #import "difficulty.h"
 
 @interface LoopMusic : NSObject <AVAudioPlayerDelegate> {
+  int musicID_;
   int bpm_;
   int loop_;
   int nextLoop_;
@@ -18,6 +19,7 @@
   int measure_;
   int nextMeasure_;
   BOOL isEndOfLoop_;
+  Difficulty difficulty_;
   id delegate_;
   SEL selector_;
   NSString* title_;
@@ -27,12 +29,14 @@
   NSMutableArray* tracks_;
 }
 
+@property(readonly) int musicID;
 @property(readonly) int bpm;
 @property(readonly) int loops;
 @property(readonly) int measure;
 @property(readonly) NSTimeInterval currentTime;
 @property(readonly) NSTimeInterval duration;
 @property(readwrite) int nextMeasure;
+@property(readwrite) Difficulty difficulty;
 @property(readonly, copy) NSString* title;
 @property(readonly) Score* score;
 @property(readonly) OALAudioTrack* track;

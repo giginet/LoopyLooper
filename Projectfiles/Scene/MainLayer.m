@@ -13,6 +13,7 @@
 #import "LoopMusic.h"
 #import "SeekBar.h"
 #import "CutIn.h"
+#import "SaveManager.h"
 
 #define PART_LENGTH 16
 #define FUZZY_TIME 0.15
@@ -197,6 +198,7 @@
 - (void)onGameEnd {
   [OALSimpleAudio sharedInstance].backgroundTrack.volume = 1.0;
   [[OALSimpleAudio sharedInstance] playBg:@"Result.caf" loop:true];
+  [[SaveManager shared] setHighScore:self.music.musicID difficulty:self.music.difficulty score:score_];
   [self addMenuLayer];
 }
 

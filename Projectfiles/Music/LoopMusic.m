@@ -18,11 +18,13 @@ const NSString* MUSICS_DATA = @"musics.lua";
 @end
 
 @implementation LoopMusic
+@synthesize musicID = musicID_;
 @synthesize bpm = bpm_;
 @synthesize loops = loops_;
 @synthesize measure = measure_;
 @synthesize title = title_;
 @synthesize nextMeasure = nextMeasure_;
+@synthesize difficulty = difficulty_;
 @synthesize score = score_;
 @synthesize track = track_;
 @synthesize tracks = tracks_;
@@ -54,6 +56,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
     const NSString* difficulties[] = {@"easy", @"normal", @"hard"};
     NSDictionary* musics = [KKLua loadLuaTableFromFile:(NSString*)MUSICS_DATA];
     NSDictionary* music = [musics objectForKey:[NSString stringWithFormat:@"%d", musicID]];
+    musicID_ = musicID;
     bpm_ = [(NSNumber*)[music objectForKey:@"bpm"] intValue];
     loops_ = [(NSNumber*)[music objectForKey:@"loops"] intValue];
     title_ = [music objectForKey:@"title"];
@@ -63,6 +66,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
     [self preLoadMusic:file_];
     [self preLoadEffects:file_];
     track_ = (OALAudioTrack*)[tracks_ objectAtIndex:0];
+    self.difficulty = difficulty;
   }
   return self;
 }

@@ -11,9 +11,11 @@
 
 @interface MenuWindow : CCSprite {
   CCMenu* difficultyMenu_;
+  CCLabelTTF* titleLabel_;
+  CCLabelTTF* highScoreLabel_;
 }
 
-@property(readwrite) int musicNumber;
+@property(readwrite) int musicID;
 @property(readwrite) Difficulty difficulty;
 
 @end

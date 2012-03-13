@@ -66,7 +66,7 @@
 - (void)pressMusicButton:(id)sender {
   CCMenuItemToggle* button = (CCMenuItemToggle*)sender;
   [button setSelectedIndex:1];
-  self.menuWindow.musicNumber = button.tag;
+  self.menuWindow.musicID = button.tag + 1;
   for (int i = 0; i < 3; ++i) {
     if (button.tag != i) {
       CCMenuItemToggle* other = [self.musicSelect.children objectAtIndex:i];
