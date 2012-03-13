@@ -24,7 +24,7 @@ local config =
 		DirectorTypeFallback = DirectorType.NSTimer,
 
 		MaxFrameRate = 60,
-		DisplayFPS = YES,
+		DisplayFPS = NO,
 
 		EnableUserInteraction = YES,
 		EnableMultiTouch = NO,
@@ -66,15 +66,6 @@ local config =
 		EnableFullScreen = NO,
 
                 iPadSuffix = "-ipad"
-	},
-	
-	-- you can create your own config sections using the same mechanism and use KKConfig to access the parameters
-	-- or use the KKConfig injectPropertiesFromKeyPath method
-	HelloWorldSettings =
-	{
-		HelloWorldString = "Hello Kobold2D!",
-		HelloWorldFontName = "Marker Felt",
-		HelloWorldFontSize = 50,
 	},
 }
 

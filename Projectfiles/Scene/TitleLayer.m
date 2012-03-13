@@ -42,7 +42,7 @@
                                                       [CCFadeTo actionWithDuration:1.0f opacity:64], 
                                                       [CCFadeTo actionWithDuration:1.0f opacity:255], 
                                                       nil]]];
-  start.position = ccp(director.screenCenter.x, director.screenCenter.y - 100); 
+  start.position = ccp(director.screenCenter.x, director.screenCenter.y - 150); 
   [self addChild:start];
   [[OALSimpleAudio sharedInstance] playBg:@"Theme.caf" loop:true];
 }
