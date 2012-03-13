@@ -15,6 +15,8 @@
 @end
 
 @implementation MenuWindow
+@synthesize musicNumber;
+@synthesize difficulty;
 
 - (id)initWithFile:(NSString *)filename {
   self = [super initWithFile:filename];
@@ -32,6 +34,9 @@
                                                        selectedImage:filename],
                                 nil];
       button.tag = i;
+      if (i == 0) {
+        [button setSelectedIndex:1];
+      }
       [buttons addObject:button];
     }
     difficultyMenu_ = [CCMenu menuWithItems:
@@ -61,11 +66,21 @@
 }
 
 - (void)pressDifficultyButton:(id)sender {
+  CCMenuItemToggle* button = (CCMenuItemToggle*)sender;
+  [button setSelectedIndex:1];
+  self.difficulty = (Difficulty)button.tag;
+  for (int i = 0; i < 3; ++i) {
+    if (button.tag != i) {
+      CCMenuItemToggle* other = [difficultyMenu_.children objectAtIndex:i];
+      [other setSelectedIndex:0];
+    }
+  }
 }
 
 - (void)onFinishedFadeOut:(id)sender {
   [[OALSimpleAudio sharedInstance] stopBg];
   [OALSimpleAudio sharedInstance].backgroundTrack.volume = 1.0;
+  NSLog(@"%d %d", self.difficulty, self.musicNumber);
   MainLayer* mainLayer = [[MainLayer alloc] initWithMusicID:0];
   CCScene* scene = [CCScene node];
   [scene addChild:mainLayer];

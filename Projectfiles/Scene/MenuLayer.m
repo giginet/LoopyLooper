@@ -37,23 +37,25 @@
     howtoMenu.position = ccp(director.screenSize.width / 2, 
                              director.screenSize.height - howtoItem.contentSize.height / 2);
     [self addChild:howtoMenu];
-    
-    CCMenuItemImage* music0 = [CCMenuItemImage itemFromNormalImage:@"music.png" 
-                                                     selectedImage:@"music_selected.png" 
-                                                            target:self 
-                                                          selector:@selector(pressMusicButton:)];
-    music0.tag = 0;
-    CCMenuItemImage* music1 = [CCMenuItemImage itemFromNormalImage:@"music.png" 
-                                                     selectedImage:@"music_selected.png" 
-                                                            target:self 
-                                                          selector:@selector(pressMusicButton:)];
-    music1.tag = 1;
-    CCMenuItemImage* music2 = [CCMenuItemImage itemFromNormalImage:@"music.png" 
-                                                     selectedImage:@"music_selected.png" 
-                                                            target:self 
-                                                          selector:@selector(pressMusicButton:)];
-    music2.tag = 2;
-    self.musicSelect = [CCMenu menuWithItems:music0, music1, music2, nil];
+    NSMutableArray* buttons = [NSMutableArray array];
+    for (int i = 0; i < 3; ++i) {
+      CCMenuItemToggle* button = [CCMenuItemToggle itemWithTarget:self 
+                                                         selector:@selector(pressMusicButton:) 
+                                                            items:[CCMenuItemImage itemFromNormalImage:@"music.png" 
+                                                                                         selectedImage:@"music_selected.png"],
+                                  [CCMenuItemImage itemFromNormalImage:@"music_selected.png" 
+                                                         selectedImage:@"music.png"],
+                                  nil];
+      button.tag = i;
+      if (i == 0) {
+        [button setSelectedIndex:1];
+      }
+      [buttons addObject:button];
+    }
+    self.musicSelect = [CCMenu menuWithItems:
+                        [buttons objectAtIndex:0], 
+                        [buttons objectAtIndex:1], 
+                        [buttons objectAtIndex:2], nil];
     self.musicSelect.position = ccp(512, 560);
     [self.musicSelect alignItemsHorizontallyWithPadding:50];
     [self addChild:self.musicSelect];
@@ -62,7 +64,15 @@
 }
 
 - (void)pressMusicButton:(id)sender {
-  
+  CCMenuItemToggle* button = (CCMenuItemToggle*)sender;
+  [button setSelectedIndex:1];
+  self.menuWindow.musicNumber = button.tag;
+  for (int i = 0; i < 3; ++i) {
+    if (button.tag != i) {
+      CCMenuItemToggle* other = [self.musicSelect.children objectAtIndex:i];
+      [other setSelectedIndex:0];
+    }
+  }
 }
 
 @end

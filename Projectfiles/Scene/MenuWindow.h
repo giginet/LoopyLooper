@@ -8,8 +8,17 @@
 
 #import "CCSprite.h"
 
+typedef enum {
+  DifficultyEasy,
+  DifficultyNormal,
+  DifficultyHard
+} Difficulty;
+
 @interface MenuWindow : CCSprite {
   CCMenu* difficultyMenu_;
 }
+
+@property(readwrite) int musicNumber;
+@property(readwrite) Difficulty difficulty;
 
 @end
