@@ -28,6 +28,11 @@
   return self;
 }
 
+- (void)onEnter {
+  [super onEnter];
+  [OALSimpleAudio sharedInstance].bgVolume = 1.0;
+}
+
 - (void)onEnterTransitionDidFinish {
   CCDirector* director = [CCDirector sharedDirector];
   CCSprite* logo = [CCSprite spriteWithFile:@"logo.png"];

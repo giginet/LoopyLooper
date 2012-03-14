@@ -207,13 +207,15 @@
 }
 
 - (void)addMenuLayer {
-  CCLayer* layer = [[ResultLayer alloc] initWithScore:score_];
+  ResultLayer* layer = [[ResultLayer alloc] initWithScore:score_];
+  layer.music = self.music;
   [self addChild:layer];
   [self.music stop];
   [[SaveManager shared] setHighScore:self.music.musicID difficulty:self.music.difficulty score:score_];
 }
 
 - (void)onExit {
+  [super onExit];
   [self.music stop];
   [UIApplication sharedApplication].idleTimerDisabled = NO;
 }
@@ -380,6 +382,7 @@
   [self pauseSchedulerAndActions];
   [self.music pause];
   PauseLayer* pl = [PauseLayer node];
+  pl.music = self.music;
   [self addChild:pl];
   [[OALSimpleAudio sharedInstance] playEffect:@"pause.caf"];
 }

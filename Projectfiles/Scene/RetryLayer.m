@@ -12,6 +12,7 @@
 #import "MainLayer.h"
 
 @implementation RetryLayer
+@synthesize music;
 
 - (id)init {
   self = [super init];
@@ -41,16 +42,18 @@
   return self;
 }
 
-- (void)toTitle:(id)sender{
+- (void)toTitle:(id)sender {
   [[OALSimpleAudio sharedInstance] stopBg];
   CCScene* scene = [TitleLayer nodeWithScene];
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
                                                                     scene:scene];
   [[CCDirector sharedDirector] replaceSceneReplacement:transition];
 }
-- (void)toMain:(id)sender{
+- (void)toMain:(id)sender {
   [[OALSimpleAudio sharedInstance] stopBg];
-  CCScene* scene = [MainLayer nodeWithScene];
+  CCScene* scene = [CCScene node];
+  MainLayer* layer = [[MainLayer alloc] initWithMusicID:self.music.musicID dificulty:self.music.difficulty];
+  [scene addChild:layer];
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
                                                                     scene:scene];
   [[CCDirector sharedDirector] replaceSceneReplacement:transition];

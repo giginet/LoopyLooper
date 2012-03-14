@@ -25,12 +25,6 @@
   return self;
 }
 
--(void) registerWithTouchDispatcher{ 
-  [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self 
-                                                   priority:0 
-                                            swallowsTouches:YES];
-}
-
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
   return YES;
 }
