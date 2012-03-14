@@ -14,6 +14,7 @@
 #import "SeekBar.h"
 #import "CutIn.h"
 #import "SaveManager.h"
+#import "PauseLayer.h"
 
 #define PART_LENGTH 16
 #define FUZZY_TIME 0.15
@@ -84,6 +85,7 @@
     status_ = [StatusBar spriteWithFile:@"status.png"];
     status_.position = ccp(512, director.screenSize.height - status_.contentSize.height / 2);
     [self addChild:status_];
+    self.isTouchEnabled = YES;
   }
   return self;
 }
@@ -374,6 +376,22 @@
   }];
   [label runAction:[CCSequence actions:expand, delay, fadeout, suicide, nil]];
   [self addChild:label];
+}
+
+- (void)pause {
+  [[CCDirector sharedDirector] pause];
+  [self pauseSchedulerAndActions];
+  [self.music pause];
+  PauseLayer* pl = [PauseLayer node];
+  [self addChild:pl];
+  [[OALSimpleAudio sharedInstance] playEffect:@"pause.caf"];
+}
+
+- (void)resume {
+  [[CCDirector sharedDirector] resume];
+  [self resumeSchedulerAndActions];
+  [self.music resume];
+  [[OALSimpleAudio sharedInstance] playEffect:@"pause.caf"];
 }
 
 @end

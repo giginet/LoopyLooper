@@ -46,6 +46,7 @@
 - (id)initWithMusicID:(int)musicID difficulty:(Difficulty)difficulty;
 - (void)play;
 - (void)pause;
+- (void)resume;
 - (void)stop;
 - (void)setCallbackOnBeat:(id)delegate selector:(SEL)selector;
 - (void)changeLoop:(NSInteger)number;

@@ -7,15 +7,14 @@
 //
 
 #import "KWLayer.h"
+#import "RetryLayer.h"
 
-@interface ResultLayer : KWLayer{
+@interface ResultLayer : RetryLayer {
     CCLabelTTF* scoreLabel_;
 }
 
 @property(readwrite, retain) CCLabelTTF* scoreLabel;
 
 - (id)initWithScore:(NSInteger)score;
-- (void)toTitle:(id)sender;
-- (void)toMain:(id)sender;
 
 @end

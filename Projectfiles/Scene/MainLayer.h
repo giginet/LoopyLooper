@@ -40,5 +40,7 @@ typedef enum {
 @property(readwrite, strong) CCParticleSystemQuad* background;
 
 - (id)initWithMusicID:(NSInteger)musicID dificulty:(Difficulty)dificulty;
+- (void)pause;
+- (void)resume;
 
 @end

@@ -51,7 +51,6 @@
 		07BA25F014D33DAF00458AEA /* CCAnimationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BA25EF14D33DAF00458AEA /* CCAnimationExtension.m */; };
 		07C0721714D50DD200672794 /* cut_in_boss1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C0721314D50DD200672794 /* cut_in_boss1.png */; };
 		07C0721C14D50E2300672794 /* SeekBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C0721B14D50E2300672794 /* SeekBar.m */; };
-		07C420C014FEFA8F0002CB1C /* pause.wav in Resources */ = {isa = PBXBuildFile; fileRef = 07C420BF14FEFA8F0002CB1C /* pause.wav */; };
 		07C420C514FEFAA50002CB1C /* Gameover.caf in Resources */ = {isa = PBXBuildFile; fileRef = 07C420C214FEFAA50002CB1C /* Gameover.caf */; };
 		07C420C614FEFAA50002CB1C /* Result.caf in Resources */ = {isa = PBXBuildFile; fileRef = 07C420C314FEFAA50002CB1C /* Result.caf */; };
 		07C420C714FEFAA50002CB1C /* Theme.caf in Resources */ = {isa = PBXBuildFile; fileRef = 07C420C414FEFAA50002CB1C /* Theme.caf */; };
@@ -113,6 +112,8 @@
 		07E08171150FC9440097185E /* SaveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E08170150FC9440097185E /* SaveManager.m */; };
 		07E08173150FDB6C0097185E /* howto.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07E08172150FDB6C0097185E /* howto.lua */; };
 		07E08175150FEE0D0097185E /* howto0.png in Resources */ = {isa = PBXBuildFile; fileRef = 07E08174150FEE0D0097185E /* howto0.png */; };
+		07E081801510A5770097185E /* PauseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E0817F1510A5770097185E /* PauseLayer.m */; };
+		07E081941510B27D0097185E /* RetryLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E081931510B27C0097185E /* RetryLayer.m */; };
 		07EBCA7414FB1C51005E6769 /* easy_button_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 07EBCA6714FB1C51005E6769 /* easy_button_selected.png */; };
 		07EBCA7514FB1C51005E6769 /* easy_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 07EBCA6814FB1C51005E6769 /* easy_button.png */; };
 		07EBCA7614FB1C51005E6769 /* hard_button_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 07EBCA6914FB1C51005E6769 /* hard_button_selected.png */; };
@@ -219,7 +220,6 @@
 		07C0721314D50DD200672794 /* cut_in_boss1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cut_in_boss1.png; sourceTree = "<group>"; };
 		07C0721A14D50E2300672794 /* SeekBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeekBar.h; path = Main/SeekBar.h; sourceTree = "<group>"; };
 		07C0721B14D50E2300672794 /* SeekBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SeekBar.m; path = Main/SeekBar.m; sourceTree = "<group>"; };
-		07C420BF14FEFA8F0002CB1C /* pause.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pause.wav; sourceTree = "<group>"; };
 		07C420C214FEFAA50002CB1C /* Gameover.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gameover.caf; sourceTree = "<group>"; };
 		07C420C314FEFAA50002CB1C /* Result.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Result.caf; sourceTree = "<group>"; };
 		07C420C414FEFAA50002CB1C /* Theme.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Theme.caf; sourceTree = "<group>"; };
@@ -296,6 +296,11 @@
 		07E08170150FC9440097185E /* SaveManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SaveManager.m; path = Main/SaveManager.m; sourceTree = "<group>"; };
 		07E08172150FDB6C0097185E /* howto.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = howto.lua; sourceTree = "<group>"; };
 		07E08174150FEE0D0097185E /* howto0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = howto0.png; sourceTree = "<group>"; };
+		07E0817E1510A5760097185E /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PauseLayer.h; path = Scene/PauseLayer.h; sourceTree = "<group>"; };
+		07E0817F1510A5770097185E /* PauseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PauseLayer.m; path = Scene/PauseLayer.m; sourceTree = "<group>"; };
+		07E081911510A85F0097185E /* pause.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pause.caf; sourceTree = "<group>"; };
+		07E081921510B27C0097185E /* RetryLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RetryLayer.h; path = Scene/RetryLayer.h; sourceTree = "<group>"; };
+		07E081931510B27C0097185E /* RetryLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RetryLayer.m; path = Scene/RetryLayer.m; sourceTree = "<group>"; };
 		07EBCA6714FB1C51005E6769 /* easy_button_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = easy_button_selected.png; sourceTree = "<group>"; };
 		07EBCA6814FB1C51005E6769 /* easy_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = easy_button.png; sourceTree = "<group>"; };
 		07EBCA6914FB1C51005E6769 /* hard_button_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hard_button_selected.png; sourceTree = "<group>"; };
@@ -386,7 +391,7 @@
 		076D1B5414D42E15005EA04E /* Effect */ = {
 			isa = PBXGroup;
 			children = (
-				07C420BF14FEFA8F0002CB1C /* pause.wav */,
+				07E081911510A85F0097185E /* pause.caf */,
 				076D1B5514D42E15005EA04E /* 1.caf */,
 				076D1B5614D42E15005EA04E /* 2.caf */,
 				076D1B8614D4B16E005EA04E /* 3.caf */,
@@ -541,8 +546,12 @@
 				07EBCA8314FC3140005E6769 /* MenuWindow.m */,
 				07D41EAE14EEE8A500D91359 /* ResultLayer.h */,
 				07D41EAF14EEE8A500D91359 /* ResultLayer.m */,
+				07E081921510B27C0097185E /* RetryLayer.h */,
+				07E081931510B27C0097185E /* RetryLayer.m */,
 				07D41EB014EEE8A500D91359 /* TitleLayer.h */,
 				07D41EB114EEE8A500D91359 /* TitleLayer.m */,
+				07E0817E1510A5760097185E /* PauseLayer.h */,
+				07E0817F1510A5770097185E /* PauseLayer.m */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -925,7 +934,6 @@
 				07EBCA7E14FB1C51005E6769 /* normal_button.png in Resources */,
 				07EBCA7F14FB1C51005E6769 /* play_button_selected.png in Resources */,
 				07EBCA8014FB1C51005E6769 /* play_button.png in Resources */,
-				07C420C014FEFA8F0002CB1C /* pause.wav in Resources */,
 				07C420C514FEFAA50002CB1C /* Gameover.caf in Resources */,
 				07C420C614FEFAA50002CB1C /* Result.caf in Resources */,
 				07C420C714FEFAA50002CB1C /* Theme.caf in Resources */,
@@ -993,6 +1001,8 @@
 				07D41ED614F1058000D91359 /* StatusBar.m in Sources */,
 				07EBCA8414FC3140005E6769 /* MenuWindow.m in Sources */,
 				07E08171150FC9440097185E /* SaveManager.m in Sources */,
+				07E081801510A5770097185E /* PauseLayer.m in Sources */,
+				07E081941510B27D0097185E /* RetryLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

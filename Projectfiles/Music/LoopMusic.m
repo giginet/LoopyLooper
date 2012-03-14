@@ -72,17 +72,26 @@ const NSString* MUSICS_DATA = @"musics.lua";
 }
 
 - (void)play {
-  double fps = [[KKStartupConfig config] maxFrameRate];
   [track_ play];
-  [[CCScheduler sharedScheduler] scheduleSelector:@selector(tick:) 
-                                        forTarget:self 
-                                         interval:1.0 / fps
-                                           paused:NO];
+  [self resume];
   [self tick:0];
 }
 
+- (void)resume{
+  double fps = [[KKStartupConfig config] maxFrameRate];
+  for(OALAudioTrack* track in self.tracks) {
+    track.paused = NO;
+  }
+  [[CCScheduler sharedScheduler] scheduleSelector:@selector(tick:) 
+                                        forTarget:self 
+                                         interval:1.0 / fps
+                                           paused:NO];  
+}
+
 - (void)pause {
-  self.track.paused = YES;
+  for(OALAudioTrack* track in self.tracks) {
+    track.paused = YES;
+  }
   [[CCScheduler sharedScheduler] unscheduleSelector:@selector(tick:) 
                                           forTarget:self];
 }

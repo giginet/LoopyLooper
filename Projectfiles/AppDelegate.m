@@ -6,6 +6,7 @@
  */
 
 #import "AppDelegate.h"
+#import "MainLayer.h"
 
 @implementation AppDelegate
 
@@ -26,6 +27,16 @@
 -(id) alternateView
 {
   return nil;
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+  [super applicationDidEnterBackground:application];
+  CCDirector* director = [CCDirector sharedDirector];
+  CCScene* scene = director.runningScene;
+  if ([[scene.children objectAtIndex:0] isKindOfClass:[MainLayer class]]) {
+    MainLayer* main = (MainLayer*)[scene.children objectAtIndex:0];
+    [main pause];
+  }
 }
 
 @end
