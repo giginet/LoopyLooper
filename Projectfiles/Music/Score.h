@@ -12,6 +12,8 @@
 #define BASE_SCORE 500
 
 typedef enum {
+  RankE,
+  RankD,
   RankC,
   RankB,
   RankA,

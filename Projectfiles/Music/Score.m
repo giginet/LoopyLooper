@@ -74,14 +74,18 @@
    この楽曲でscoreを取ったときのRankを返します。
    */
   float rate = (float)score / (float)self.maxScore;
-  if (rate >= 0.85) {
+  if (rate >= 0.9) {
     return RankS;
   } else if (rate >= 0.7){
     return RankA;
-  } else if (rate >= 0.5) {
+  } else if (rate >= 0.6) {
     return RankB;
+  } else if (rate >= 0.4) {
+    return RankC;
+  } else if (rate >= 0.3) {
+    return RankD;
   }
-  return RankC;
+  return RankE;
 }
 
 @end

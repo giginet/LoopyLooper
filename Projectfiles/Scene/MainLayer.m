@@ -202,14 +202,15 @@
 - (void)onGameEnd {
   [OALSimpleAudio sharedInstance].backgroundTrack.volume = 1.0;
   [[OALSimpleAudio sharedInstance] playBg:@"Result.caf" loop:true];
-  [[SaveManager shared] setHighScore:self.music.musicID difficulty:self.music.difficulty score:score_];
   [self addMenuLayer];
+  [self.music stop];
 }
 
 - (void)addMenuLayer {
   CCLayer* layer = [[ResultLayer alloc] initWithScore:score_];
   [self addChild:layer];
   [self.music stop];
+  [[SaveManager shared] setHighScore:self.music.musicID difficulty:self.music.difficulty score:score_];
 }
 
 - (void)onExit {

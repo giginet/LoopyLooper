@@ -131,7 +131,7 @@
   int highScore = [[SaveManager shared] loadHighScore:self.musicID difficulty:self.difficulty];
   [highScoreLabel_ setString:[NSString stringWithFormat:@"%d", highScore]];
   Score* score = [Score scoreFromMusicId:self.musicID difficulty:self.difficulty];
-  const NSString* rank[] = {@"C", @"B", @"A", @"S"};
+  const NSString* rank[] = {@"E", @"D", @"C", @"B", @"A", @"S"};
   NSLog(@"Rank %@", rank[[score rankFromScore:highScore]]);
 }
 

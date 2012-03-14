@@ -66,6 +66,7 @@
 }
 
 - (void)onEnter {
+  [super onEnter];
   [OALSimpleAudio sharedInstance].bgVolume = 1.0;
 }
 
