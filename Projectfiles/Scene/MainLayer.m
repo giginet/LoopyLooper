@@ -97,6 +97,7 @@
 
 - (void)onEnterTransitionDidFinish {
   [self onReady];
+  [UIApplication sharedApplication].idleTimerDisabled = YES;
 }
 
 - (void)onReady {
@@ -212,6 +213,7 @@
 
 - (void)onExit {
   [self.music stop];
+  [UIApplication sharedApplication].idleTimerDisabled = NO;
 }
 
 - (void)onBeat {
