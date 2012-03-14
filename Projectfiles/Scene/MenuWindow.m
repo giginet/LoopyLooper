@@ -13,7 +13,7 @@
 
 @interface MenuWindow()
 - (void)pressDifficultyButton:(id)sender;
-- (void)onFinishedFadeOut:(id)sender;
+- (void)pressPlayButton:(id)sender;
 - (void)updateLabels;
 @end
 
@@ -80,15 +80,11 @@
     [difficultyMenu_ alignItemsVertically];
     [self addChild:difficultyMenu_];
     
-    __block id window = self;
     CCMenuItemImage* play = [CCMenuItemImage itemFromNormalImage:@"play_button.png"
                                                    selectedImage:@"play_button_selected.png"
-                                                           block:^(id sender){
-                                                             [[OALSimpleAudio sharedInstance].backgroundTrack fadeTo:0 
-                                                                                                            duration:1.0 
-                                                                                                              target:window 
-                                                                                                            selector:@selector(onFinishedFadeOut:)];                                                             
-                                                           }];
+                                                          target:self 
+                                                        selector:@selector(pressPlayButton:)
+                             ];
     CCMenu* playMenu = [CCMenu menuWithItems:play, nil];
     playMenu.position = ccp(200, 80);
     [self addChild:playMenu];
@@ -112,8 +108,12 @@
   [self updateLabels];
 }
 
-- (void)onFinishedFadeOut:(id)sender {
-  [[OALSimpleAudio sharedInstance] stopBg];
+- (void)pressPlayButton:(id)sender {
+  NSLog(@"play");
+  [[OALSimpleAudio sharedInstance].backgroundTrack fadeTo:0 
+                                                 duration:0.5 
+                                                   target:nil
+                                                 selector:nil];
   [OALSimpleAudio sharedInstance].backgroundTrack.volume = 1.0;
   NSLog(@"%d %d", self.difficulty, self.musicID);
   MainLayer* mainLayer = [[MainLayer alloc] initWithMusicID:self.musicID dificulty:self.difficulty];
@@ -121,7 +121,7 @@
   [scene addChild:mainLayer];
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
                                                                     scene:scene];
-  [[CCDirector sharedDirector] pushScene:transition];
+  [[CCDirector sharedDirector] replaceSceneReplacement:transition];
 }
 
 - (void)updateLabels {

@@ -279,7 +279,7 @@
     MotionType prevCorrectMotionType = [self.music.score motionTypeOnBeat:prevBeat];
     if (!isInputed_ && prevCorrectMotionType != MotionTypeNone) {
       // 入力し損ねたとき
-      life_ -= 100 * self.music.difficulty;
+      life_ -= 100 * ((int)self.music.difficulty + 1);
       [self addMotionLabel:@"miss.png" beat:currentBeat_ - startBeat_ - 1];
       [self onFail];
     } else if (currentBeat_ - startBeat_ == PART_LENGTH && isLevelUp_ && isPerfect_) {
@@ -331,7 +331,7 @@
         }
       } else if (correctMotionType != MotionTypeNone) {
         // 間違った入力をしたとき
-        life_ -= 50 * self.music.difficulty;
+        life_ -= 50 * ((int)self.music.difficulty + 1);
         [self addMotionLabel:@"bad.png" beat:currentBeat_ - startBeat_];
         [self onFail];
         isInputed_ = YES;

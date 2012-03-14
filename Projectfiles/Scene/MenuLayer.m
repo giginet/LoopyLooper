@@ -65,6 +65,10 @@
   return self;
 }
 
+- (void)onEnter {
+  [OALSimpleAudio sharedInstance].bgVolume = 1.0;
+}
+
 - (void)pressMusicButton:(id)sender {
   CCMenuItemToggle* button = (CCMenuItemToggle*)sender;
   [button setSelectedIndex:1];

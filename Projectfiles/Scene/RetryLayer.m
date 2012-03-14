@@ -46,14 +46,14 @@
   CCScene* scene = [TitleLayer nodeWithScene];
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
                                                                     scene:scene];
-  [[CCDirector sharedDirector] replaceScene:transition];
+  [[CCDirector sharedDirector] replaceSceneReplacement:transition];
 }
 - (void)toMain:(id)sender{
   [[OALSimpleAudio sharedInstance] stopBg];
   CCScene* scene = [MainLayer nodeWithScene];
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
                                                                     scene:scene];
-  [[CCDirector sharedDirector] replaceScene:transition];
+  [[CCDirector sharedDirector] replaceSceneReplacement:transition];
 }
 
 @end

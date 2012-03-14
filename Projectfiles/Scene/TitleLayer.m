@@ -51,7 +51,7 @@
   CCScene* scene = [MenuLayer nodeWithScene];
   CCTransitionFade* transition = [CCTransitionFade transitionWithDuration:0.5f 
                                                                     scene:scene];
-  [[CCDirector sharedDirector] pushScene:transition];
+  [[CCDirector sharedDirector] replaceScene:transition];
   return YES;
 }
 

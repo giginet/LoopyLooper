@@ -29,8 +29,8 @@
   return nil;
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-  [super applicationDidEnterBackground:application];
+- (void)applicationWillResignActive:(UIApplication *)application {
+  [super applicationWillResignActive:application];
   CCDirector* director = [CCDirector sharedDirector];
   CCScene* scene = director.runningScene;
   if ([[scene.children objectAtIndex:0] isKindOfClass:[MainLayer class]]) {
