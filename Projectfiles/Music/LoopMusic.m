@@ -53,7 +53,6 @@ const NSString* MUSICS_DATA = @"musics.lua";
 - (id)initWithMusicID:(int)musicID difficulty:(Difficulty)difficulty {
   self = [self init];
   if (self) {
-    const NSString* difficulties[] = {@"easy", @"normal", @"hard"};
     NSDictionary* musics = [KKLua loadLuaTableFromFile:(NSString*)MUSICS_DATA];
     NSDictionary* music = [musics objectForKey:[NSString stringWithFormat:@"%d", musicID]];
     musicID_ = musicID;
@@ -61,8 +60,7 @@ const NSString* MUSICS_DATA = @"musics.lua";
     loops_ = [(NSNumber*)[music objectForKey:@"loops"] intValue];
     title_ = [music objectForKey:@"title"];
     file_ = [music objectForKey:@"file"];
-    NSString* scoreName = [NSString stringWithFormat:[music objectForKey:@"score"], difficulties[(int)difficulty]];
-    score_ = [[Score alloc] initWithFile:scoreName];
+    score_ = [Score scoreFromMusicId:musicID difficulty:difficulty];
     [self preLoadMusic:file_];
     [self preLoadEffects:file_];
     track_ = (OALAudioTrack*)[tracks_ objectAtIndex:0];

@@ -11,6 +11,14 @@
 @implementation Score
 @dynamic scoreLength;
 
++ (id)scoreFromMusicId:(int)musicId difficulty:(int)difficulty {
+  NSDictionary* musics = [KKLua loadLuaTableFromFile:@"musics.lua"];
+  NSDictionary* music = [musics objectForKey:[NSString stringWithFormat:@"%d", musicId]];
+  const NSString* difficulties[] = {@"easy", @"normal", @"hard"};
+  NSString* filename = [NSString stringWithFormat:[music objectForKey:@"score"], difficulties[difficulty]];
+  return [[Score alloc] initWithFile:filename];
+}
+
 - (id)initWithFile:(NSString *)file {
   self = [super init];
   if (self) {
@@ -45,6 +53,35 @@
 
 - (int)scoreLength {
   return [scoreData_ count];
+}
+
+- (int)maxScore {
+  /*
+   この楽曲を全問正解したときの理論上の最高スコアを返します
+   */
+  int score = 0;
+  for (int i = 1; i <= self.scoreLength; ++i) {
+    int level = MIN(4, ceil((i - 1) / 4 + 1));
+    if ([self motionTypeOnBeat:i] != MotionTypeNone) {
+      score += BASE_SCORE * pow(2, level);
+    }
+  }
+  return score;
+}
+
+- (Rank)rankFromScore:(int)score {
+  /*
+   この楽曲でscoreを取ったときのRankを返します。
+   */
+  float rate = (float)score / (float)self.maxScore;
+  if (rate >= 0.85) {
+    return RankS;
+  } else if (rate >= 0.7){
+    return RankA;
+  } else if (rate >= 0.5) {
+    return RankB;
+  }
+  return RankC;
 }
 
 @end

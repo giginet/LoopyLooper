@@ -9,6 +9,7 @@
 #import "MenuWindow.h"
 #import "MainLayer.h"
 #import "SaveManager.h"
+#import "Score.h"
 
 @interface MenuWindow()
 - (void)pressDifficultyButton:(id)sender;
@@ -91,9 +92,9 @@
     CCMenu* playMenu = [CCMenu menuWithItems:play, nil];
     playMenu.position = ccp(200, 80);
     [self addChild:playMenu];
-    [self updateLabels];
     self.musicID = 1;
     self.difficulty = DifficultyEasy;
+    [self updateLabels];
   }
   return self;
 }
@@ -129,6 +130,9 @@
   [titleLabel_ setString:title];
   int highScore = [[SaveManager shared] loadHighScore:self.musicID difficulty:self.difficulty];
   [highScoreLabel_ setString:[NSString stringWithFormat:@"%d", highScore]];
+  Score* score = [Score scoreFromMusicId:self.musicID difficulty:self.difficulty];
+  const NSString* rank[] = {@"C", @"B", @"A", @"S"};
+  NSLog(@"Rank %@", rank[[score rankFromScore:highScore]]);
 }
 
 - (int)musicID {

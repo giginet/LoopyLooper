@@ -97,6 +97,7 @@
 
 - (void)onEnterTransitionDidFinish {
   [self onReady];
+  NSLog(@"maxScore = %d", [self.music.score maxScore]);
   [UIApplication sharedApplication].idleTimerDisabled = YES;
 }
 
@@ -253,13 +254,11 @@
 
 - (void)changeState:(GameState)state {
   if (state == GameStateExample) {
-    NSLog(@"Example");
     [bar_ reset];
     startBeat_ += PART_LENGTH;
     [bar_ reloadBarFrom:startBeat_];
     [self onExamplePart];
   } else if (state == GameStatePlay) {
-    NSLog(@"Play");
     [bar_ reset];
     [self onPlayPart];
   }
@@ -274,15 +273,13 @@
   currentBeat_ = round(currentTime / beatDuration) + startBeat_;
   if (prevTime_ > currentTime && currentTime >= 0 && currentTime < 1 && prevTime_ > self.music.duration - 1) {
     GameState nextState = state_ == GameStatePlay ? GameStateExample : GameStatePlay;
-    NSLog(@"change : %d", nextState);
     [self changeState:nextState];
   }
   if (state_ == GameStatePlay && currentBeat_ > prevBeat) {
     MotionType prevCorrectMotionType = [self.music.score motionTypeOnBeat:prevBeat];
     if (!isInputed_ && prevCorrectMotionType != MotionTypeNone) {
       // 入力し損ねたとき
-      NSLog(@"miss : %d %d %d", currentBeat_, prevBeat, prevCorrectMotionType);
-      life_ -= 200;
+      life_ -= 100 * self.music.difficulty;
       [self addMotionLabel:@"miss.png" beat:currentBeat_ - startBeat_ - 1];
       [self onFail];
     } else if (currentBeat_ - startBeat_ == PART_LENGTH && isLevelUp_ && isPerfect_) {
@@ -290,7 +287,6 @@
       cutin.position = ccp(0, [CCDirector sharedDirector].screenCenter.y);
       [self addChild:cutin];
       if (currentLevel_ < self.music.loops) {
-        NSLog(@"LevelUp");
         [self setLevel:currentLevel_ + 1];
       }
     }
@@ -320,13 +316,12 @@
         double sub = (beatDuration * (currentBeat_ - startBeat_) - currentTime);
         if(sub < 0) sub *= -1;
         if(sub > FUZZY_TIME) sub = FUZZY_TIME;
-        score_ += 500 * pow(2, currentLevel_) * ((FUZZY_TIME * 2) - sub) / (FUZZY_TIME * 2);
+        score_ += BASE_SCORE * pow(2, currentLevel_) * ((FUZZY_TIME * 2) - sub) / (FUZZY_TIME * 2);
         life_ += 50 * ((FUZZY_TIME * 2) - sub) / (FUZZY_TIME * 2);
         [[OALSimpleAudio sharedInstance] playEffect:[NSString stringWithFormat:@"%d.caf", motion.motionType]];
         isInputed_ = YES;
         CCParticleSystemQuad* melody = [CCParticleSystemQuad particleWithFile:@"melody.plist"];
         melody.position = ccp(bar_.position.x - 400 + (currentBeat_ - startBeat_) * 50, bar_.position.y);
-        NSLog(@"%@", status_.scoreLabel);
         status_.scoreLabel.target = (float)score_;
         [self addChild:melody];
         if (sub <= FUZZY_TIME / 2) {
@@ -336,7 +331,7 @@
         }
       } else if (correctMotionType != MotionTypeNone) {
         // 間違った入力をしたとき
-        life_ -= 50;
+        life_ -= 50 * self.music.difficulty;
         [self addMotionLabel:@"bad.png" beat:currentBeat_ - startBeat_];
         [self onFail];
         isInputed_ = YES;
@@ -357,7 +352,6 @@
 }
 
 - (void)setLevel:(int)level {
-  NSLog(@"levelDown");
   currentLevel_ = level;
   [self.music changeLoop:currentLevel_ - 1];
   isLevelUp_ = NO;
